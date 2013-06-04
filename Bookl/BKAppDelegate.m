@@ -8,7 +8,7 @@
 
 #import "BKAppDelegate.h"
 
-#import "BKMasterViewController.h"
+#import "ECSlidingViewController.h"
 
 @implementation BKAppDelegate
 
@@ -18,14 +18,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-    UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-    splitViewController.delegate = (id)navigationController.topViewController;
+    ECSlidingViewController *slidingViewController = (ECSlidingViewController *)self.window.rootViewController;
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
+    slidingViewController.topViewController = [storyboard instantiateViewControllerWithIdentifier:@"ViewManager"];
 
-    UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
-    BKMasterViewController *controller = (BKMasterViewController *)masterNavigationController.topViewController;
-    controller.managedObjectContext = self.managedObjectContext;
     return YES;
 }
 							
@@ -96,7 +93,7 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Bookl" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"LocalStorage" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }

@@ -7,7 +7,13 @@
 //
 
 #import "BKMainContentTVC.h"
+#import "TTReadList.h"
 
-@interface BKSearchBookView : BKMainContentTVC
+@class BKSearchHeader;
+
+@interface BKSearchBookView : BKMainContentTVC <TTReadListDelegate>
+
+@property (strong) BKSearchHeader *searchHeader;
+@property (strong) TTReadList *readlist;
 
 @end

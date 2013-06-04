@@ -72,6 +72,13 @@
 		A30D0DDD175E550200AD1CE1 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A30D0DDC175E550200AD1CE1 /* ImageIO.framework */; };
 		A30D0DDF175E550F00AD1CE1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A30D0DDE175E550F00AD1CE1 /* MessageUI.framework */; };
 		A30D0DE1175E554F00AD1CE1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A30D0DE0175E554E00AD1CE1 /* QuartzCore.framework */; };
+		A30D0DE5175E626500AD1CE1 /* BKSearchHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DE4175E626500AD1CE1 /* BKSearchHeader.m */; };
+		A30D0DE9175E637B00AD1CE1 /* NSString+de_encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DE8175E637B00AD1CE1 /* NSString+de_encoding.m */; };
+		A30D0DEE175E656B00AD1CE1 /* TTSharedBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DEC175E656B00AD1CE1 /* TTSharedBookCell.m */; };
+		A30D0DEF175E656B00AD1CE1 /* TTSharedBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30D0DED175E656B00AD1CE1 /* TTSharedBookCell.xib */; };
+		A30D0DF4175E759E00AD1CE1 /* TTMoreOptionsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DF3175E759E00AD1CE1 /* TTMoreOptionsTVC.m */; };
+		A30D0DF8175E75BE00AD1CE1 /* TTAddBookToReadlist.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DF7175E75BE00AD1CE1 /* TTAddBookToReadlist.m */; };
+		A30D0DFB175E7D7C00AD1CE1 /* NSDate+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DFA175E7D7C00AD1CE1 /* NSDate+Compare.m */; };
 		A37877BC175DF9CB00B95A07 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37877BB175DF9CB00B95A07 /* UIKit.framework */; };
 		A37877BE175DF9CB00B95A07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37877BD175DF9CB00B95A07 /* Foundation.framework */; };
 		A37877C0175DF9CB00B95A07 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37877BF175DF9CB00B95A07 /* CoreGraphics.framework */; };
@@ -208,6 +215,19 @@
 		A30D0DDC175E550200AD1CE1 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		A30D0DDE175E550F00AD1CE1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A30D0DE0175E554E00AD1CE1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A30D0DE3175E626500AD1CE1 /* BKSearchHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSearchHeader.h; sourceTree = "<group>"; };
+		A30D0DE4175E626500AD1CE1 /* BKSearchHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSearchHeader.m; sourceTree = "<group>"; };
+		A30D0DE7175E637B00AD1CE1 /* NSString+de_encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+de_encoding.h"; sourceTree = "<group>"; };
+		A30D0DE8175E637B00AD1CE1 /* NSString+de_encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+de_encoding.m"; sourceTree = "<group>"; };
+		A30D0DEB175E656B00AD1CE1 /* TTSharedBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSharedBookCell.h; sourceTree = "<group>"; };
+		A30D0DEC175E656B00AD1CE1 /* TTSharedBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSharedBookCell.m; sourceTree = "<group>"; };
+		A30D0DED175E656B00AD1CE1 /* TTSharedBookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TTSharedBookCell.xib; sourceTree = "<group>"; };
+		A30D0DF2175E759E00AD1CE1 /* TTMoreOptionsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMoreOptionsTVC.h; sourceTree = "<group>"; };
+		A30D0DF3175E759E00AD1CE1 /* TTMoreOptionsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMoreOptionsTVC.m; sourceTree = "<group>"; };
+		A30D0DF6175E75BE00AD1CE1 /* TTAddBookToReadlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAddBookToReadlist.h; sourceTree = "<group>"; };
+		A30D0DF7175E75BE00AD1CE1 /* TTAddBookToReadlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAddBookToReadlist.m; sourceTree = "<group>"; };
+		A30D0DF9175E7D7C00AD1CE1 /* NSDate+Compare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Compare.h"; sourceTree = "<group>"; };
+		A30D0DFA175E7D7C00AD1CE1 /* NSDate+Compare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Compare.m"; sourceTree = "<group>"; };
 		A37877B8175DF9CB00B95A07 /* Bookl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37877BB175DF9CB00B95A07 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A37877BD175DF9CB00B95A07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -482,6 +502,64 @@
 			name = ReadingExtended;
 			sourceTree = "<group>";
 		};
+		A30D0DE2175E620200AD1CE1 /* SearchHeader */ = {
+			isa = PBXGroup;
+			children = (
+				A30D0DE3175E626500AD1CE1 /* BKSearchHeader.h */,
+				A30D0DE4175E626500AD1CE1 /* BKSearchHeader.m */,
+			);
+			name = SearchHeader;
+			sourceTree = "<group>";
+		};
+		A30D0DE6175E635700AD1CE1 /* FoundationCategories */ = {
+			isa = PBXGroup;
+			children = (
+				A30D0DE7175E637B00AD1CE1 /* NSString+de_encoding.h */,
+				A30D0DE8175E637B00AD1CE1 /* NSString+de_encoding.m */,
+				A30D0DF9175E7D7C00AD1CE1 /* NSDate+Compare.h */,
+				A30D0DFA175E7D7C00AD1CE1 /* NSDate+Compare.m */,
+			);
+			name = FoundationCategories;
+			sourceTree = "<group>";
+		};
+		A30D0DEA175E655500AD1CE1 /* SharedClasses */ = {
+			isa = PBXGroup;
+			children = (
+				A30D0DF0175E657000AD1CE1 /* SharedBookCell */,
+			);
+			name = SharedClasses;
+			sourceTree = "<group>";
+		};
+		A30D0DF0175E657000AD1CE1 /* SharedBookCell */ = {
+			isa = PBXGroup;
+			children = (
+				A30D0DEB175E656B00AD1CE1 /* TTSharedBookCell.h */,
+				A30D0DEC175E656B00AD1CE1 /* TTSharedBookCell.m */,
+				A30D0DED175E656B00AD1CE1 /* TTSharedBookCell.xib */,
+				A30D0DF1175E758300AD1CE1 /* MoreOptions */,
+			);
+			name = SharedBookCell;
+			sourceTree = "<group>";
+		};
+		A30D0DF1175E758300AD1CE1 /* MoreOptions */ = {
+			isa = PBXGroup;
+			children = (
+				A30D0DF5175E75AD00AD1CE1 /* AddToReadlist */,
+				A30D0DF2175E759E00AD1CE1 /* TTMoreOptionsTVC.h */,
+				A30D0DF3175E759E00AD1CE1 /* TTMoreOptionsTVC.m */,
+			);
+			name = MoreOptions;
+			sourceTree = "<group>";
+		};
+		A30D0DF5175E75AD00AD1CE1 /* AddToReadlist */ = {
+			isa = PBXGroup;
+			children = (
+				A30D0DF6175E75BE00AD1CE1 /* TTAddBookToReadlist.h */,
+				A30D0DF7175E75BE00AD1CE1 /* TTAddBookToReadlist.m */,
+			);
+			name = AddToReadlist;
+			sourceTree = "<group>";
+		};
 		A37877AF175DF9CB00B95A07 = {
 			isa = PBXGroup;
 			children = (
@@ -519,6 +597,7 @@
 		A37877C3175DF9CB00B95A07 /* Bookl */ = {
 			isa = PBXGroup;
 			children = (
+				A30D0DE6175E635700AD1CE1 /* FoundationCategories */,
 				A30D0DD1175E549100AD1CE1 /* ReadingExtended */,
 				A30D0DCF175E53F800AD1CE1 /* Communication */,
 				A30D0D54175E520000AD1CE1 /* CoreData */,
@@ -572,6 +651,7 @@
 		A37877EE175E011100B95A07 /* ContainerViews */ = {
 			isa = PBXGroup;
 			children = (
+				A30D0DEA175E655500AD1CE1 /* SharedClasses */,
 				A37877FA175E04F600B95A07 /* AllContainer */,
 				A37877FE175E082100B95A07 /* ContentSuperclass */,
 				A3787800175E098500B95A07 /* Readlist */,
@@ -622,6 +702,7 @@
 			children = (
 				A3787804175E0BBB00B95A07 /* BKSearchBookView.h */,
 				A3787805175E0BBB00B95A07 /* BKSearchBookView.m */,
+				A30D0DE2175E620200AD1CE1 /* SearchHeader */,
 			);
 			name = SearchBook;
 			sourceTree = "<group>";
@@ -706,6 +787,7 @@
 				A30D0D90175E537800AD1CE1 /* Reader-Print@2x.png in Resources */,
 				A30D0D91175E537800AD1CE1 /* Reader-Thumbs.png in Resources */,
 				A30D0D92175E537800AD1CE1 /* Reader-Thumbs@2x.png in Resources */,
+				A30D0DEF175E656B00AD1CE1 /* TTSharedBookCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -774,6 +856,12 @@
 				A30D0DD7175E54AD00AD1CE1 /* TTAdHandler.m in Sources */,
 				A30D0DD8175E54AD00AD1CE1 /* TTPageManager.m in Sources */,
 				A30D0DDB175E54B500AD1CE1 /* TTFullPageAdVC.m in Sources */,
+				A30D0DE5175E626500AD1CE1 /* BKSearchHeader.m in Sources */,
+				A30D0DE9175E637B00AD1CE1 /* NSString+de_encoding.m in Sources */,
+				A30D0DEE175E656B00AD1CE1 /* TTSharedBookCell.m in Sources */,
+				A30D0DF4175E759E00AD1CE1 /* TTMoreOptionsTVC.m in Sources */,
+				A30D0DF8175E75BE00AD1CE1 /* TTAddBookToReadlist.m in Sources */,
+				A30D0DFB175E7D7C00AD1CE1 /* NSDate+Compare.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

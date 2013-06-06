@@ -13,6 +13,8 @@
 #define URL_BASE_ADDRESS @"http://cryptic-cove-8532.herokuapp.com"
 #define URL_AMAZON @"https://s3.amazonaws.com/com.turtletail.java-bucket"
 
+#define RIGHT_MENU_WIDTH 524
+
 
 @interface TTConstants : NSObject
 

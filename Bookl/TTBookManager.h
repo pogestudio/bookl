@@ -19,6 +19,6 @@
 +(TTBookManager*)sharedManager;
 
 -(void)startReadingBook:(id)book withProgressDelegate:(id)delegate;
--(void)navConToPresentReaderIn:(UINavigationController*)navCon;
+-(void)setNavConToPresentReaderIn:(UINavigationController*)navCon;
 
 @end

@@ -8,9 +8,14 @@
 
 #import "BKMainContentTVC.h"
 
-#import "TTReadList.h"
+@class ReadList;
 
-@interface BKReadlistView : BKMainContentTVC
+@interface BKReadlistView : UITableViewController
+{
+    @private
+    UIPopoverController *_editReadlistPopOver;
+}
 
+@property (strong) ReadList *readlist;
 
 @end

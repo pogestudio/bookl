@@ -81,7 +81,7 @@
     self.rating = [NSString stringWithFormat:@"%@/10 - X",rating];
     
     [self setUpReadButton];
-    [self setUpRatingCircle];
+    //[self setUpRatingCircle];
 }
 
 -(void)setUpReadButton
@@ -93,10 +93,10 @@
 
 -(void)setUpRatingCircle
 {
-    CGRect rectForPie = CGRectMake(0, 0, 40, 40);
-    //TTRatingCirclePie *newCircle = [[TTRatingCirclePie alloc] initWithFrame:rectForPie];
-    //[newCircle drawRect:rectForPie];
-    //[self addSubview:newCircle];
+//    CGRect rectForPie = CGRectMake(0, 0, 40, 40);
+//    TTRatingCirclePie *newCircle = [[TTRatingCirclePie alloc] initWithFrame:rectForPie];
+//    [newCircle drawRect:rectForPie];
+//    [self addSubview:newCircle];
 }
 #pragma mark ProgressBarDelegate
 -(void)setProgressBarPercentage:(CGFloat)percentage
@@ -108,5 +108,51 @@
         buttonText = @"Read";
     }
     [self.readButton setTitle:buttonText forState:UIControlStateNormal];
+}
+
+#pragma mark Layout
+-(void)layoutSubviews
+{
+    //layout moreButton
+    [self layoutView:self.moreButton View:nil withEdgeAt:self.frame.size.width];
+    //readbutton
+    [self layoutView:self.readButton View:nil withEdgeAt:self.moreButton.frame.origin.x];
+    //layout year
+    [self layoutView:self.publishingYear View:nil withEdgeAt:self.readButton.frame.origin.x];
+    //layout author & title
+    CGFloat padding = 50;
+    CGFloat edge = self.publishingYear.frame.origin.x;
+    CGFloat titleAndAuthorWidth = edge - padding;
+    CGRect newFrame = CGRectMake(0, 0, titleAndAuthorWidth, self.title.frame.size.height);
+    self.title.frame = newFrame;
+    self.author.frame = newFrame;
+    
+    [self layoutView:self.title View:self.author withEdgeAt:self.publishingYear.frame.origin.x];
+    //layout title
+    
+}
+
+-(void)layoutView:(UIView*)firstView View:(UIView*)secondView withEdgeAt:(CGFloat)rightEdge
+{
+    CGFloat xPadding = 5;
+    CGFloat yPadding = 5;
+    
+    CGFloat cellHeight = self.frame.size.height;
+    
+    CGFloat viewWidth = firstView.frame.size.width;
+    CGFloat viewHeight = firstView.frame.size.height;
+    CGFloat viewXPos = rightEdge - viewWidth - xPadding;
+    CGFloat viewYPos = cellHeight / 2.0 - viewHeight / 2.0;
+    
+    if (secondView != nil) {
+        viewHeight = (cellHeight - 3 * yPadding) / 2.0;
+        viewYPos = yPadding;
+        CGFloat secondViewYPos = viewYPos + viewHeight + yPadding;
+        CGRect secondNewFrame = CGRectMake(viewXPos, secondViewYPos, viewWidth, viewHeight);
+        secondView.frame = secondNewFrame;
+    }
+    
+    CGRect newFrame = CGRectMake(viewXPos, viewYPos, viewWidth, viewHeight);
+    firstView.frame = newFrame;
 }
 @end

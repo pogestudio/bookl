@@ -7,19 +7,16 @@
 //
 
 #import "BKReadlistView.h"
+#import "ReadList.h"
+#import "TTSharedBookCell.h"
+
+#import "TTConstants.h"
 
 @interface BKReadlistView ()
 
 @end
 
 @implementation BKReadlistView
-
-+(id)fromStoryboard
-{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
-    id homeVC = [storyboard instantiateViewControllerWithIdentifier:@"ReadlistView"];
-    return homeVC;
-}
 
 
 #pragma mark Standard
@@ -30,14 +27,34 @@
     [self.tableView registerNib:sharedCell forCellReuseIdentifier:@"SharedBookCell"];
 }
 
--(void)setUpViewWithOptions:(NSDictionary *)options
+#pragma mark TableView Datasource
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-//    NSString *searchQuery = [options objectForKey:@"query"];
-//    NSLog(@"want to init search with:%@",searchQuery);
-//    self.theReadList = [[TTReadList alloc] init];
-//    self.theReadList.delegate = self;
-//    [self.theReadList fillReadListWithBooksFromSearch:searchQuery];
+    NSInteger sections = 1;
+    return sections;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSInteger rows = [self.readlist.books count];
+    return rows;
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TTSharedBookCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"SharedBookCell"];
+    Book *bookForCell = [self.readlist.books objectAtIndex:indexPath.row];
+    [cell setUpCellForBook:bookForCell];
     
+    CGRect newFrame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, RIGHT_MENU_WIDTH, cell.frame.size.height);
+    cell.frame = newFrame;
+    return cell;
+}
+
+#pragma mark Tableview Delegate
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
 }
 
 @end

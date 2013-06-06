@@ -79,6 +79,8 @@
 		A30D0DF4175E759E00AD1CE1 /* TTMoreOptionsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DF3175E759E00AD1CE1 /* TTMoreOptionsTVC.m */; };
 		A30D0DF8175E75BE00AD1CE1 /* TTAddBookToReadlist.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DF7175E75BE00AD1CE1 /* TTAddBookToReadlist.m */; };
 		A30D0DFB175E7D7C00AD1CE1 /* NSDate+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DFA175E7D7C00AD1CE1 /* NSDate+Compare.m */; };
+		A30D0DFF175E883700AD1CE1 /* BKAllReadlistsViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DFE175E883700AD1CE1 /* BKAllReadlistsViewer.m */; };
+		A30D0E03175E893600AD1CE1 /* BKAllReadlistsTVHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0E02175E893600AD1CE1 /* BKAllReadlistsTVHeader.m */; };
 		A37877BC175DF9CB00B95A07 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37877BB175DF9CB00B95A07 /* UIKit.framework */; };
 		A37877BE175DF9CB00B95A07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37877BD175DF9CB00B95A07 /* Foundation.framework */; };
 		A37877C0175DF9CB00B95A07 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37877BF175DF9CB00B95A07 /* CoreGraphics.framework */; };
@@ -228,6 +230,10 @@
 		A30D0DF7175E75BE00AD1CE1 /* TTAddBookToReadlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAddBookToReadlist.m; sourceTree = "<group>"; };
 		A30D0DF9175E7D7C00AD1CE1 /* NSDate+Compare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Compare.h"; sourceTree = "<group>"; };
 		A30D0DFA175E7D7C00AD1CE1 /* NSDate+Compare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Compare.m"; sourceTree = "<group>"; };
+		A30D0DFD175E883700AD1CE1 /* BKAllReadlistsViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKAllReadlistsViewer.h; sourceTree = "<group>"; };
+		A30D0DFE175E883700AD1CE1 /* BKAllReadlistsViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKAllReadlistsViewer.m; sourceTree = "<group>"; };
+		A30D0E01175E893600AD1CE1 /* BKAllReadlistsTVHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKAllReadlistsTVHeader.h; sourceTree = "<group>"; };
+		A30D0E02175E893600AD1CE1 /* BKAllReadlistsTVHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKAllReadlistsTVHeader.m; sourceTree = "<group>"; };
 		A37877B8175DF9CB00B95A07 /* Bookl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37877BB175DF9CB00B95A07 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A37877BD175DF9CB00B95A07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -560,6 +566,24 @@
 			name = AddToReadlist;
 			sourceTree = "<group>";
 		};
+		A30D0DFC175E879200AD1CE1 /* ReadlistView */ = {
+			isa = PBXGroup;
+			children = (
+				A3787801175E0BAF00B95A07 /* BKReadlistView.h */,
+				A3787802175E0BAF00B95A07 /* BKReadlistView.m */,
+			);
+			name = ReadlistView;
+			sourceTree = "<group>";
+		};
+		A30D0E00175E890A00AD1CE1 /* AllRLHeader */ = {
+			isa = PBXGroup;
+			children = (
+				A30D0E01175E893600AD1CE1 /* BKAllReadlistsTVHeader.h */,
+				A30D0E02175E893600AD1CE1 /* BKAllReadlistsTVHeader.m */,
+			);
+			name = AllRLHeader;
+			sourceTree = "<group>";
+		};
 		A37877AF175DF9CB00B95A07 = {
 			isa = PBXGroup;
 			children = (
@@ -710,8 +734,10 @@
 		A3787800175E098500B95A07 /* Readlist */ = {
 			isa = PBXGroup;
 			children = (
-				A3787801175E0BAF00B95A07 /* BKReadlistView.h */,
-				A3787802175E0BAF00B95A07 /* BKReadlistView.m */,
+				A30D0DFD175E883700AD1CE1 /* BKAllReadlistsViewer.h */,
+				A30D0DFE175E883700AD1CE1 /* BKAllReadlistsViewer.m */,
+				A30D0DFC175E879200AD1CE1 /* ReadlistView */,
+				A30D0E00175E890A00AD1CE1 /* AllRLHeader */,
 			);
 			name = Readlist;
 			sourceTree = "<group>";
@@ -862,6 +888,8 @@
 				A30D0DF4175E759E00AD1CE1 /* TTMoreOptionsTVC.m in Sources */,
 				A30D0DF8175E75BE00AD1CE1 /* TTAddBookToReadlist.m in Sources */,
 				A30D0DFB175E7D7C00AD1CE1 /* NSDate+Compare.m in Sources */,
+				A30D0DFF175E883700AD1CE1 /* BKAllReadlistsViewer.m in Sources */,
+				A30D0E03175E893600AD1CE1 /* BKAllReadlistsTVHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

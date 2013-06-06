@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define MENU_WIDTH 150.0
+#define LEFT_MENU_WIDTH 150.0
 
 @class BKViewManager;
 

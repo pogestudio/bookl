@@ -20,6 +20,7 @@
 @property (strong) Book *theBook;
 @property (strong) IBOutlet UILabel *rating;
 @property (strong, nonatomic) IBOutlet UIButton *readButton;
+@property (strong, nonatomic) IBOutlet UIButton *moreButton;
 @property (strong, nonatomic) IBOutlet UIStepper *ratingStepper;
 @property (strong, nonatomic) IBOutlet UILabel *title;
 @property (strong, nonatomic) IBOutlet UILabel *author;

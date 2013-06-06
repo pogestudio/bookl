@@ -10,6 +10,8 @@
 
 #import "ECSlidingViewController.h"
 
+#import "TTBookManager.h"
+
 @implementation BKAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -18,10 +20,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    ECSlidingViewController *slidingViewController = (ECSlidingViewController *)self.window.rootViewController;
-    
+    UINavigationController *navCon = (UINavigationController*)self.window.rootViewController;
+    ECSlidingViewController *slidingViewController = (ECSlidingViewController *)[navCon.viewControllers lastObject];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
     slidingViewController.topViewController = [storyboard instantiateViewControllerWithIdentifier:@"ViewManager"];
+    
+    [[TTBookManager sharedManager] setNavConToPresentReaderIn:navCon];
 
     return YES;
 }

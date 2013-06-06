@@ -165,7 +165,7 @@
 #pragma mark Startup Stuff
 -(void)handleUserStatus
 {
-    [TTUser makeSureUserIsLoggedIn];
+    //[TTUser makeSureUserIsLoggedIn];
 }
 
 @end

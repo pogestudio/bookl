@@ -29,7 +29,7 @@ typedef enum {
 +(BKViewManager*)sharedViewManager;
 
 #pragma mark Menus
--(void)showRightMenu:(UIViewController *)rightMenu withWidth:(CGFloat)width;
+-(void)showRightMenu:(UIViewController *)rightMenu;
 //-(void)setRightMenuPeek:(CGFloat)peekAmount;
 
 @end

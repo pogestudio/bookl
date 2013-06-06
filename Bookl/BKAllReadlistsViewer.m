@@ -14,8 +14,6 @@
 #import "BKViewManager.h"
 #import "BKReadlistView.h"
 
-#define RIGHT_MENU_WIDTH 524
-
 @interface BKAllReadlistsViewer ()
 
 @end
@@ -153,9 +151,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
     BKReadlistView *newReadlistView = [storyboard instantiateViewControllerWithIdentifier:@"ReadlistView"];
     newReadlistView.readlist = readlist;
-    CGRect currentFrame = newReadlistView.view.frame;
-    newReadlistView.view.frame = CGRectMake(currentFrame.origin.x, currentFrame.origin.y, RIGHT_MENU_WIDTH, currentFrame.size.height);
-    [[BKViewManager sharedViewManager] showRightMenu:newReadlistView withWidth:RIGHT_MENU_WIDTH];
+    [[BKViewManager sharedViewManager] showRightMenu:newReadlistView];
 }
 
 @end

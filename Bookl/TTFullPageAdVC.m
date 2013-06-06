@@ -28,7 +28,8 @@ static TTFullPageAdVC *_adPage;
 -(IBAction)dismissView
 {
     [self dismissViewControllerAnimated:YES
-                             completion:^(void){[self.adDelegate adIsDone];
+                             completion:^(void){
+                                 [self.adDelegate adIsDone];
                              }];
 }
 

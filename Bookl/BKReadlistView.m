@@ -27,6 +27,16 @@
     [self.tableView registerNib:sharedCell forCellReuseIdentifier:@"SharedBookCell"];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    CGFloat newXpos = self.view.frame.size.width - RIGHT_MENU_WIDTH;
+    CGRect newFrame = CGRectMake(newXpos, self.view.frame.origin.y, RIGHT_MENU_WIDTH, self.view.frame.size.height);
+    self.view.frame = newFrame;
+    NSLog(@"View will appear, current width: %f",self.view.frame.size.width);
+    
+}
+
 #pragma mark TableView Datasource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -49,6 +59,12 @@
     CGRect newFrame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, RIGHT_MENU_WIDTH, cell.frame.size.height);
     cell.frame = newFrame;
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TTSharedBookCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"SharedBookCell"];
+    return cell.frame.size.height;
 }
 
 #pragma mark Tableview Delegate

@@ -139,9 +139,9 @@ static BOOL _viewHasBeenShowedOnce;
 }
 
 #pragma mark Menus
--(void)showRightMenu:(UIViewController *)rightMenu withWidth:(CGFloat)width
+-(void)showRightMenu:(UIViewController *)rightMenu
 {
-    [self.slidingViewController setAnchorLeftRevealAmount:width];
+    [self.slidingViewController setAnchorLeftRevealAmount:rightMenu.view.frame.size.width];
     self.slidingViewController.underRightViewController = rightMenu;
     [self.slidingViewController anchorTopViewTo:ECLeft];
 }

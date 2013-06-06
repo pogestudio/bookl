@@ -11,6 +11,7 @@
 #import "ECSlidingViewController.h"
 
 #import "TTBookManager.h"
+#import "TTUser.h"
 
 @implementation BKAppDelegate
 
@@ -26,6 +27,14 @@
     slidingViewController.topViewController = [storyboard instantiateViewControllerWithIdentifier:@"ViewManager"];
     
     [[TTBookManager sharedManager] setNavConToPresentReaderIn:navCon];
+    
+    //wait a while popping the window, since keywindow is not yet initialised
+    [NSTimer scheduledTimerWithTimeInterval:0.25
+                                     target:self
+                                   selector:@selector(handleUserStatus)
+                                   userInfo:nil
+                                    repeats:NO];
+
 
     return YES;
 }
@@ -151,6 +160,12 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+#pragma mark Startup Stuff
+-(void)handleUserStatus
+{
+    [TTUser makeSureUserIsLoggedIn];
 }
 
 @end

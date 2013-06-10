@@ -87,6 +87,7 @@
 		A349C64A1760E0F600B7D8BE /* blurry_books.png in Resources */ = {isa = PBXBuildFile; fileRef = A349C6461760E0F600B7D8BE /* blurry_books.png */; };
 		A349C64B1760E0F600B7D8BE /* Bookle.png in Resources */ = {isa = PBXBuildFile; fileRef = A349C6471760E0F600B7D8BE /* Bookle.png */; };
 		A349C64C1760E0F600B7D8BE /* ipad_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A349C6481760E0F600B7D8BE /* ipad_logo.png */; };
+		A349C655176126CD00B7D8BE /* BKReadlistTVHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A349C654176126CD00B7D8BE /* BKReadlistTVHeader.m */; };
 		A37877BC175DF9CB00B95A07 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37877BB175DF9CB00B95A07 /* UIKit.framework */; };
 		A37877BE175DF9CB00B95A07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37877BD175DF9CB00B95A07 /* Foundation.framework */; };
 		A37877C0175DF9CB00B95A07 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37877BF175DF9CB00B95A07 /* CoreGraphics.framework */; };
@@ -248,6 +249,8 @@
 		A349C6461760E0F600B7D8BE /* blurry_books.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blurry_books.png; sourceTree = "<group>"; };
 		A349C6471760E0F600B7D8BE /* Bookle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bookle.png; sourceTree = "<group>"; };
 		A349C6481760E0F600B7D8BE /* ipad_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad_logo.png; sourceTree = "<group>"; };
+		A349C653176126CD00B7D8BE /* BKReadlistTVHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKReadlistTVHeader.h; sourceTree = "<group>"; };
+		A349C654176126CD00B7D8BE /* BKReadlistTVHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKReadlistTVHeader.m; sourceTree = "<group>"; };
 		A37877B8175DF9CB00B95A07 /* Bookl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37877BB175DF9CB00B95A07 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A37877BD175DF9CB00B95A07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -584,6 +587,7 @@
 			children = (
 				A3787801175E0BAF00B95A07 /* BKReadlistView.h */,
 				A3787802175E0BAF00B95A07 /* BKReadlistView.m */,
+				A349C651176126A600B7D8BE /* ReadlistHeader */,
 			);
 			name = ReadlistView;
 			sourceTree = "<group>";
@@ -642,6 +646,15 @@
 				A349C6481760E0F600B7D8BE /* ipad_logo.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		A349C651176126A600B7D8BE /* ReadlistHeader */ = {
+			isa = PBXGroup;
+			children = (
+				A349C653176126CD00B7D8BE /* BKReadlistTVHeader.h */,
+				A349C654176126CD00B7D8BE /* BKReadlistTVHeader.m */,
+			);
+			name = ReadlistHeader;
 			sourceTree = "<group>";
 		};
 		A37877AF175DF9CB00B95A07 = {
@@ -798,8 +811,8 @@
 			children = (
 				A30D0DFD175E883700AD1CE1 /* BKAllReadlistsViewer.h */,
 				A30D0DFE175E883700AD1CE1 /* BKAllReadlistsViewer.m */,
-				A30D0DFC175E879200AD1CE1 /* ReadlistView */,
 				A30D0E00175E890A00AD1CE1 /* AllRLHeader */,
+				A30D0DFC175E879200AD1CE1 /* ReadlistView */,
 			);
 			name = Readlist;
 			sourceTree = "<group>";
@@ -958,6 +971,7 @@
 				A30D0E03175E893600AD1CE1 /* BKAllReadlistsTVHeader.m in Sources */,
 				A349C63E1760DF6600B7D8BE /* TTUser.m in Sources */,
 				A349C6441760DFF200B7D8BE /* TTLoginVC.m in Sources */,
+				A349C655176126CD00B7D8BE /* BKReadlistTVHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

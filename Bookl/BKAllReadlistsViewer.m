@@ -39,7 +39,7 @@
 
 }
 
-#pragma mark Tableview delegate
+#pragma mark Tableview Delegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ReadList *clickedReadlist = [self.readlists objectAtIndex:indexPath.row];
@@ -47,6 +47,8 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
+
+#pragma mark Tableview Datasource
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -82,6 +84,46 @@
     return cell;
 }
 
+
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+
+     if (editingStyle == UITableViewCellEditingStyleDelete) {
+         // Delete the row from the data source
+         ReadList *readListToDelete = self.readlists[indexPath.row];
+         [self deleteReadlist:readListToDelete];
+         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+         
+     }
+     else if (editingStyle == UITableViewCellEditingStyleInsert) {
+         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+ }
+
+/*
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
+
+/*
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
+
 #pragma mark TableHeaderDelegate
 -(void)insertNewReadlist
 {
@@ -92,9 +134,11 @@
     [alert show];
 }
 
--(void)toggleTableViewEdit
+-(BOOL)toggleTableViewEditWhichDidEnterEditingMode
 {
     NSLog(@"TOGGLE EDIT");
+    [self.tableView setEditing:!self.tableView.isEditing animated:YES];
+    return self.tableView.isEditing;
 }
 
 #pragma mark UIAlerViewDelegate
@@ -143,6 +187,16 @@
     newReadList.title = title;
     [((BKAppDelegate*)[UIApplication sharedApplication].delegate) saveContext];
     [self.tableView reloadData];
+}
+
+-(void)deleteReadlist:(ReadList*)readlistToDelete
+{
+    NSManagedObjectContext *moc = ((BKAppDelegate*)[UIApplication sharedApplication].delegate).managedObjectContext;
+    for (NSManagedObject *bookInReadlist in readlistToDelete.books) {
+        [moc deleteObject:bookInReadlist];
+    }
+    [moc deleteObject:readlistToDelete];
+    [((BKAppDelegate*)[UIApplication sharedApplication].delegate) saveContext];
 }
 
 #pragma mark Navigation

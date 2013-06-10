@@ -57,6 +57,7 @@
 
 -(void)setUpCellForBook:(id)book
 {
+
     NSString *author;
     NSString *title;
     NSString *pubYear;
@@ -82,11 +83,8 @@
     self.title.text = title;
     self.publishingYear.text = pubYear;
     
-    NSString *rating = @"5.0";
-    self.rating = [NSString stringWithFormat:@"%@/10 - X",rating];
     
     [self setUpReadButton];
-    //[self setUpRatingCircle];
 }
 
 -(void)setUpReadButton
@@ -96,13 +94,6 @@
     }
 }
 
--(void)setUpRatingCircle
-{
-//    CGRect rectForPie = CGRectMake(0, 0, 40, 40);
-//    TTRatingCirclePie *newCircle = [[TTRatingCirclePie alloc] initWithFrame:rectForPie];
-//    [newCircle drawRect:rectForPie];
-//    [self addSubview:newCircle];
-}
 #pragma mark ProgressBarDelegate
 -(void)setProgressBarPercentage:(CGFloat)percentage
 {
@@ -118,21 +109,22 @@
 #pragma mark Layout
 -(void)layoutSubviews
 {
+    CGFloat edgePadding = EDGE_PADDING; // self.isEditing ? EDGE_PADDING * 2 : EDGE_PADDING;
+    
     //layout moreButton
-    [self layoutViews:@[self.moreButton] withEdgeAt:self.frame.size.width - EDGE_PADDING];
+    CGFloat startingPoint = self.frame.size.width;
+    [self layoutViews:@[self.moreButton] withEdgeAt:startingPoint - edgePadding];
     //readbutton
     [self layoutViews:@[self.readButton] withEdgeAt:self.moreButton.frame.origin.x];
     
     //layout title, author and year
     NSArray *tripleViews = [NSArray arrayWithObjects:self.title,self.author,self.publishingYear, nil];
     CGFloat edge = self.readButton.frame.origin.x;
-    CGFloat widthForLabel = edge - EDGE_PADDING;
+    CGFloat widthForLabel = edge - edgePadding;
     CGRect newFrame = CGRectMake(0, 0, widthForLabel, self.frame.size.height);
     self.title.frame = newFrame;
     self.author.frame = newFrame;
     self.publishingYear.frame = newFrame;
-    
-    NSLog(@"%f ---- %f",self.readButton.frame.origin.x,self.moreButton.frame.origin.x);
     [self layoutViews:tripleViews withEdgeAt:self.readButton.frame.origin.x];
 }
 
@@ -153,5 +145,149 @@
         view.frame = newFrame;
         //NSLog(@"%@",view);
     }
+}
+
+-(void)willTransitionToState:(UITableViewCellStateMask)state
+{
+    [super willTransitionToState:state];
+    CGRect currentContentFrame = self.contentView.frame;
+    CGRect currentViewFrame = self.frame;
+    CGRect newFrame = [self cellRectForState:state];
+    CGRect editingFrame = [self editAccessoryViewForState:state];
+    switch (state) {
+        case UITableViewCellStateDefaultMask:
+        {
+            self.moreButton.hidden = NO;
+            break;
+        }
+        case UITableViewCellStateShowingEditControlMask:
+        {
+            self.moreButton.hidden = YES;
+            
+            break;
+        }
+        case UITableViewCellStateShowingDeleteConfirmationMask:
+        {
+            self.moreButton.hidden = YES;
+            
+            break;
+        }
+        default:
+            NSAssert(nil, @"Should never be here. Wrong cell mask!");
+            break;
+    }
+    
+    [UIView animateWithDuration:0.5 animations:^(void){
+        self.contentView.frame = newFrame;
+        self.accessoryView.frame = editingFrame;
+    }];
+
+}
+
+-(void)didTransitionToState:(UITableViewCellStateMask)state
+{
+    
+    [super didTransitionToState:state];
+    
+    CGRect currentFrame = self.contentView.frame;
+    switch (state) {
+        case UITableViewCellStateDefaultMask:
+        {
+            //hide default button
+            //show more button
+            self.editingAccessoryView.hidden = YES;
+            break;
+        }
+        case UITableViewCellStateShowingEditControlMask:
+        {
+            self.editingAccessoryView.hidden = NO;
+            break;
+        }
+        case UITableViewCellStateShowingDeleteConfirmationMask:
+        {
+            self.editingAccessoryView.hidden = NO;
+            NSLog(@"deleting");
+            //self.moreButton.hidden = YES;
+            
+            break;
+        }
+        default:
+            NSAssert(nil, @"Should never be here. Wrong cell mask!");
+            break;
+    }
+    //self.contentView.frame = newFrame;
+    
+}
+
+-(CGRect)cellRectForState:(UITableViewCellStateMask)state
+{
+    CGRect frame;
+    switch (state) {
+        case UITableViewCellStateDefaultMask:
+        {
+            //hide default button
+            //show more button
+            
+            //get frame with frame width but content height
+            CGRect regFrame = self.frame;
+            CGRect contFrame = self.contentView.frame;
+            frame = CGRectMake(regFrame.origin.x, contFrame.origin.y, regFrame.size.width, regFrame.size.height);
+            break;
+        }
+        case UITableViewCellStateShowingEditControlMask:
+        {
+            NSLog(@"Showing delete control");
+            frame = CGRectMake(self.contentView.frame.origin.x, self.contentView.frame.origin.y, self.contentView.frame.size.width - self.editingAccessoryView.frame.size.width,self.contentView.frame.size.height);
+            break;
+        }
+        case UITableViewCellStateShowingDeleteConfirmationMask:
+        {
+            NSLog(@"deleting");
+            frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width - self.editingAccessoryView.frame.size.width,self.frame.size.height);
+            
+            break;
+        }
+        default:
+            NSAssert(nil, @"Should never be here. Wrong cell mask!");
+            break;
+    }
+    return frame;
+}
+
+-(CGRect)editAccessoryViewForState:(UITableViewCellStateMask)state
+{
+    self.editingAccessoryView.frame = self.moreButton.frame;
+    CGRect frame;
+    switch (state) {
+        case UITableViewCellStateDefaultMask:
+        {
+            frame = CGRectZero;
+            break;
+        }
+        case UITableViewCellStateShowingEditControlMask:
+        {
+            CGFloat xPos = self.contentView.frame.size.width - self.editingAccessoryView.frame.size.width;
+            CGFloat yPos = (self.contentView.frame.size.height - self.editingAccessoryView.frame.size.height) / 2.0;
+            frame = CGRectMake(xPos, yPos, self.editingAccessoryView.frame.size.width,self.editingAccessoryView.frame.size.height);
+            break;
+        }
+        case UITableViewCellStateShowingDeleteConfirmationMask:
+        {
+            NSLog(@"deleting");
+            CGFloat xPos = self.contentView.frame.size.width;
+            CGFloat yPos = (self.contentView.frame.size.height - self.editingAccessoryView.frame.size.height) / 2.0;
+            frame = CGRectMake(xPos, yPos, self.editingAccessoryView.frame.size.width,self.editingAccessoryView.frame.size.height);
+            break;
+        }
+        default:
+            NSAssert(nil, @"Should never be here. Wrong cell mask!");
+            break;
+    }
+    return frame;
+}
+
+-(IBAction)deleteButtonPressed:(id)sender
+{
+    [self.delegate deleteCellAndItsData:self];
 }
 @end

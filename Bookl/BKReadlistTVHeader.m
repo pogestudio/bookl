@@ -1,29 +1,24 @@
 //
-//  BKAllReadlistsTVHeader.m
+//  BKReadlistHeader.m
 //  Bookl
 //
-//  Created by CA on 6/4/13.
+//  Created by CA on 6/6/13.
 //  Copyright (c) 2013 PogeStudio. All rights reserved.
 //
 
-#import "BKAllReadlistsTVHeader.h"
+#import "BKReadlistTVHeader.h"
 
-@interface BKAllReadlistsTVHeader ()
+@interface BKReadlistTVHeader ()
 
 @end
 
-@implementation BKAllReadlistsTVHeader
+@implementation BKReadlistTVHeader
 
--(IBAction)newReadlist:(id)sender
-{
-    [self.headerDelegate insertNewReadlist];
-
-}
 
 -(IBAction)editReadlists:(id)sender
 {
     UIButton *senderButton = (UIButton*)sender;
-
+    
     BOOL didEnterEditingMode = [self.headerDelegate toggleTableViewEditWhichDidEnterEditingMode];
     if (didEnterEditingMode) {
         [senderButton setTitle:@"Done" forState:UIControlStateNormal];

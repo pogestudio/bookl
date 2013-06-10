@@ -7,15 +7,18 @@
 //
 
 #import "BKMainContentTVC.h"
+#import "BKReadlistTVHeader.h"
+#import "TTSharedBookCell.h"
 
 @class ReadList;
 
-@interface BKReadlistView : UITableViewController
+@interface BKReadlistView : UITableViewController <ReadlistHeaderDelegate,SharedBookCellDelegate>
 {
     @private
     UIPopoverController *_editReadlistPopOver;
 }
 
 @property (strong) ReadList *readlist;
+@property (strong) BKReadlistTVHeader *tableHeader;
 
 @end

@@ -8,9 +8,8 @@
 
 #import "BKReadlistView.h"
 #import "ReadList.h"
+#import "Book.h"
 #import "TTSharedBookCell.h"
-
-#import "TTConstants.h"
 
 @interface BKReadlistView ()
 
@@ -35,9 +34,27 @@
     self.view.frame = newFrame;
     NSLog(@"View will appear, current width: %f",self.view.frame.size.width);
     
+    if (!self.tableHeader) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
+        self.tableHeader = [storyboard instantiateViewControllerWithIdentifier:@"ReadlistTVHeader"];
+        self.tableHeader.headerDelegate = self;
+    }
+    
+    self.view.backgroundColor = [UIColor redColor];
+    self.tableView.backgroundColor = [UIColor blueColor];
 }
 
 #pragma mark TableView Datasource
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return self.tableHeader.view;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return self.tableHeader.view.frame.size.height;
+}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     NSInteger sections = 1;
@@ -55,9 +72,9 @@
     TTSharedBookCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"SharedBookCell"];
     Book *bookForCell = [self.readlist.books objectAtIndex:indexPath.row];
     [cell setUpCellForBook:bookForCell];
-    
     CGRect newFrame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, RIGHT_MENU_WIDTH, cell.frame.size.height);
-    cell.frame = newFrame;
+    cell.contentView.frame = newFrame;
+    cell.delegate = self;
     return cell;
 }
 
@@ -68,9 +85,68 @@
 }
 
 #pragma mark Tableview Delegate
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    return UITableViewCellEditingStyleDelete;
+}
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
 }
 
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        Book *bookToDelete = self.readlist.books[indexPath.row];
+        [self deleteBook:bookToDelete];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }
+}
+
+#pragma mark Data Manipulation
+-(void)deleteBook:(Book*)bookToDelete
+{
+    NSManagedObjectContext *moc = [kAppDelegate managedObjectContext];
+    [moc deleteObject:bookToDelete];
+    [kAppDelegate saveContext];
+}
+
+#pragma mark TableHeaderDelegate
+-(BOOL)toggleTableViewEditWhichDidEnterEditingMode
+{
+    self.tableView.editing = !self.tableView.editing;
+    NSLog(@"TOGGLE EDIT: %@",self.isEditing ? @"ON" : @"OFF");
+    
+    CGRect theFrame = self.view.frame;
+    NSLog(@"View: %f - %f - %f - %f",theFrame.origin.x,theFrame.origin.y,theFrame.size.width,theFrame.size.height);
+    
+    theFrame = self.tableView.frame;
+    NSLog(@"Table: %f - %f - %f - %f",theFrame.origin.x,theFrame.origin.y,theFrame.size.width,theFrame.size.height);
+
+    theFrame = self.view.superview.frame;
+    NSLog(@"Superview: %f - %f - %f - %f",theFrame.origin.x,theFrame.origin.y,theFrame.size.width,theFrame.size.height);
+    
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    theFrame = cell.frame;
+    NSLog(@"Cell: %f - %f - %f - %f",theFrame.origin.x,theFrame.origin.y,theFrame.size.width,theFrame.size.height);
+
+
+    return self.tableView.isEditing;
+}
+
+#pragma mark SharedBookCellDelegate
+-(void)deleteCellAndItsData:(TTSharedBookCell *)cell
+{
+    NSIndexPath *IPOfCell = [self.tableView indexPathForCell:cell];
+    [self tableView:self.tableView commitEditingStyle:UITableViewCellEditingStyleDelete forRowAtIndexPath:IPOfCell];
+}
 @end

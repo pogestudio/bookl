@@ -11,7 +11,7 @@
 @protocol ReadlistsHeaderDelegate <NSObject>
 
 -(void)insertNewReadlist;
--(void)toggleTableViewEdit;
+-(BOOL)toggleTableViewEditWhichDidEnterEditingMode;
 
 @end
 

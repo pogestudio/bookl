@@ -13,4 +13,5 @@
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
     #import "TTConstants.h"
+    #import "BKAppDelegate.h"
 #endif

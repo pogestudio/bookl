@@ -15,6 +15,8 @@
 
 #define RIGHT_MENU_WIDTH 524
 
+#define kAppDelegate (BKAppDelegate*)[UIApplication sharedApplication].delegate
+
 
 @interface TTConstants : NSObject
 

@@ -134,7 +134,6 @@ static BOOL _viewHasBeenShowedOnce;
     NSAssert([newVC isKindOfClass:[BKMainContentTVC class]],@"wrong class from NewVC");
     newVC.viewManager = self;
     newVC.view.frame = _mainContainerView.bounds;
-    [newVC setUpViewWithOptions:options];
     [self transitionToViewController:newVC];
 }
 

@@ -16,4 +16,9 @@
 
 @implementation BKMainContentTVC
 
++(id)fromStoryboard
+{
+    NSAssert(nil,@"should never call this");
+    return nil;
+}
 @end

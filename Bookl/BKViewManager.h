@@ -30,6 +30,6 @@ typedef enum {
 
 #pragma mark Menus
 -(void)showRightMenu:(UIViewController *)rightMenu;
-//-(void)setRightMenuPeek:(CGFloat)peekAmount;
+-(void)reloadMiddleTable;
 
 @end

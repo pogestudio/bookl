@@ -31,9 +31,7 @@ static BOOL _viewHasBeenShowedOnce;
     [super viewDidLoad];
     [self setUpView];
     
-    if (!_sharedViewManager) {
-        _sharedViewManager = self;
-    }
+    _sharedViewManager = self;
     
 }
 
@@ -143,5 +141,12 @@ static BOOL _viewHasBeenShowedOnce;
     [self.slidingViewController setAnchorLeftRevealAmount:rightMenu.view.frame.size.width];
     self.slidingViewController.underRightViewController = rightMenu;
     [self.slidingViewController anchorTopViewTo:ECLeft];
+}
+
+-(void)reloadMiddleTable
+{
+    NSAssert([_currentVC isKindOfClass:[UITableViewController class]], @"trying to reload a VC which isn't TVC");
+    UITableViewController *topViewController = (UITableViewController*)_currentVC;
+    [topViewController.tableView reloadData];
 }
 @end

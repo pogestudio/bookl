@@ -751,7 +751,7 @@
 			isa = PBXGroup;
 			children = (
 				A30D0DEA175E655500AD1CE1 /* SharedClasses */,
-				A37877FA175E04F600B95A07 /* AllContainer */,
+				A37877FA175E04F600B95A07 /* ViewManager */,
 				A37877FE175E082100B95A07 /* ContentSuperclass */,
 				A3787800175E098500B95A07 /* Readlist */,
 				A37877FF175E097C00B95A07 /* SearchBook */,
@@ -778,13 +778,13 @@
 			name = HomeView;
 			sourceTree = "<group>";
 		};
-		A37877FA175E04F600B95A07 /* AllContainer */ = {
+		A37877FA175E04F600B95A07 /* ViewManager */ = {
 			isa = PBXGroup;
 			children = (
 				A37877FB175E051D00B95A07 /* BKViewManager.h */,
 				A37877FC175E051D00B95A07 /* BKViewManager.m */,
 			);
-			name = AllContainer;
+			name = ViewManager;
 			sourceTree = "<group>";
 		};
 		A37877FE175E082100B95A07 /* ContentSuperclass */ = {

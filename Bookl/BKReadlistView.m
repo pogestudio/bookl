@@ -10,6 +10,7 @@
 #import "ReadList.h"
 #import "Book.h"
 #import "TTSharedBookCell.h"
+#import "BKViewManager.h"
 
 @interface BKReadlistView ()
 
@@ -118,6 +119,7 @@
     NSManagedObjectContext *moc = [kAppDelegate managedObjectContext];
     [moc deleteObject:bookToDelete];
     [kAppDelegate saveContext];
+    [self reloadMiddletableData];
 }
 
 
@@ -125,6 +127,7 @@
 {
     self.readlist.title = name;
     [kAppDelegate saveContext];
+    [self reloadMiddletableData];
 }
 
 #pragma mark TableHeaderDelegate
@@ -171,12 +174,17 @@
     
 }
 
-
-
 #pragma mark SharedBookCellDelegate
 -(void)deleteCellAndItsData:(TTSharedBookCell *)cell
 {
     NSIndexPath *IPOfCell = [self.tableView indexPathForCell:cell];
     [self tableView:self.tableView commitEditingStyle:UITableViewCellEditingStyleDelete forRowAtIndexPath:IPOfCell];
+    [self reloadMiddletableData];
+}
+
+#pragma mark ContentUpdate
+-(void)reloadMiddletableData
+{
+    [[BKViewManager sharedViewManager] reloadMiddleTable];
 }
 @end

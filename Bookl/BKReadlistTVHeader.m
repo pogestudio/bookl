@@ -25,6 +25,12 @@
     } else {
         [senderButton setTitle:@"Edit" forState:UIControlStateNormal];
     }
+    [self.renameButton setHidden:!didEnterEditingMode];
+}
+
+-(IBAction)renameReadlist:(id)sender
+{
+    [self.headerDelegate openReadlistRename];
 }
 
 @end

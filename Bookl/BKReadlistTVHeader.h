@@ -11,6 +11,7 @@
 @protocol ReadlistHeaderDelegate <NSObject>
 
 -(BOOL)toggleTableViewEditWhichDidEnterEditingMode;
+-(void)openReadlistRename;
 
 @end
 
@@ -18,5 +19,7 @@
 @interface BKReadlistTVHeader : UIViewController
 
 @property (weak) id<ReadlistHeaderDelegate> headerDelegate;
+
+@property (strong) IBOutlet UIButton *renameButton;
 
 @end

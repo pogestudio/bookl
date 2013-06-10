@@ -120,28 +120,58 @@
     [kAppDelegate saveContext];
 }
 
+
+-(void)renameCurrentReadlistToName:(NSString*)name
+{
+    self.readlist.title = name;
+    [kAppDelegate saveContext];
+}
+
 #pragma mark TableHeaderDelegate
 -(BOOL)toggleTableViewEditWhichDidEnterEditingMode
 {
     self.tableView.editing = !self.tableView.editing;
-    NSLog(@"TOGGLE EDIT: %@",self.isEditing ? @"ON" : @"OFF");
+//    NSLog(@"TOGGLE EDIT: %@",self.isEditing ? @"ON" : @"OFF");
+//    
+//    CGRect theFrame = self.view.frame;
+//    NSLog(@"View: %f - %f - %f - %f",theFrame.origin.x,theFrame.origin.y,theFrame.size.width,theFrame.size.height);
+//    
+//    theFrame = self.tableView.frame;
+//    NSLog(@"Table: %f - %f - %f - %f",theFrame.origin.x,theFrame.origin.y,theFrame.size.width,theFrame.size.height);
+//
+//    theFrame = self.view.superview.frame;
+//    NSLog(@"Superview: %f - %f - %f - %f",theFrame.origin.x,theFrame.origin.y,theFrame.size.width,theFrame.size.height);
+//    
+//    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+//    theFrame = cell.frame;
+//    NSLog(@"Cell: %f - %f - %f - %f",theFrame.origin.x,theFrame.origin.y,theFrame.size.width,theFrame.size.height);
     
-    CGRect theFrame = self.view.frame;
-    NSLog(@"View: %f - %f - %f - %f",theFrame.origin.x,theFrame.origin.y,theFrame.size.width,theFrame.size.height);
-    
-    theFrame = self.tableView.frame;
-    NSLog(@"Table: %f - %f - %f - %f",theFrame.origin.x,theFrame.origin.y,theFrame.size.width,theFrame.size.height);
-
-    theFrame = self.view.superview.frame;
-    NSLog(@"Superview: %f - %f - %f - %f",theFrame.origin.x,theFrame.origin.y,theFrame.size.width,theFrame.size.height);
-    
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    theFrame = cell.frame;
-    NSLog(@"Cell: %f - %f - %f - %f",theFrame.origin.x,theFrame.origin.y,theFrame.size.width,theFrame.size.height);
-
-
     return self.tableView.isEditing;
 }
+
+-(void)openReadlistRename
+{
+    // open an alert with a textfield
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Rename readList" message:@"Enter readlist title"
+                                                   delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+	alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert textFieldAtIndex:0].text = self.readlist.title;
+    [alert show];
+}
+
+#pragma mark UIAlerViewDelegate
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex != 1) {
+        return; //cancel button
+    }
+    
+    NSString *newName = [alertView textFieldAtIndex:0].text;
+    [self renameCurrentReadlistToName:newName];
+    
+}
+
+
 
 #pragma mark SharedBookCellDelegate
 -(void)deleteCellAndItsData:(TTSharedBookCell *)cell

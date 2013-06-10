@@ -8,7 +8,7 @@
 
 #import "BKViewManager.h"
 #import "BKHomeView.h"
-#import "BKReadlistView.h"
+#import "BKAllReadlistsViewer.h"
 #import "BKSearchBookView.h"
 #import "BKLeftMenu.h"
 
@@ -17,14 +17,12 @@
 @end
 
 static BKViewManager *_sharedViewManager;
+static BOOL _viewHasBeenShowedOnce;
 
 @implementation BKViewManager
 
 +(BKViewManager*)sharedViewManager
 {
-    if (!_sharedViewManager) {
-        _sharedViewManager = [[BKViewManager alloc] init];
-    }
     return _sharedViewManager;
 }
 
@@ -32,6 +30,8 @@ static BKViewManager *_sharedViewManager;
 {
     [super viewDidLoad];
     [self setUpView];
+    
+    _sharedViewManager = self;
     
 }
 
@@ -45,8 +45,12 @@ static BKViewManager *_sharedViewManager;
         self.slidingViewController.underLeftViewController = leftMenu;
     }
     [self.view addGestureRecognizer:self.slidingViewController.panGesture];
-
-    [self.slidingViewController setAnchorRightRevealAmount:MENU_WIDTH];
+    [self.slidingViewController setAnchorRightRevealAmount:LEFT_MENU_WIDTH];
+    
+    if (!_viewHasBeenShowedOnce) {
+        [self.slidingViewController anchorTopViewTo:ECRight];
+        _viewHasBeenShowedOnce = YES;
+    }
 }
 
 #pragma mark -
@@ -66,7 +70,7 @@ static BKViewManager *_sharedViewManager;
                                            self.view.frame.size.height);
     _mainContainerView = [[UIView alloc] initWithFrame:mainContainerFrame];
     _mainContainerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    _mainContainerView.backgroundColor = [UIColor blueColor];
+//    _mainContainerView.backgroundColor = [UIColor blueColor];
     
     [self.view addSubview:_mainContainerView];
 }
@@ -113,7 +117,7 @@ static BKViewManager *_sharedViewManager;
             break;
         case TypeOfCurrentVCReadList:
         {
-            newVC = [BKReadlistView fromStoryboard];
+            newVC = [BKAllReadlistsViewer fromStoryboard];
         }
             break;
         case TypeOfCurrentVCSearchResult:
@@ -128,8 +132,21 @@ static BKViewManager *_sharedViewManager;
     NSAssert([newVC isKindOfClass:[BKMainContentTVC class]],@"wrong class from NewVC");
     newVC.viewManager = self;
     newVC.view.frame = _mainContainerView.bounds;
-    [newVC setUpViewWithOptions:options];
     [self transitionToViewController:newVC];
 }
 
+#pragma mark Menus
+-(void)showRightMenu:(UIViewController *)rightMenu
+{
+    [self.slidingViewController setAnchorLeftRevealAmount:rightMenu.view.frame.size.width];
+    self.slidingViewController.underRightViewController = rightMenu;
+    [self.slidingViewController anchorTopViewTo:ECLeft];
+}
+
+-(void)reloadMiddleTable
+{
+    NSAssert([_currentVC isKindOfClass:[UITableViewController class]], @"trying to reload a VC which isn't TVC");
+    UITableViewController *topViewController = (UITableViewController*)_currentVC;
+    [topViewController.tableView reloadData];
+}
 @end

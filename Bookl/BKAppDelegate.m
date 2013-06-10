@@ -10,6 +10,9 @@
 
 #import "ECSlidingViewController.h"
 
+#import "TTBookManager.h"
+#import "TTUser.h"
+
 @implementation BKAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -18,10 +21,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    ECSlidingViewController *slidingViewController = (ECSlidingViewController *)self.window.rootViewController;
-    
+    UINavigationController *navCon = (UINavigationController*)self.window.rootViewController;
+    ECSlidingViewController *slidingViewController = (ECSlidingViewController *)[navCon.viewControllers lastObject];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
     slidingViewController.topViewController = [storyboard instantiateViewControllerWithIdentifier:@"ViewManager"];
+    
+    [[TTBookManager sharedManager] setNavConToPresentReaderIn:navCon];
+    
+    //wait a while popping the window, since keywindow is not yet initialised
+    [NSTimer scheduledTimerWithTimeInterval:0.25
+                                     target:self
+                                   selector:@selector(handleUserStatus)
+                                   userInfo:nil
+                                    repeats:NO];
+
 
     return YES;
 }
@@ -93,7 +106,7 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"LocalStorage" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"LocalStorage" withExtension:@"mom"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }
@@ -147,6 +160,12 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+#pragma mark Startup Stuff
+-(void)handleUserStatus
+{
+    //[TTUser makeSureUserIsLoggedIn];
 }
 
 @end

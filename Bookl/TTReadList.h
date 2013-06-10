@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-
+@class TTReadList;
 @class TTBook;
 
-@protocol TTReadListObserver <NSObject>
+@protocol TTReadListDelegate <NSObject>
 
--(void)readListFinishedDowloading;
+-(void)readListFinishedDowloading:(TTReadList*)readlist;
 
 @end
 
@@ -21,7 +21,7 @@
 
 @property (strong) NSMutableArray* books;
 @property (strong) NSString* title;
-@property (weak) id<TTReadListObserver> delegate;
+@property (weak) id<TTReadListDelegate> delegate;
 
 -(void)fillReadListWithBooksFromSearch:(NSString*)urlEncodedQuery;
 

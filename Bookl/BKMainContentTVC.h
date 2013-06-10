@@ -18,9 +18,4 @@
 
 +(id)fromStoryboard;
 
-//deliver search query with key "query"
-//Read list with key "readlist"
--(void)setUpViewWithOptions:(NSDictionary*)options;
-
-
 @end

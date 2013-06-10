@@ -23,14 +23,13 @@ typedef enum {
     TypeOfCurrentVC _currentVCType;
 }
 
--(void)presentNewVCOfType:(TypeOfCurrentVC)typeOfVC;
--(void)presentNewVCOfType:(TypeOfCurrentVC)typeOfVC withOptions:(NSDictionary*)options;
+-(void)presentNewVCOfType:(TypeOfCurrentVC)typeOfVC; 
 
 
 +(BKViewManager*)sharedViewManager;
 
 #pragma mark Menus
-//-(void)removeRightMenu;
-//-(void)setRightMenuPeek:(CGFloat)peekAmount;
+-(void)showRightMenu:(UIViewController *)rightMenu;
+-(void)reloadMiddleTable;
 
 @end

@@ -70,7 +70,7 @@
     NSAssert([object isKindOfClass:[NSDictionary class]], @"result from server is wrong object");
     NSDictionary *result = (NSDictionary*)object;
     [self fillWithBooksFromServerResult:result];
-    [self.delegate readListFinishedDowloading];
+    [self.delegate readListFinishedDowloading:self];
 }
 
 -(void)fillWithBooksFromServerResult:(NSDictionary *)serverResult

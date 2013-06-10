@@ -72,6 +72,22 @@
 		A30D0DDD175E550200AD1CE1 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A30D0DDC175E550200AD1CE1 /* ImageIO.framework */; };
 		A30D0DDF175E550F00AD1CE1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A30D0DDE175E550F00AD1CE1 /* MessageUI.framework */; };
 		A30D0DE1175E554F00AD1CE1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A30D0DE0175E554E00AD1CE1 /* QuartzCore.framework */; };
+		A30D0DE5175E626500AD1CE1 /* BKSearchHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DE4175E626500AD1CE1 /* BKSearchHeader.m */; };
+		A30D0DE9175E637B00AD1CE1 /* NSString+de_encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DE8175E637B00AD1CE1 /* NSString+de_encoding.m */; };
+		A30D0DEE175E656B00AD1CE1 /* TTSharedBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DEC175E656B00AD1CE1 /* TTSharedBookCell.m */; };
+		A30D0DEF175E656B00AD1CE1 /* TTSharedBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30D0DED175E656B00AD1CE1 /* TTSharedBookCell.xib */; };
+		A30D0DF4175E759E00AD1CE1 /* TTMoreOptionsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DF3175E759E00AD1CE1 /* TTMoreOptionsTVC.m */; };
+		A30D0DF8175E75BE00AD1CE1 /* TTAddBookToReadlist.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DF7175E75BE00AD1CE1 /* TTAddBookToReadlist.m */; };
+		A30D0DFB175E7D7C00AD1CE1 /* NSDate+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DFA175E7D7C00AD1CE1 /* NSDate+Compare.m */; };
+		A30D0DFF175E883700AD1CE1 /* BKAllReadlistsViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DFE175E883700AD1CE1 /* BKAllReadlistsViewer.m */; };
+		A30D0E03175E893600AD1CE1 /* BKAllReadlistsTVHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0E02175E893600AD1CE1 /* BKAllReadlistsTVHeader.m */; };
+		A349C63E1760DF6600B7D8BE /* TTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A349C63D1760DF6600B7D8BE /* TTUser.m */; };
+		A349C6441760DFF200B7D8BE /* TTLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A349C6431760DFF200B7D8BE /* TTLoginVC.m */; };
+		A349C6491760E0F600B7D8BE /* books_clear.png in Resources */ = {isa = PBXBuildFile; fileRef = A349C6451760E0F600B7D8BE /* books_clear.png */; };
+		A349C64A1760E0F600B7D8BE /* blurry_books.png in Resources */ = {isa = PBXBuildFile; fileRef = A349C6461760E0F600B7D8BE /* blurry_books.png */; };
+		A349C64B1760E0F600B7D8BE /* Bookle.png in Resources */ = {isa = PBXBuildFile; fileRef = A349C6471760E0F600B7D8BE /* Bookle.png */; };
+		A349C64C1760E0F600B7D8BE /* ipad_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A349C6481760E0F600B7D8BE /* ipad_logo.png */; };
+		A349C655176126CD00B7D8BE /* BKReadlistTVHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A349C654176126CD00B7D8BE /* BKReadlistTVHeader.m */; };
 		A37877BC175DF9CB00B95A07 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37877BB175DF9CB00B95A07 /* UIKit.framework */; };
 		A37877BE175DF9CB00B95A07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37877BD175DF9CB00B95A07 /* Foundation.framework */; };
 		A37877C0175DF9CB00B95A07 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37877BF175DF9CB00B95A07 /* CoreGraphics.framework */; };
@@ -208,6 +224,33 @@
 		A30D0DDC175E550200AD1CE1 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		A30D0DDE175E550F00AD1CE1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A30D0DE0175E554E00AD1CE1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A30D0DE3175E626500AD1CE1 /* BKSearchHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSearchHeader.h; sourceTree = "<group>"; };
+		A30D0DE4175E626500AD1CE1 /* BKSearchHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSearchHeader.m; sourceTree = "<group>"; };
+		A30D0DE7175E637B00AD1CE1 /* NSString+de_encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+de_encoding.h"; sourceTree = "<group>"; };
+		A30D0DE8175E637B00AD1CE1 /* NSString+de_encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+de_encoding.m"; sourceTree = "<group>"; };
+		A30D0DEB175E656B00AD1CE1 /* TTSharedBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSharedBookCell.h; sourceTree = "<group>"; };
+		A30D0DEC175E656B00AD1CE1 /* TTSharedBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSharedBookCell.m; sourceTree = "<group>"; };
+		A30D0DED175E656B00AD1CE1 /* TTSharedBookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TTSharedBookCell.xib; sourceTree = "<group>"; };
+		A30D0DF2175E759E00AD1CE1 /* TTMoreOptionsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMoreOptionsTVC.h; sourceTree = "<group>"; };
+		A30D0DF3175E759E00AD1CE1 /* TTMoreOptionsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMoreOptionsTVC.m; sourceTree = "<group>"; };
+		A30D0DF6175E75BE00AD1CE1 /* TTAddBookToReadlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAddBookToReadlist.h; sourceTree = "<group>"; };
+		A30D0DF7175E75BE00AD1CE1 /* TTAddBookToReadlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAddBookToReadlist.m; sourceTree = "<group>"; };
+		A30D0DF9175E7D7C00AD1CE1 /* NSDate+Compare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Compare.h"; sourceTree = "<group>"; };
+		A30D0DFA175E7D7C00AD1CE1 /* NSDate+Compare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Compare.m"; sourceTree = "<group>"; };
+		A30D0DFD175E883700AD1CE1 /* BKAllReadlistsViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKAllReadlistsViewer.h; sourceTree = "<group>"; };
+		A30D0DFE175E883700AD1CE1 /* BKAllReadlistsViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKAllReadlistsViewer.m; sourceTree = "<group>"; };
+		A30D0E01175E893600AD1CE1 /* BKAllReadlistsTVHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKAllReadlistsTVHeader.h; sourceTree = "<group>"; };
+		A30D0E02175E893600AD1CE1 /* BKAllReadlistsTVHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKAllReadlistsTVHeader.m; sourceTree = "<group>"; };
+		A349C63C1760DF6600B7D8BE /* TTUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTUser.h; sourceTree = "<group>"; };
+		A349C63D1760DF6600B7D8BE /* TTUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTUser.m; sourceTree = "<group>"; };
+		A349C6421760DFF200B7D8BE /* TTLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLoginVC.h; sourceTree = "<group>"; };
+		A349C6431760DFF200B7D8BE /* TTLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLoginVC.m; sourceTree = "<group>"; };
+		A349C6451760E0F600B7D8BE /* books_clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = books_clear.png; sourceTree = "<group>"; };
+		A349C6461760E0F600B7D8BE /* blurry_books.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blurry_books.png; sourceTree = "<group>"; };
+		A349C6471760E0F600B7D8BE /* Bookle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bookle.png; sourceTree = "<group>"; };
+		A349C6481760E0F600B7D8BE /* ipad_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad_logo.png; sourceTree = "<group>"; };
+		A349C653176126CD00B7D8BE /* BKReadlistTVHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKReadlistTVHeader.h; sourceTree = "<group>"; };
+		A349C654176126CD00B7D8BE /* BKReadlistTVHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKReadlistTVHeader.m; sourceTree = "<group>"; };
 		A37877B8175DF9CB00B95A07 /* Bookl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37877BB175DF9CB00B95A07 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A37877BD175DF9CB00B95A07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -262,6 +305,7 @@
 		A30D0CC4175E4EF300AD1CE1 /* Loose Objects */ = {
 			isa = PBXGroup;
 			children = (
+				A349C63B1760DF5E00B7D8BE /* LoginRelated */,
 				A30D0CC5175E4F3400AD1CE1 /* ReadingRelated */,
 			);
 			name = "Loose Objects";
@@ -476,10 +520,141 @@
 				A30D0DD4175E54AD00AD1CE1 /* TTAdHandler.m */,
 				A30D0DD5175E54AD00AD1CE1 /* TTPageManager.h */,
 				A30D0DD6175E54AD00AD1CE1 /* TTPageManager.m */,
+			);
+			name = ReadingExtended;
+			sourceTree = "<group>";
+		};
+		A30D0DE2175E620200AD1CE1 /* SearchHeader */ = {
+			isa = PBXGroup;
+			children = (
+				A30D0DE3175E626500AD1CE1 /* BKSearchHeader.h */,
+				A30D0DE4175E626500AD1CE1 /* BKSearchHeader.m */,
+			);
+			name = SearchHeader;
+			sourceTree = "<group>";
+		};
+		A30D0DE6175E635700AD1CE1 /* FoundationCategories */ = {
+			isa = PBXGroup;
+			children = (
+				A30D0DE7175E637B00AD1CE1 /* NSString+de_encoding.h */,
+				A30D0DE8175E637B00AD1CE1 /* NSString+de_encoding.m */,
+				A30D0DF9175E7D7C00AD1CE1 /* NSDate+Compare.h */,
+				A30D0DFA175E7D7C00AD1CE1 /* NSDate+Compare.m */,
+			);
+			name = FoundationCategories;
+			sourceTree = "<group>";
+		};
+		A30D0DEA175E655500AD1CE1 /* SharedClasses */ = {
+			isa = PBXGroup;
+			children = (
+				A30D0DF0175E657000AD1CE1 /* SharedBookCell */,
+			);
+			name = SharedClasses;
+			sourceTree = "<group>";
+		};
+		A30D0DF0175E657000AD1CE1 /* SharedBookCell */ = {
+			isa = PBXGroup;
+			children = (
+				A30D0DEB175E656B00AD1CE1 /* TTSharedBookCell.h */,
+				A30D0DEC175E656B00AD1CE1 /* TTSharedBookCell.m */,
+				A30D0DED175E656B00AD1CE1 /* TTSharedBookCell.xib */,
+				A30D0DF1175E758300AD1CE1 /* MoreOptions */,
+			);
+			name = SharedBookCell;
+			sourceTree = "<group>";
+		};
+		A30D0DF1175E758300AD1CE1 /* MoreOptions */ = {
+			isa = PBXGroup;
+			children = (
+				A30D0DF5175E75AD00AD1CE1 /* AddToReadlist */,
+				A30D0DF2175E759E00AD1CE1 /* TTMoreOptionsTVC.h */,
+				A30D0DF3175E759E00AD1CE1 /* TTMoreOptionsTVC.m */,
+			);
+			name = MoreOptions;
+			sourceTree = "<group>";
+		};
+		A30D0DF5175E75AD00AD1CE1 /* AddToReadlist */ = {
+			isa = PBXGroup;
+			children = (
+				A30D0DF6175E75BE00AD1CE1 /* TTAddBookToReadlist.h */,
+				A30D0DF7175E75BE00AD1CE1 /* TTAddBookToReadlist.m */,
+			);
+			name = AddToReadlist;
+			sourceTree = "<group>";
+		};
+		A30D0DFC175E879200AD1CE1 /* ReadlistView */ = {
+			isa = PBXGroup;
+			children = (
+				A3787801175E0BAF00B95A07 /* BKReadlistView.h */,
+				A3787802175E0BAF00B95A07 /* BKReadlistView.m */,
+				A349C651176126A600B7D8BE /* ReadlistHeader */,
+			);
+			name = ReadlistView;
+			sourceTree = "<group>";
+		};
+		A30D0E00175E890A00AD1CE1 /* AllRLHeader */ = {
+			isa = PBXGroup;
+			children = (
+				A30D0E01175E893600AD1CE1 /* BKAllReadlistsTVHeader.h */,
+				A30D0E02175E893600AD1CE1 /* BKAllReadlistsTVHeader.m */,
+			);
+			name = AllRLHeader;
+			sourceTree = "<group>";
+		};
+		A349C63B1760DF5E00B7D8BE /* LoginRelated */ = {
+			isa = PBXGroup;
+			children = (
+				A349C63C1760DF6600B7D8BE /* TTUser.h */,
+				A349C63D1760DF6600B7D8BE /* TTUser.m */,
+			);
+			name = LoginRelated;
+			sourceTree = "<group>";
+		};
+		A349C63F1760DF9F00B7D8BE /* StandaloneVCs */ = {
+			isa = PBXGroup;
+			children = (
+				A349C6411760DFBF00B7D8BE /* LoginVC */,
+				A349C6401760DFB400B7D8BE /* FullPageAd */,
+			);
+			name = StandaloneVCs;
+			sourceTree = "<group>";
+		};
+		A349C6401760DFB400B7D8BE /* FullPageAd */ = {
+			isa = PBXGroup;
+			children = (
 				A30D0DD9175E54B500AD1CE1 /* TTFullPageAdVC.h */,
 				A30D0DDA175E54B500AD1CE1 /* TTFullPageAdVC.m */,
 			);
-			name = ReadingExtended;
+			name = FullPageAd;
+			sourceTree = "<group>";
+		};
+		A349C6411760DFBF00B7D8BE /* LoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				A349C6421760DFF200B7D8BE /* TTLoginVC.h */,
+				A349C6431760DFF200B7D8BE /* TTLoginVC.m */,
+			);
+			name = LoginVC;
+			sourceTree = "<group>";
+		};
+		A349C64D1760E10100B7D8BE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A349C6451760E0F600B7D8BE /* books_clear.png */,
+				A349C6461760E0F600B7D8BE /* blurry_books.png */,
+				A349C6471760E0F600B7D8BE /* Bookle.png */,
+				A349C6481760E0F600B7D8BE /* ipad_logo.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A349C651176126A600B7D8BE /* ReadlistHeader */ = {
+			isa = PBXGroup;
+			children = (
+				A349C653176126CD00B7D8BE /* BKReadlistTVHeader.h */,
+				A349C654176126CD00B7D8BE /* BKReadlistTVHeader.m */,
+			);
+			name = ReadlistHeader;
 			sourceTree = "<group>";
 		};
 		A37877AF175DF9CB00B95A07 = {
@@ -519,6 +694,8 @@
 		A37877C3175DF9CB00B95A07 /* Bookl */ = {
 			isa = PBXGroup;
 			children = (
+				A349C64D1760E10100B7D8BE /* Resources */,
+				A30D0DE6175E635700AD1CE1 /* FoundationCategories */,
 				A30D0DD1175E549100AD1CE1 /* ReadingExtended */,
 				A30D0DCF175E53F800AD1CE1 /* Communication */,
 				A30D0D54175E520000AD1CE1 /* CoreData */,
@@ -563,6 +740,7 @@
 		A37877ED175E010A00B95A07 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				A349C63F1760DF9F00B7D8BE /* StandaloneVCs */,
 				A37877F2175E01F000B95A07 /* LeftMenu */,
 				A37877EE175E011100B95A07 /* ContainerViews */,
 			);
@@ -572,7 +750,8 @@
 		A37877EE175E011100B95A07 /* ContainerViews */ = {
 			isa = PBXGroup;
 			children = (
-				A37877FA175E04F600B95A07 /* AllContainer */,
+				A30D0DEA175E655500AD1CE1 /* SharedClasses */,
+				A37877FA175E04F600B95A07 /* ViewManager */,
 				A37877FE175E082100B95A07 /* ContentSuperclass */,
 				A3787800175E098500B95A07 /* Readlist */,
 				A37877FF175E097C00B95A07 /* SearchBook */,
@@ -599,13 +778,13 @@
 			name = HomeView;
 			sourceTree = "<group>";
 		};
-		A37877FA175E04F600B95A07 /* AllContainer */ = {
+		A37877FA175E04F600B95A07 /* ViewManager */ = {
 			isa = PBXGroup;
 			children = (
 				A37877FB175E051D00B95A07 /* BKViewManager.h */,
 				A37877FC175E051D00B95A07 /* BKViewManager.m */,
 			);
-			name = AllContainer;
+			name = ViewManager;
 			sourceTree = "<group>";
 		};
 		A37877FE175E082100B95A07 /* ContentSuperclass */ = {
@@ -622,6 +801,7 @@
 			children = (
 				A3787804175E0BBB00B95A07 /* BKSearchBookView.h */,
 				A3787805175E0BBB00B95A07 /* BKSearchBookView.m */,
+				A30D0DE2175E620200AD1CE1 /* SearchHeader */,
 			);
 			name = SearchBook;
 			sourceTree = "<group>";
@@ -629,8 +809,10 @@
 		A3787800175E098500B95A07 /* Readlist */ = {
 			isa = PBXGroup;
 			children = (
-				A3787801175E0BAF00B95A07 /* BKReadlistView.h */,
-				A3787802175E0BAF00B95A07 /* BKReadlistView.m */,
+				A30D0DFD175E883700AD1CE1 /* BKAllReadlistsViewer.h */,
+				A30D0DFE175E883700AD1CE1 /* BKAllReadlistsViewer.m */,
+				A30D0E00175E890A00AD1CE1 /* AllRLHeader */,
+				A30D0DFC175E879200AD1CE1 /* ReadlistView */,
 			);
 			name = Readlist;
 			sourceTree = "<group>";
@@ -706,6 +888,11 @@
 				A30D0D90175E537800AD1CE1 /* Reader-Print@2x.png in Resources */,
 				A30D0D91175E537800AD1CE1 /* Reader-Thumbs.png in Resources */,
 				A30D0D92175E537800AD1CE1 /* Reader-Thumbs@2x.png in Resources */,
+				A30D0DEF175E656B00AD1CE1 /* TTSharedBookCell.xib in Resources */,
+				A349C6491760E0F600B7D8BE /* books_clear.png in Resources */,
+				A349C64A1760E0F600B7D8BE /* blurry_books.png in Resources */,
+				A349C64B1760E0F600B7D8BE /* Bookle.png in Resources */,
+				A349C64C1760E0F600B7D8BE /* ipad_logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -774,6 +961,17 @@
 				A30D0DD7175E54AD00AD1CE1 /* TTAdHandler.m in Sources */,
 				A30D0DD8175E54AD00AD1CE1 /* TTPageManager.m in Sources */,
 				A30D0DDB175E54B500AD1CE1 /* TTFullPageAdVC.m in Sources */,
+				A30D0DE5175E626500AD1CE1 /* BKSearchHeader.m in Sources */,
+				A30D0DE9175E637B00AD1CE1 /* NSString+de_encoding.m in Sources */,
+				A30D0DEE175E656B00AD1CE1 /* TTSharedBookCell.m in Sources */,
+				A30D0DF4175E759E00AD1CE1 /* TTMoreOptionsTVC.m in Sources */,
+				A30D0DF8175E75BE00AD1CE1 /* TTAddBookToReadlist.m in Sources */,
+				A30D0DFB175E7D7C00AD1CE1 /* NSDate+Compare.m in Sources */,
+				A30D0DFF175E883700AD1CE1 /* BKAllReadlistsViewer.m in Sources */,
+				A30D0E03175E893600AD1CE1 /* BKAllReadlistsTVHeader.m in Sources */,
+				A349C63E1760DF6600B7D8BE /* TTUser.m in Sources */,
+				A349C6441760DFF200B7D8BE /* TTLoginVC.m in Sources */,
+				A349C655176126CD00B7D8BE /* BKReadlistTVHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

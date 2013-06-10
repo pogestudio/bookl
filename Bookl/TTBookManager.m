@@ -47,7 +47,7 @@ static TTBookManager *_sharedManager;
     }
 }
 
--(void)navConToPresentReaderIn:(UINavigationController *)navCon
+-(void)setNavConToPresentReaderIn:(UINavigationController *)navCon
 {
     _navConToPresentReaderIn = navCon;
 }

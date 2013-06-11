@@ -39,6 +39,7 @@
 
 @interface ReaderViewController () <UIScrollViewDelegate, UIGestureRecognizerDelegate, MFMailComposeViewControllerDelegate,
 									ReaderMainToolbarDelegate, ReaderMainPagebarDelegate, ReaderContentViewDelegate, ThumbsViewControllerDelegate>
+
 @end
 
 @implementation ReaderViewController
@@ -306,8 +307,10 @@
 
 			[ReaderThumbCache touchThumbCacheWithGUID:object.guid]; // Touch the document thumb cache directory
 
-            self.bookToRead = book;
 			reader = self; // Return an initialized ReaderViewController object
+            
+            //MY STUFF!
+            self.bookToRead = book;
 		}
 	}
 
@@ -903,7 +906,7 @@
 		if ((result == MFMailComposeResultFailed) && (error != NULL)) NSLog(@"%@", error);
 	#endif
 
-	[self dismissModalViewControllerAnimated:YES]; // Dismiss
+	[self dismissViewControllerAnimated:YES completion:nil]; // Dismiss
 }
 
 #pragma mark ThumbsViewControllerDelegate methods
@@ -912,7 +915,7 @@
 {
 	[self updateToolbarBookmarkIcon]; // Update bookmark icon
 
-	[self dismissModalViewControllerAnimated:NO]; // Dismiss
+	[self dismissViewControllerAnimated:NO completion:nil]; // Dismiss
 }
 
 - (void)thumbsViewController:(ThumbsViewController *)viewController gotoPage:(NSInteger)page

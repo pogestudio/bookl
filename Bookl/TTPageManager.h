@@ -20,7 +20,6 @@
 @property (strong, nonatomic) NSMutableDictionary *savedPages;
 @property (strong) TTAdHandler *adHandler;
 
-
 +(TTPageManager*)sharedManager;
 
 -(void)pageWasShown:(NSUInteger)page;

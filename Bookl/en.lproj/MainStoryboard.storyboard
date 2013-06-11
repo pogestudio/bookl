@@ -7,7 +7,7 @@
         <!--Sliding View Controller-->
         <scene sceneID="M3q-Tx-8mP">
             <objects>
-                <viewController id="dcJ-x9-c3R" customClass="ECSlidingViewController" sceneMemberID="viewController">
+                <viewController id="dcJ-x9-c3R" customClass="BKSlidingViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qs8-Fa-eRw">
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

@@ -11,6 +11,8 @@
 #import "ReaderViewController.h"
 #import "Book.h"
 
+#import "BKViewManager.h"
+
 @implementation TTBookOpener
 
 static TTBookOpener *_sharedOpener;
@@ -52,6 +54,7 @@ static TTBookOpener *_sharedOpener;
 		ReaderViewController *readerViewController = [[ReaderViewController alloc] initWithReaderDocument:document book:bookToOpen];
         
 		[navCon pushViewController:readerViewController animated:YES];
+        
 	}
 }
 

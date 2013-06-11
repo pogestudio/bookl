@@ -243,7 +243,6 @@
 					<int key="NSColorSpace">2</int>
 					<bytes key="NSRGB">MCAwLjcyNTQ5MDIxMjQgMC41NjA3ODQzMzk5AA</bytes>
 				</object>
-				<int key="IBUIContentMode">8</int>
 				<string key="IBUIRestorationIdentifier">SharedBookCell</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<int key="IBUISelectionStyle">0</int>

@@ -68,7 +68,16 @@
         {
             self.settingsPopover = popoverController;
         }
+        
+        //if it's the settings, give it the popovercontroller so it can dismiss itsel when pressed
+        if ([segue.destinationViewController isKindOfClass:[UINavigationController class]]) {
+            if ([[((UINavigationController*)segue.destinationViewController).viewControllers lastObject] isKindOfClass:[BKSettingsTVC class]]) {
+                BKSettingsTVC *settings = [((UINavigationController*)segue.destinationViewController).viewControllers lastObject];
+                settings.popController = ((UIStoryboardPopoverSegue*)segue).popoverController;
+            }
+        }
     }
+    
 }
 
 -(void)dealloc

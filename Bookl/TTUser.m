@@ -23,4 +23,9 @@
     }
 }
 
+-(void)logoutUser
+{
+    
+}
+
 @end

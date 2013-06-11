@@ -8,6 +8,12 @@
 
 #import "BKSettingsTVC.h"
 
+#import "ATConnect.h"
+#import "BKViewManager.h"
+#import "TTUser.h"
+
+#define kLogoutSection 1
+
 @interface BKSettingsTVC ()
 
 @end
@@ -41,30 +47,6 @@
 }
 
 #pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
 
 /*
 // Override to support conditional editing of the table view.
@@ -109,13 +91,41 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    //if logout, then just do that
+    if (indexPath.section == kLogoutSection) {
+        [[TTUser loggedInUser] logoutUser];
+        [self dismissPopup];
+        return;
+    }
+    
+    NSAssert(indexPath.section != kLogoutSection,@"wrong logic in didselectrow");
+    switch (indexPath.row) {
+        case 0: //feedback
+        {
+            UIViewController *viewManager = [BKViewManager sharedViewManager];
+            ATConnect *connection = [ATConnect sharedConnection];
+            [connection presentFeedbackControllerFromViewController:viewManager];
+            [self dismissPopup];
+            break;
+        }
+        case 1:
+        {
+            //IAP
+            break;
+        }
+        case 2:
+        {
+          //random. What here?
+        }
+        default:
+            NSAssert(nil,@"Should never be here, something is wrong with didSelectRow in class Settings");
+            break;
+    }
+}
+
+-(void)dismissPopup
+{
+    [self.popController dismissPopoverAnimated:YES];
 }
 
 @end

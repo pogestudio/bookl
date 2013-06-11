@@ -391,10 +391,10 @@
             </objects>
             <point key="canvasLocation" x="1502" y="2861"/>
         </scene>
-        <!--Table View Controller - Settings-->
+        <!--SettingsTVC - Settings-->
         <scene sceneID="TYa-Ek-CqR">
             <objects>
-                <tableViewController id="wMW-lH-pGq" sceneMemberID="viewController">
+                <tableViewController id="wMW-lH-pGq" customClass="BKSettingsTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="VzW-Sj-Iiy">
                         <rect key="frame" x="0.0" y="44" width="300" height="220"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -482,6 +482,9 @@
                                 </cells>
                             </tableViewSection>
                         </sections>
+                        <connections>
+                            <outlet property="delegate" destination="wMW-lH-pGq" id="JH4-gw-cm5"/>
+                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="kDn-k7-zao"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

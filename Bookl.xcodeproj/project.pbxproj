@@ -115,6 +115,7 @@
 		A37877FD175E051D00B95A07 /* BKViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A37877FC175E051D00B95A07 /* BKViewManager.m */; };
 		A3787803175E0BAF00B95A07 /* BKReadlistView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3787802175E0BAF00B95A07 /* BKReadlistView.m */; };
 		A3787806175E0BBB00B95A07 /* BKSearchBookView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3787805175E0BBB00B95A07 /* BKSearchBookView.m */; };
+		A38F3DB31767DF0200A2FF84 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38F3DB21767DF0200A2FF84 /* iAd.framework */; };
 		A3E7B4B217667084006B05EC /* BKSettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7B4B117667084006B05EC /* BKSettingsTVC.m */; };
 /* End PBXBuildFile section */
 
@@ -338,6 +339,7 @@
 		A3787802175E0BAF00B95A07 /* BKReadlistView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKReadlistView.m; sourceTree = "<group>"; };
 		A3787804175E0BBB00B95A07 /* BKSearchBookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSearchBookView.h; sourceTree = "<group>"; };
 		A3787805175E0BBB00B95A07 /* BKSearchBookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSearchBookView.m; sourceTree = "<group>"; };
+		A38F3DB21767DF0200A2FF84 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		A3E7B4B017667084006B05EC /* BKSettingsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSettingsTVC.h; sourceTree = "<group>"; };
 		A3E7B4B117667084006B05EC /* BKSettingsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSettingsTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -347,6 +349,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A38F3DB31767DF0200A2FF84 /* iAd.framework in Frameworks */,
 				A330335217673F920016EACB /* libApptentiveConnect.a in Frameworks */,
 				A3303335176733940016EACB /* StoreKit.framework in Frameworks */,
 				A33033331767338B0016EACB /* SystemConfiguration.framework in Frameworks */,
@@ -759,6 +762,7 @@
 				A30D0DE0175E554E00AD1CE1 /* QuartzCore.framework */,
 				A30D0DDE175E550F00AD1CE1 /* MessageUI.framework */,
 				A30D0DDC175E550200AD1CE1 /* ImageIO.framework */,
+				A38F3DB21767DF0200A2FF84 /* iAd.framework */,
 				A30D0CF9175E515E00AD1CE1 /* PDFReader */,
 				A30D0CD9175E50FC00AD1CE1 /* AFNetworking */,
 				A37877E6175DFF8A00B95A07 /* ECSlidingViewController */,

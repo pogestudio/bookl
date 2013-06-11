@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <iAd/iAd.h>
 
 @protocol AdControlDelegate
 
@@ -14,12 +15,10 @@
 
 @end
 
-@interface TTAdHandler : NSObject
+@interface TTAdHandler : NSObject <ADInterstitialAdDelegate>
 
--(void)showFullScreenAdWithDelegate:(id<AdControlDelegate>)delegate;
-
-+(TTAdHandler*)sharedHandler;
-
-
+-(id)initWithAdDelegate:(id<AdControlDelegate>)delegate;
+-(BOOL)isAdLoaded;
+-(void)presentAd;
 
 @end

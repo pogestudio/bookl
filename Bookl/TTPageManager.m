@@ -27,6 +27,7 @@ static TTPageManager *_sharedManager;
     if (self) {
         self.savedPages = [[NSMutableDictionary alloc] init];
         _pagesRead = 0;
+        self.adHandler = [[TTAdHandler alloc] initWithAdDelegate:self];
     }
     return self;
 }
@@ -37,7 +38,7 @@ static TTPageManager *_sharedManager;
     //if we should show ads, do it here
     BOOL shouldShowAds = [self shouldShowAds];
     if (shouldShowAds) {
-        [[TTAdHandler sharedHandler] showFullScreenAdWithDelegate:self];
+        [self.adHandler presentAd];
         _pageBeneathAdvertisement = page;
     } else {
         [self startReadingPage:page];
@@ -91,17 +92,25 @@ static TTPageManager *_sharedManager;
 -(BOOL)shouldShowAds
 {
     BOOL shouldShowAds = NO;
-    if (_pagesRead == ADVERTISEMENT_FREE_PAGES) {
+    BOOL anAdIsLoaded = [self.adHandler isAdLoaded];
+    if (_pagesRead >= ADVERTISEMENT_FREE_PAGES && anAdIsLoaded) {
         shouldShowAds = YES;
         _pagesRead = 0;
     }
     return shouldShowAds;
 }
 
+-(void)reloadAds
+{
+    
+}
+
 #pragma mark AdControl delegate
 -(void)adIsDone
 {
     [self startReadingPage:_pageBeneathAdvertisement];
+    [self reloadAds];
 }
+
 
 @end

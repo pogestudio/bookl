@@ -23,7 +23,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    UINavigationController *navCon = (UINavigationController*)self.window.rootViewController;
+    UINavigationController *navCon = [self mainNavCon];
     ECSlidingViewController *slidingViewController = (ECSlidingViewController *)[navCon.viewControllers lastObject];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
     slidingViewController.topViewController = [storyboard instantiateViewControllerWithIdentifier:@"ViewManager"];
@@ -179,6 +179,14 @@
     ATConnect *connection = [ATConnect sharedConnection];
     connection.apiKey = kApptentiveAPIKey;
 
+}
+
+#pragma mark Stuff for easy use
+-(UINavigationController*)mainNavCon
+{
+    UINavigationController *main = (UINavigationController*)self.window.rootViewController;
+    NSAssert(main != nil, @"main navcon shouldn't be nil");
+    return main;
 }
 
 

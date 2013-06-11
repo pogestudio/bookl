@@ -107,6 +107,7 @@
 		A37877FD175E051D00B95A07 /* BKViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A37877FC175E051D00B95A07 /* BKViewManager.m */; };
 		A3787803175E0BAF00B95A07 /* BKReadlistView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3787802175E0BAF00B95A07 /* BKReadlistView.m */; };
 		A3787806175E0BBB00B95A07 /* BKSearchBookView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3787805175E0BBB00B95A07 /* BKSearchBookView.m */; };
+		A3E7B4B217667084006B05EC /* BKSettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7B4B117667084006B05EC /* BKSettingsTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -282,6 +283,8 @@
 		A3787802175E0BAF00B95A07 /* BKReadlistView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKReadlistView.m; sourceTree = "<group>"; };
 		A3787804175E0BBB00B95A07 /* BKSearchBookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSearchBookView.h; sourceTree = "<group>"; };
 		A3787805175E0BBB00B95A07 /* BKSearchBookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSearchBookView.m; sourceTree = "<group>"; };
+		A3E7B4B017667084006B05EC /* BKSettingsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSettingsTVC.h; sourceTree = "<group>"; };
+		A3E7B4B117667084006B05EC /* BKSettingsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSettingsTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -765,6 +768,7 @@
 			children = (
 				A37877F3175E020300B95A07 /* BKLeftMenu.h */,
 				A37877F4175E020300B95A07 /* BKLeftMenu.m */,
+				A3E7B4AF17667069006B05EC /* SettingsPopover */,
 			);
 			name = LeftMenu;
 			sourceTree = "<group>";
@@ -815,6 +819,15 @@
 				A30D0DFC175E879200AD1CE1 /* ReadlistView */,
 			);
 			name = Readlist;
+			sourceTree = "<group>";
+		};
+		A3E7B4AF17667069006B05EC /* SettingsPopover */ = {
+			isa = PBXGroup;
+			children = (
+				A3E7B4B017667084006B05EC /* BKSettingsTVC.h */,
+				A3E7B4B117667084006B05EC /* BKSettingsTVC.m */,
+			);
+			name = SettingsPopover;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -972,6 +985,7 @@
 				A349C63E1760DF6600B7D8BE /* TTUser.m in Sources */,
 				A349C6441760DFF200B7D8BE /* TTLoginVC.m in Sources */,
 				A349C655176126CD00B7D8BE /* BKReadlistTVHeader.m in Sources */,
+				A3E7B4B217667084006B05EC /* BKSettingsTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

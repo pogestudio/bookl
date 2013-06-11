@@ -14,6 +14,7 @@
 
 @interface BKLeftMenu : UITableViewController
 
+
 @property (weak) BKViewManager *viewManager;
 
 @end

@@ -14,6 +14,7 @@
 #import "TTUser.h"
 
 #import "ATConnect.h"
+#import "Flurry.h"
 
 @implementation BKAppDelegate
 
@@ -171,7 +172,7 @@
     //[TTUser makeSureUserIsLoggedIn];
 }
 
-#pragma mark Apptentive
+#pragma mark Extra libraries
 -(void)startUpApptentive
 {
     NSString *kApptentiveAPIKey =
@@ -179,6 +180,12 @@
     ATConnect *connection = [ATConnect sharedConnection];
     connection.apiKey = kApptentiveAPIKey;
 
+}
+
+-(void)startUpFlurryAnalytics
+{
+    NSString *kFlurryAPIKey = @"RGGXJ8RRNQYNMZ6FP4KS";
+    [Flurry startSession:kFlurryAPIKey];
 }
 
 

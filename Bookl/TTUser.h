@@ -15,4 +15,6 @@
 
 +(void)makeSureUserIsLoggedIn;
 
+-(void)logoutUser;
+
 @end

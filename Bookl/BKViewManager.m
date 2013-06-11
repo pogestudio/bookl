@@ -152,4 +152,9 @@ static BOOL _viewHasBeenShowedOnce;
     UITableViewController *topViewController = (UITableViewController*)_currentVC;
     [topViewController.tableView reloadData];
 }
+
+-(UIViewController*)middleTable
+{
+    return _currentVC;
+}
 @end

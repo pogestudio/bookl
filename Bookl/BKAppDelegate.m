@@ -13,6 +13,8 @@
 #import "TTBookManager.h"
 #import "TTUser.h"
 
+#import "ATConnect.h"
+
 @implementation BKAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -35,6 +37,7 @@
                                    userInfo:nil
                                     repeats:NO];
 
+    
 
     return YES;
 }
@@ -167,5 +170,16 @@
 {
     //[TTUser makeSureUserIsLoggedIn];
 }
+
+#pragma mark Apptentive
+-(void)startUpApptentive
+{
+    NSString *kApptentiveAPIKey =
+    @"ad5f8f4ca5fd8506e767aa9336e9cf3c44b7419f584ec2f497904253067000ca";
+    ATConnect *connection = [ATConnect sharedConnection];
+    connection.apiKey = kApptentiveAPIKey;
+
+}
+
 
 @end

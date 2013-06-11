@@ -81,6 +81,11 @@
 		A30D0DFB175E7D7C00AD1CE1 /* NSDate+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DFA175E7D7C00AD1CE1 /* NSDate+Compare.m */; };
 		A30D0DFF175E883700AD1CE1 /* BKAllReadlistsViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DFE175E883700AD1CE1 /* BKAllReadlistsViewer.m */; };
 		A30D0E03175E893600AD1CE1 /* BKAllReadlistsTVHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0E02175E893600AD1CE1 /* BKAllReadlistsTVHeader.m */; };
+		A3303331176733810016EACB /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3303330176733810016EACB /* CoreTelephony.framework */; };
+		A33033331767338B0016EACB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33033321767338B0016EACB /* SystemConfiguration.framework */; };
+		A3303335176733940016EACB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3303334176733940016EACB /* StoreKit.framework */; };
+		A330335217673F920016EACB /* libApptentiveConnect.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3303349176734300016EACB /* libApptentiveConnect.a */; };
+		A330335317673FD10016EACB /* ApptentiveResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A330334D176734300016EACB /* ApptentiveResources.bundle */; };
 		A349C63E1760DF6600B7D8BE /* TTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A349C63D1760DF6600B7D8BE /* TTUser.m */; };
 		A349C6441760DFF200B7D8BE /* TTLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A349C6431760DFF200B7D8BE /* TTLoginVC.m */; };
 		A349C6491760E0F600B7D8BE /* books_clear.png in Resources */ = {isa = PBXBuildFile; fileRef = A349C6451760E0F600B7D8BE /* books_clear.png */; };
@@ -109,6 +114,44 @@
 		A3787806175E0BBB00B95A07 /* BKSearchBookView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3787805175E0BBB00B95A07 /* BKSearchBookView.m */; };
 		A3E7B4B217667084006B05EC /* BKSettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7B4B117667084006B05EC /* BKSettingsTVC.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A3303348176734300016EACB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3303342176734300016EACB /* ApptentiveConnect.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 496DC37F1333D35600743F65;
+			remoteInfo = ApptentiveConnect;
+		};
+		A330334A176734300016EACB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3303342176734300016EACB /* ApptentiveConnect.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 496DC38C1333D35600743F65;
+			remoteInfo = ApptentiveConnectTests;
+		};
+		A330334C176734300016EACB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3303342176734300016EACB /* ApptentiveConnect.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 49D1118C13341A7C00603373;
+			remoteInfo = ApptentiveResources;
+		};
+		A330334E17673F830016EACB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3303342176734300016EACB /* ApptentiveConnect.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 496DC37E1333D35600743F65;
+			remoteInfo = ApptentiveConnect;
+		};
+		A330335017673F830016EACB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3303342176734300016EACB /* ApptentiveConnect.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 49D1118B13341A7C00603373;
+			remoteInfo = ApptentiveResources;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A30D0CC6175E4F5300AD1CE1 /* TTBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBook.h; sourceTree = "<group>"; };
@@ -242,6 +285,11 @@
 		A30D0DFE175E883700AD1CE1 /* BKAllReadlistsViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKAllReadlistsViewer.m; sourceTree = "<group>"; };
 		A30D0E01175E893600AD1CE1 /* BKAllReadlistsTVHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKAllReadlistsTVHeader.h; sourceTree = "<group>"; };
 		A30D0E02175E893600AD1CE1 /* BKAllReadlistsTVHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKAllReadlistsTVHeader.m; sourceTree = "<group>"; };
+		A3303330176733810016EACB /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		A33033321767338B0016EACB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A3303334176733940016EACB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		A3303342176734300016EACB /* ApptentiveConnect.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ApptentiveConnect.xcodeproj; path = Bookl/ApptentiveConnect/ApptentiveConnect.xcodeproj; sourceTree = "<group>"; };
+		A3303354176740020016EACB /* ATConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATConnect.h; path = Bookl/ApptentiveConnect/source/ATConnect.h; sourceTree = "<group>"; };
 		A349C63C1760DF6600B7D8BE /* TTUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTUser.h; sourceTree = "<group>"; };
 		A349C63D1760DF6600B7D8BE /* TTUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTUser.m; sourceTree = "<group>"; };
 		A349C6421760DFF200B7D8BE /* TTLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLoginVC.h; sourceTree = "<group>"; };
@@ -292,6 +340,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A330335217673F920016EACB /* libApptentiveConnect.a in Frameworks */,
+				A3303335176733940016EACB /* StoreKit.framework in Frameworks */,
+				A33033331767338B0016EACB /* SystemConfiguration.framework in Frameworks */,
+				A3303331176733810016EACB /* CoreTelephony.framework in Frameworks */,
 				A30D0DE1175E554F00AD1CE1 /* QuartzCore.framework in Frameworks */,
 				A30D0DDF175E550F00AD1CE1 /* MessageUI.framework in Frameworks */,
 				A30D0DDD175E550200AD1CE1 /* ImageIO.framework in Frameworks */,
@@ -604,6 +656,24 @@
 			name = AllRLHeader;
 			sourceTree = "<group>";
 		};
+		A3303343176734300016EACB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A3303349176734300016EACB /* libApptentiveConnect.a */,
+				A330334B176734300016EACB /* ApptentiveConnectTests.octest */,
+				A330334D176734300016EACB /* ApptentiveResources.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A3303355176756E10016EACB /* FilesFromOtherFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3303354176740020016EACB /* ATConnect.h */,
+			);
+			name = FilesFromOtherFrameworks;
+			sourceTree = "<group>";
+		};
 		A349C63B1760DF5E00B7D8BE /* LoginRelated */ = {
 			isa = PBXGroup;
 			children = (
@@ -663,6 +733,11 @@
 		A37877AF175DF9CB00B95A07 = {
 			isa = PBXGroup;
 			children = (
+				A3303355176756E10016EACB /* FilesFromOtherFrameworks */,
+				A3303342176734300016EACB /* ApptentiveConnect.xcodeproj */,
+				A3303334176733940016EACB /* StoreKit.framework */,
+				A33033321767338B0016EACB /* SystemConfiguration.framework */,
+				A3303330176733810016EACB /* CoreTelephony.framework */,
 				A30D0DE0175E554E00AD1CE1 /* QuartzCore.framework */,
 				A30D0DDE175E550F00AD1CE1 /* MessageUI.framework */,
 				A30D0DDC175E550200AD1CE1 /* ImageIO.framework */,
@@ -753,8 +828,8 @@
 		A37877EE175E011100B95A07 /* ContainerViews */ = {
 			isa = PBXGroup;
 			children = (
-				A30D0DEA175E655500AD1CE1 /* SharedClasses */,
 				A37877FA175E04F600B95A07 /* ViewManager */,
+				A30D0DEA175E655500AD1CE1 /* SharedClasses */,
 				A37877FE175E082100B95A07 /* ContentSuperclass */,
 				A3787800175E098500B95A07 /* Readlist */,
 				A37877FF175E097C00B95A07 /* SearchBook */,
@@ -844,6 +919,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				A330334F17673F830016EACB /* PBXTargetDependency */,
+				A330335117673F830016EACB /* PBXTargetDependency */,
 			);
 			name = Bookl;
 			productName = Bookl;
@@ -870,12 +947,42 @@
 			mainGroup = A37877AF175DF9CB00B95A07;
 			productRefGroup = A37877B9175DF9CB00B95A07 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A3303343176734300016EACB /* Products */;
+					ProjectRef = A3303342176734300016EACB /* ApptentiveConnect.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				A37877B7175DF9CB00B95A07 /* Bookl */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A3303349176734300016EACB /* libApptentiveConnect.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libApptentiveConnect.a;
+			remoteRef = A3303348176734300016EACB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A330334B176734300016EACB /* ApptentiveConnectTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ApptentiveConnectTests.octest;
+			remoteRef = A330334A176734300016EACB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A330334D176734300016EACB /* ApptentiveResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ApptentiveResources.bundle;
+			remoteRef = A330334C176734300016EACB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A37877B6175DF9CB00B95A07 /* Resources */ = {
@@ -906,6 +1013,7 @@
 				A349C64A1760E0F600B7D8BE /* blurry_books.png in Resources */,
 				A349C64B1760E0F600B7D8BE /* Bookle.png in Resources */,
 				A349C64C1760E0F600B7D8BE /* ipad_logo.png in Resources */,
+				A330335317673FD10016EACB /* ApptentiveResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -991,6 +1099,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A330334F17673F830016EACB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ApptentiveConnect;
+			targetProxy = A330334E17673F830016EACB /* PBXContainerItemProxy */;
+		};
+		A330335117673F830016EACB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ApptentiveResources;
+			targetProxy = A330335017673F830016EACB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		A37877C6175DF9CB00B95A07 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -1075,6 +1196,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bookl/Bookl-Prefix.pch";
 				INFOPLIST_FILE = "Bookl/Bookl-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1086,6 +1211,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bookl/Bookl-Prefix.pch";
 				INFOPLIST_FILE = "Bookl/Bookl-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

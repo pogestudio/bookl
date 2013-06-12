@@ -269,20 +269,22 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 +(BOOL)isConnectedToWifi
 {
     BOOL isConnected = YES;
-    if ([[Reachability reachabilityForLocalWiFi] currentReachabilityStatus] != ReachableViaWiFi) {
+    BOOL wifiExists = !([[Reachability reachabilityForLocalWiFi] currentReachabilityStatus] != ReachableViaWiFi);
+    if (!wifiExists) {
         isConnected = NO;
     }
+    
     return isConnected;
 }
 
-+(BOOL)falseAndMessageIfNotConnectedToWifi
++(BOOL)isConnectedToInternet
 {
-    BOOL isConnected = [Reachability isConnectedToWifi];
-    if (!isConnected) {
-        // open an alert with just an OK button
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"WiFi Needed" message:@"You need to connect to a WiFi to download books"
-                                                       delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
+    BOOL isConnected = YES;
+    //check both regular connection and wifi connection
+    BOOL wifiExists = [Reachability isConnectedToWifi];
+    BOOL WWANExists = !([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != ReachableViaWWAN);
+    if (!wifiExists && !WWANExists ) {
+        isConnected = NO;
     }
     return isConnected;
 }

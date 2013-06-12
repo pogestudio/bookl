@@ -7,12 +7,13 @@
 //
 
 #import "BKInAppPurchaseManager.h"
+#import "SKProduct+LocalizedPrice.h"
 
 @implementation BKInAppPurchaseManager
 
 - (void)requestIAP
 {
-    NSSet *productIdentifiers = [NSSet setWithObject:@"com.pogestudio.bookl.onemonthwithoutads" ];
+    NSSet *productIdentifiers = [NSSet setWithObject:@"com.pogestudio.bookl.onemonthwithoutads"];
     productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:productIdentifiers];
     productsRequest.delegate = self;
     [productsRequest start];
@@ -29,7 +30,7 @@
     {
         NSLog(@"Product title: %@" , adRemoval.localizedTitle);
         NSLog(@"Product description: %@" , adRemoval.localizedDescription);
-        NSLog(@"Product price: %@" , adRemoval.price);
+        NSLog(@"Product price: %@" , adRemoval.localizedPrice);
         NSLog(@"Product id: %@" , adRemoval.productIdentifier);
     }
     

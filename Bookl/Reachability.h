@@ -64,7 +64,7 @@ typedef enum {
 
 
 //My own :D
-+(BOOL)isConnectedToWifi;
++(BOOL)falseAndMessageIfNotConnectedToWifi;
 
 //reachabilityWithHostName- Use to check the reachability of a particular host name. 
 + (Reachability*) reachabilityWithHostName: (NSString*) hostName;

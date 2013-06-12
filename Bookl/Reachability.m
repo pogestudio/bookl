@@ -274,4 +274,16 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     }
     return isConnected;
 }
+
++(BOOL)falseAndMessageIfNotConnectedToWifi
+{
+    BOOL isConnected = [Reachability isConnectedToWifi];
+    if (!isConnected) {
+        // open an alert with just an OK button
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"WiFi Needed" message:@"You need to connect to a WiFi to download books"
+                                                       delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
+    return isConnected;
+}
 @end

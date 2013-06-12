@@ -12,6 +12,8 @@
 #import "TTBook.h"
 #import "Book+serverMethods.h"
 
+#import "Reachability.h"
+
 @implementation TTBookManager
 
 static TTBookManager *_sharedManager;
@@ -27,19 +29,23 @@ static TTBookManager *_sharedManager;
 -(void)startReadingBook:(id)book withProgressDelegate:(id)delegate
 {
     //if booktoopen exists downloaded, open it.
-    //if not, open it.
+    //if not, check if Wifi
+    
+    BOOL hasWifi = [Reachability falseAndMessageIfNotConnectedToWifi];
+    
     if ([book isKindOfClass:[TTBook class]]) {
         TTBook *bookToRead = (TTBook*)book;
         if ([bookToRead isDownloaded]) {
             [[TTBookOpener sharedOpener] openBook:bookToRead inNavCon:_navConToPresentReaderIn];
-        } else {
+        } else if(hasWifi){
             [bookToRead download];
         }
     } else if([book isKindOfClass:[Book class]]){
         Book *bookToRead = (Book*)book;
         if ([bookToRead isDownloaded]) {
             [[TTBookOpener sharedOpener] openBook:bookToRead inNavCon:_navConToPresentReaderIn];
-        } else {
+        } else if(hasWifi){
+            
             [bookToRead downloadWithProgressBarDelegate:delegate];
         }
     } else {

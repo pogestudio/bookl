@@ -9,6 +9,8 @@
 #import "TTAdHandler.h"
 #import "TTFullPageAdVC.h"
 
+#import "FlurryAds.h"
+
 
 
 @interface TTAdHandler()
@@ -21,7 +23,10 @@
 @property (nonatomic, strong) MobFoxVideoInterstitialViewController *mobFoxAdVC;
 @property (assign) BOOL mobFoxAdLoaded;
 
+
 @end
+
+#define kFlurryInterstitialAdSpaceName @"INTERSTITIAL_BOOK"
 
 @implementation TTAdHandler
 
@@ -43,26 +48,11 @@
     } else if (self.fullScreenIAd.loaded)
     {
         [self presentIAd];
+    } else if ([self flurryAdIsReady]) {
+        [self presentFlurryAd];
     } else {
         NSLog(@"NO AD IS LOADED WTF");
     }
-}
-
--(void)presentIAd
-{
-    UINavigationController *mainNavCon = [kAppDelegate mainNavCon];
-    UIViewController *presentingVC = [mainNavCon.viewControllers lastObject];
-    [self.fullScreenIAd presentFromViewController:presentingVC];
-    
-}
-
--(void)presentMobFox
-{
-    UINavigationController *mainNavCon = [kAppDelegate mainNavCon];
-    UIViewController *presentingVC = [mainNavCon.viewControllers lastObject];
-    [presentingVC.view addSubview:self.mobFoxAdVC.view];
-    [self.mobFoxAdVC presentAd:_lastLoadedMobfoxType];
-    
 }
 
 -(void)returnToBook
@@ -76,6 +66,7 @@
 {
     [self reloadIAd];
     [self reloadMobfox];
+    [self reloadFlurryAd];
 }
 
 #pragma mark iAd reload and Delegate
@@ -83,6 +74,14 @@
 {
     self.fullScreenIAd  = [[ADInterstitialAd alloc] init];
     self.fullScreenIAd.delegate = self;
+}
+
+-(void)presentIAd
+{
+    UINavigationController *mainNavCon = [kAppDelegate mainNavCon];
+    UIViewController *presentingVC = [mainNavCon.viewControllers lastObject];
+    [self.fullScreenIAd presentFromViewController:presentingVC];
+    
 }
 
 -(void)interstitialAdActionDidFinish:(ADInterstitialAd *)interstitialAd
@@ -115,6 +114,15 @@
     self.mobFoxAdLoaded = NO;
 }
 
+-(void)presentMobFox
+{
+    UINavigationController *mainNavCon = [kAppDelegate mainNavCon];
+    UIViewController *presentingVC = [mainNavCon.viewControllers lastObject];
+    [presentingVC.view addSubview:self.mobFoxAdVC.view];
+    [self.mobFoxAdVC presentAd:_lastLoadedMobfoxType];
+    
+}
+
 -(NSString*)publisherIdForMobFoxVideoInterstitialView:(MobFoxVideoInterstitialViewController *)videoInterstitial
 {
     return @"27e3f27b131a72f44c22b502a8207273";
@@ -136,5 +144,46 @@
 {
     [self reloadMobfox];
     [self returnToBook];
+}
+
+#pragma mark Flurry reload and delegate
+-(void)reloadFlurryAd
+{
+    UINavigationController *mainNavCon = [kAppDelegate mainNavCon];
+    UIViewController *presentingVC = [mainNavCon.viewControllers lastObject];
+    
+    [FlurryAds fetchAdForSpace:kFlurryInterstitialAdSpaceName
+                         frame:presentingVC.view.frame size:FULLSCREEN];
+    
+    // Register yourself as a delegate for ad callbacks
+	[FlurryAds setAdDelegate:self];
+}
+
+-(void)presentFlurryAd
+{
+    UINavigationController *mainNavCon = [kAppDelegate mainNavCon];
+    UIViewController *presentingVC = [mainNavCon.viewControllers lastObject];
+    
+    [FlurryAds displayAdForSpace:kFlurryInterstitialAdSpaceName
+                          onView:presentingVC.view];
+}
+
+- (void)spaceDidDismiss:(NSString *)adSpace interstitial:(BOOL)interstitial {
+    if (interstitial) {
+        [self reloadFlurryAd];
+        [self returnToBook];
+    }
+}
+
+-(BOOL)flurryAdIsReady
+{
+    BOOL isReady = [FlurryAds adReadyForSpace:kFlurryInterstitialAdSpaceName];
+    return isReady;
+}
+
+- (void) spaceDidFailToReceiveAd:(NSString*)adSpace error:(NSError *)error
+{
+    NSLog(@"failed to receive mobfox: %@",[error localizedDescription]);
+    [self reloadFlurryAd];
 }
 @end

@@ -14,7 +14,10 @@
 #import "TTUser.h"
 
 #import "ATConnect.h"
+
 #import "Flurry.h"
+#import "FlurryAds.h"
+
 
 @implementation BKAppDelegate
 
@@ -40,6 +43,7 @@
 
     [self startUpApptentive];
     [self startUpFlurryAnalytics];
+    [self startupFlurryAds];
 
     return YES;
 }
@@ -195,6 +199,15 @@
 {
     NSString *kFlurryAPIKey = @"RGGXJ8RRNQYNMZ6FP4KS";
     [Flurry startSession:kFlurryAPIKey];
+}
+
+-(void)startupFlurryAds
+{
+    UINavigationController *mainNavCon = [self mainNavCon];
+    UIViewController *aViewController = [mainNavCon.viewControllers lastObject];
+    [FlurryAds initialize:aViewController];
+    [FlurryAds enableTestAds:YES];
+
 }
 
 

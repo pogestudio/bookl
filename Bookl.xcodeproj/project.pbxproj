@@ -122,6 +122,7 @@
 		A38F3DD7176881EB00A2FF84 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38F3DD6176881EB00A2FF84 /* MediaPlayer.framework */; };
 		A38F3DD9176881F400A2FF84 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38F3DD8176881F400A2FF84 /* CoreLocation.framework */; };
 		A38F3DDB1768820A00A2FF84 /* MRAID.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A38F3DDA1768820A00A2FF84 /* MRAID.bundle */; };
+		A38F3DE817689B8D00A2FF84 /* libFlurryAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A38F3DE717689B8D00A2FF84 /* libFlurryAds.a */; };
 		A3E7B4B217667084006B05EC /* BKSettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7B4B117667084006B05EC /* BKSettingsTVC.m */; };
 /* End PBXBuildFile section */
 
@@ -353,6 +354,9 @@
 		A38F3DD6176881EB00A2FF84 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		A38F3DD8176881F400A2FF84 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A38F3DDA1768820A00A2FF84 /* MRAID.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MRAID.bundle; sourceTree = "<group>"; };
+		A38F3DE517689B8D00A2FF84 /* FlurryAdDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlurryAdDelegate.h; path = Bookl/FlurryAds/FlurryAdDelegate.h; sourceTree = "<group>"; };
+		A38F3DE617689B8D00A2FF84 /* FlurryAds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlurryAds.h; path = Bookl/FlurryAds/FlurryAds.h; sourceTree = "<group>"; };
+		A38F3DE717689B8D00A2FF84 /* libFlurryAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurryAds.a; path = Bookl/FlurryAds/libFlurryAds.a; sourceTree = "<group>"; };
 		A3E7B4B017667084006B05EC /* BKSettingsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSettingsTVC.h; sourceTree = "<group>"; };
 		A3E7B4B117667084006B05EC /* BKSettingsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSettingsTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -379,6 +383,7 @@
 				A37877C2175DF9CB00B95A07 /* CoreData.framework in Frameworks */,
 				A38F3DD21768817A00A2FF84 /* MobFox.framework in Frameworks */,
 				A34F111617679BBB0036AE4E /* libFlurry.a in Frameworks */,
+				A38F3DE817689B8D00A2FF84 /* libFlurryAds.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,8 +702,8 @@
 		A3303355176756E10016EACB /* FilesFromOtherFrameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A34F111417679BBB0036AE4E /* Flurry.h */,
-				A34F111517679BBB0036AE4E /* libFlurry.a */,
+				A38F3DE417689B3800A2FF84 /* FlurryAds */,
+				A38F3DDF17689ACD00A2FF84 /* FlurryAnalytics */,
 				A3303354176740020016EACB /* ATConnect.h */,
 			);
 			name = FilesFromOtherFrameworks;
@@ -942,6 +947,25 @@
 				A30D0DFC175E879200AD1CE1 /* ReadlistView */,
 			);
 			name = Readlist;
+			sourceTree = "<group>";
+		};
+		A38F3DDF17689ACD00A2FF84 /* FlurryAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				A34F111417679BBB0036AE4E /* Flurry.h */,
+				A34F111517679BBB0036AE4E /* libFlurry.a */,
+			);
+			name = FlurryAnalytics;
+			sourceTree = "<group>";
+		};
+		A38F3DE417689B3800A2FF84 /* FlurryAds */ = {
+			isa = PBXGroup;
+			children = (
+				A38F3DE517689B8D00A2FF84 /* FlurryAdDelegate.h */,
+				A38F3DE617689B8D00A2FF84 /* FlurryAds.h */,
+				A38F3DE717689B8D00A2FF84 /* libFlurryAds.a */,
+			);
+			name = FlurryAds;
 			sourceTree = "<group>";
 		};
 		A3E7B4AF17667069006B05EC /* SettingsPopover */ = {
@@ -1255,6 +1279,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Bookl/Flurry\"",
+					"\"$(SRCROOT)/Bookl/FlurryAds\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1278,6 +1303,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Bookl/Flurry\"",
+					"\"$(SRCROOT)/Bookl/FlurryAds\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",

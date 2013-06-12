@@ -199,6 +199,8 @@
 {
     NSString *kFlurryAPIKey = @"RGGXJ8RRNQYNMZ6FP4KS";
     [Flurry startSession:kFlurryAPIKey];
+    [Flurry setDebugLogEnabled:YES];
+
 }
 
 -(void)startupFlurryAds
@@ -207,8 +209,6 @@
     UIViewController *aViewController = [mainNavCon.viewControllers lastObject];
     [FlurryAds initialize:aViewController];
     [FlurryAds enableTestAds:YES];
-
 }
-
 
 @end

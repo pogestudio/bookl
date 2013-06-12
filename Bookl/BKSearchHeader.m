@@ -48,6 +48,7 @@
 -(void)searchWithTextFromSearchBar:(NSString*)searchText
 {
     NSLog(@"WILL SEARCH FOR TEXT: %@",[searchText urlencode]);
+    [Flurry logEvent:@"Searching"];
     
     TTReadList *newReadlist = [[TTReadList alloc] init];
     newReadlist.delegate = self;

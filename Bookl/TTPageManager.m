@@ -92,8 +92,7 @@ static TTPageManager *_sharedManager;
 -(BOOL)shouldShowAds
 {
     BOOL shouldShowAds = NO;
-    BOOL anAdIsLoaded = [self.adHandler isAdLoaded];
-    if (_pagesRead >= ADVERTISEMENT_FREE_PAGES && anAdIsLoaded) {
+    if (_pagesRead >= ADVERTISEMENT_FREE_PAGES) {
         shouldShowAds = YES;
         _pagesRead = 0;
     }

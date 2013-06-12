@@ -10,10 +10,16 @@
 #import "TTFullPageAdVC.h"
 
 
+
 @interface TTAdHandler()
+{
+    MobFoxAdType _lastLoadedMobfoxType;
+}
 
 @property (weak) id<AdControlDelegate> pageManager;
 @property (strong) ADInterstitialAd *fullScreenIAd;
+@property (nonatomic, strong) MobFoxVideoInterstitialViewController *mobFoxAdVC;
+@property (assign) BOOL mobFoxAdLoaded;
 
 @end
 
@@ -29,52 +35,106 @@
     return self;
 }
 
+#pragma mark presentation
 -(void)presentAd
+{
+    if (self.mobFoxAdLoaded) {
+        [self presentMobFox];
+    } else if (self.fullScreenIAd.loaded)
+    {
+        [self presentIAd];
+    } else {
+        NSLog(@"NO AD IS LOADED WTF");
+    }
+}
+
+-(void)presentIAd
 {
     UINavigationController *mainNavCon = [kAppDelegate mainNavCon];
     UIViewController *presentingVC = [mainNavCon.viewControllers lastObject];
     [self.fullScreenIAd presentFromViewController:presentingVC];
+    
 }
 
--(BOOL)isAdLoaded
+-(void)presentMobFox
 {
-    BOOL IAdLoaded = self.fullScreenIAd.loaded;
-    return IAdLoaded;
+    UINavigationController *mainNavCon = [kAppDelegate mainNavCon];
+    UIViewController *presentingVC = [mainNavCon.viewControllers lastObject];
+    [presentingVC.view addSubview:self.mobFoxAdVC.view];
+    [self.mobFoxAdVC presentAd:_lastLoadedMobfoxType];
+    
 }
 
 -(void)returnToBook
 {
-    [self reloadAds];
-}
-
-#pragma mark Interstitial Delegate
--(void)interstitialAdActionDidFinish:(ADInterstitialAd *)interstitialAd
-{
-    [self returnToBook];
-}
-
--(void)interstitialAdDidUnload:(ADInterstitialAd *)interstitialAd
-{
-    [self returnToBook];
-}
-
--(void)interstitialAd:(ADInterstitialAd *)interstitialAd didFailWithError:(NSError *)error
-{
-    NSLog(@"ad failed with error: %@",error);
-    [self reloadIad];
+    [self.pageManager adIsDone];
 }
 
 #pragma mark Ad Fillup Logic
 
 -(void)reloadAds
 {
-    [self reloadIad];
+    [self reloadIAd];
+    [self reloadMobfox];
 }
 
--(void)reloadIad
+#pragma mark iAd reload and Delegate
+-(void)reloadIAd
 {
     self.fullScreenIAd  = [[ADInterstitialAd alloc] init];
     self.fullScreenIAd.delegate = self;
 }
 
+-(void)interstitialAdActionDidFinish:(ADInterstitialAd *)interstitialAd
+{
+    [self reloadIAd];
+    [self returnToBook];
+}
+
+-(void)interstitialAdDidUnload:(ADInterstitialAd *)interstitialAd
+{
+    [self reloadIAd];
+    [self returnToBook];
+}
+
+-(void)interstitialAd:(ADInterstitialAd *)interstitialAd didFailWithError:(NSError *)error
+{
+    NSLog(@"iAd failed with error: %@",[error localizedDescription]);
+    [self reloadIAd];
+}
+
+#pragma mark MobFox reload and delegate
+-(void)reloadMobfox
+{
+    self.mobFoxAdVC = [[MobFoxVideoInterstitialViewController alloc] init];
+    self.mobFoxAdVC.delegate = self;
+    self.mobFoxAdVC.locationAwareAdverts = YES;
+    
+    self.mobFoxAdVC.requestURL = @"http://my.mobfox.com/vrequest.php";
+    [self.mobFoxAdVC requestAd];
+    self.mobFoxAdLoaded = NO;
+}
+
+-(NSString*)publisherIdForMobFoxVideoInterstitialView:(MobFoxVideoInterstitialViewController *)videoInterstitial
+{
+    return @"27e3f27b131a72f44c22b502a8207273";
+}
+
+-(void)mobfoxVideoInterstitialViewDidLoadMobFoxAd:(MobFoxVideoInterstitialViewController *)videoInterstitial advertTypeLoaded:(MobFoxAdType)advertType
+{
+    self.mobFoxAdLoaded = YES;
+    _lastLoadedMobfoxType = advertType;
+}
+
+-(void)mobfoxVideoInterstitialView:(MobFoxVideoInterstitialViewController *)banner didFailToReceiveAdWithError:(NSError *)error
+{
+    NSLog(@"failed to receive mobfox: %@",[error localizedDescription]);
+    [self reloadMobfox];
+}
+
+-(void)mobfoxVideoInterstitialViewDidDismissScreen:(MobFoxVideoInterstitialViewController *)videoInterstitial
+{
+    [self reloadMobfox];
+    [self returnToBook];
+}
 @end

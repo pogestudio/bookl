@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <iAd/iAd.h>
+#import <MobFox/MobFox.h>
 
 @protocol AdControlDelegate
 
@@ -15,10 +16,9 @@
 
 @end
 
-@interface TTAdHandler : NSObject <ADInterstitialAdDelegate>
+@interface TTAdHandler : NSObject <ADInterstitialAdDelegate,MobFoxVideoInterstitialViewControllerDelegate>
 
 -(id)initWithAdDelegate:(id<AdControlDelegate>)delegate;
--(BOOL)isAdLoaded;
 -(void)presentAd;
 
 @end

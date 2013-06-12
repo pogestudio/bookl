@@ -96,6 +96,7 @@
 		A349C64C1760E0F600B7D8BE /* ipad_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A349C6481760E0F600B7D8BE /* ipad_logo.png */; };
 		A349C655176126CD00B7D8BE /* BKReadlistTVHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A349C654176126CD00B7D8BE /* BKReadlistTVHeader.m */; };
 		A34F1113176771410036AE4E /* BKSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A34F1112176771410036AE4E /* BKSlidingViewController.m */; };
+		A34F111617679BBB0036AE4E /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A34F111517679BBB0036AE4E /* libFlurry.a */; };
 		A37877BC175DF9CB00B95A07 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37877BB175DF9CB00B95A07 /* UIKit.framework */; };
 		A37877BE175DF9CB00B95A07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37877BD175DF9CB00B95A07 /* Foundation.framework */; };
 		A37877C0175DF9CB00B95A07 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37877BF175DF9CB00B95A07 /* CoreGraphics.framework */; };
@@ -115,6 +116,13 @@
 		A37877FD175E051D00B95A07 /* BKViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A37877FC175E051D00B95A07 /* BKViewManager.m */; };
 		A3787803175E0BAF00B95A07 /* BKReadlistView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3787802175E0BAF00B95A07 /* BKReadlistView.m */; };
 		A3787806175E0BBB00B95A07 /* BKSearchBookView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3787805175E0BBB00B95A07 /* BKSearchBookView.m */; };
+		A38F3DB31767DF0200A2FF84 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38F3DB21767DF0200A2FF84 /* iAd.framework */; };
+		A38F3DD21768817A00A2FF84 /* MobFox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38F3DD11768817A00A2FF84 /* MobFox.framework */; };
+		A38F3DD5176881DF00A2FF84 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38F3DD4176881DF00A2FF84 /* AdSupport.framework */; };
+		A38F3DD7176881EB00A2FF84 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38F3DD6176881EB00A2FF84 /* MediaPlayer.framework */; };
+		A38F3DD9176881F400A2FF84 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38F3DD8176881F400A2FF84 /* CoreLocation.framework */; };
+		A38F3DDB1768820A00A2FF84 /* MRAID.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A38F3DDA1768820A00A2FF84 /* MRAID.bundle */; };
+		A38F3DE817689B8D00A2FF84 /* libFlurryAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A38F3DE717689B8D00A2FF84 /* libFlurryAds.a */; };
 		A3E7B4B217667084006B05EC /* BKSettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7B4B117667084006B05EC /* BKSettingsTVC.m */; };
 /* End PBXBuildFile section */
 
@@ -307,6 +315,8 @@
 		A349C654176126CD00B7D8BE /* BKReadlistTVHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKReadlistTVHeader.m; sourceTree = "<group>"; };
 		A34F1111176771410036AE4E /* BKSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSlidingViewController.h; sourceTree = "<group>"; };
 		A34F1112176771410036AE4E /* BKSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSlidingViewController.m; sourceTree = "<group>"; };
+		A34F111417679BBB0036AE4E /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Flurry.h; path = Bookl/Flurry/Flurry.h; sourceTree = "<group>"; };
+		A34F111517679BBB0036AE4E /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry.a; path = Bookl/Flurry/libFlurry.a; sourceTree = "<group>"; };
 		A37877B8175DF9CB00B95A07 /* Bookl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37877BB175DF9CB00B95A07 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A37877BD175DF9CB00B95A07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -338,6 +348,15 @@
 		A3787802175E0BAF00B95A07 /* BKReadlistView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKReadlistView.m; sourceTree = "<group>"; };
 		A3787804175E0BBB00B95A07 /* BKSearchBookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSearchBookView.h; sourceTree = "<group>"; };
 		A3787805175E0BBB00B95A07 /* BKSearchBookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSearchBookView.m; sourceTree = "<group>"; };
+		A38F3DB21767DF0200A2FF84 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		A38F3DD11768817A00A2FF84 /* MobFox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobFox.framework; sourceTree = "<group>"; };
+		A38F3DD4176881DF00A2FF84 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		A38F3DD6176881EB00A2FF84 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		A38F3DD8176881F400A2FF84 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A38F3DDA1768820A00A2FF84 /* MRAID.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MRAID.bundle; sourceTree = "<group>"; };
+		A38F3DE517689B8D00A2FF84 /* FlurryAdDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlurryAdDelegate.h; path = Bookl/FlurryAds/FlurryAdDelegate.h; sourceTree = "<group>"; };
+		A38F3DE617689B8D00A2FF84 /* FlurryAds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlurryAds.h; path = Bookl/FlurryAds/FlurryAds.h; sourceTree = "<group>"; };
+		A38F3DE717689B8D00A2FF84 /* libFlurryAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurryAds.a; path = Bookl/FlurryAds/libFlurryAds.a; sourceTree = "<group>"; };
 		A3E7B4B017667084006B05EC /* BKSettingsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSettingsTVC.h; sourceTree = "<group>"; };
 		A3E7B4B117667084006B05EC /* BKSettingsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSettingsTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -347,6 +366,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A38F3DD9176881F400A2FF84 /* CoreLocation.framework in Frameworks */,
+				A38F3DD7176881EB00A2FF84 /* MediaPlayer.framework in Frameworks */,
+				A38F3DD5176881DF00A2FF84 /* AdSupport.framework in Frameworks */,
+				A38F3DB31767DF0200A2FF84 /* iAd.framework in Frameworks */,
 				A330335217673F920016EACB /* libApptentiveConnect.a in Frameworks */,
 				A3303335176733940016EACB /* StoreKit.framework in Frameworks */,
 				A33033331767338B0016EACB /* SystemConfiguration.framework in Frameworks */,
@@ -358,6 +381,9 @@
 				A37877BE175DF9CB00B95A07 /* Foundation.framework in Frameworks */,
 				A37877C0175DF9CB00B95A07 /* CoreGraphics.framework in Frameworks */,
 				A37877C2175DF9CB00B95A07 /* CoreData.framework in Frameworks */,
+				A38F3DD21768817A00A2FF84 /* MobFox.framework in Frameworks */,
+				A34F111617679BBB0036AE4E /* libFlurry.a in Frameworks */,
+				A38F3DE817689B8D00A2FF84 /* libFlurryAds.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,6 +702,8 @@
 		A3303355176756E10016EACB /* FilesFromOtherFrameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A38F3DE417689B3800A2FF84 /* FlurryAds */,
+				A38F3DDF17689ACD00A2FF84 /* FlurryAnalytics */,
 				A3303354176740020016EACB /* ATConnect.h */,
 			);
 			name = FilesFromOtherFrameworks;
@@ -751,6 +779,10 @@
 		A37877AF175DF9CB00B95A07 = {
 			isa = PBXGroup;
 			children = (
+				A38F3DDA1768820A00A2FF84 /* MRAID.bundle */,
+				A38F3DD8176881F400A2FF84 /* CoreLocation.framework */,
+				A38F3DD6176881EB00A2FF84 /* MediaPlayer.framework */,
+				A38F3DD4176881DF00A2FF84 /* AdSupport.framework */,
 				A3303355176756E10016EACB /* FilesFromOtherFrameworks */,
 				A3303342176734300016EACB /* ApptentiveConnect.xcodeproj */,
 				A3303334176733940016EACB /* StoreKit.framework */,
@@ -759,6 +791,8 @@
 				A30D0DE0175E554E00AD1CE1 /* QuartzCore.framework */,
 				A30D0DDE175E550F00AD1CE1 /* MessageUI.framework */,
 				A30D0DDC175E550200AD1CE1 /* ImageIO.framework */,
+				A38F3DB21767DF0200A2FF84 /* iAd.framework */,
+				A38F3DD11768817A00A2FF84 /* MobFox.framework */,
 				A30D0CF9175E515E00AD1CE1 /* PDFReader */,
 				A30D0CD9175E50FC00AD1CE1 /* AFNetworking */,
 				A37877E6175DFF8A00B95A07 /* ECSlidingViewController */,
@@ -915,6 +949,25 @@
 			name = Readlist;
 			sourceTree = "<group>";
 		};
+		A38F3DDF17689ACD00A2FF84 /* FlurryAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				A34F111417679BBB0036AE4E /* Flurry.h */,
+				A34F111517679BBB0036AE4E /* libFlurry.a */,
+			);
+			name = FlurryAnalytics;
+			sourceTree = "<group>";
+		};
+		A38F3DE417689B3800A2FF84 /* FlurryAds */ = {
+			isa = PBXGroup;
+			children = (
+				A38F3DE517689B8D00A2FF84 /* FlurryAdDelegate.h */,
+				A38F3DE617689B8D00A2FF84 /* FlurryAds.h */,
+				A38F3DE717689B8D00A2FF84 /* libFlurryAds.a */,
+			);
+			name = FlurryAds;
+			sourceTree = "<group>";
+		};
 		A3E7B4AF17667069006B05EC /* SettingsPopover */ = {
 			isa = PBXGroup;
 			children = (
@@ -1035,6 +1088,7 @@
 				A330335317673FD10016EACB /* ApptentiveResources.bundle in Resources */,
 				A330335A176770520016EACB /* menu-icon.png in Resources */,
 				A330335B176770520016EACB /* menu-icon@2x.png in Resources */,
+				A38F3DDB1768820A00A2FF84 /* MRAID.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1215,9 +1269,18 @@
 		A37877E4175DF9CB00B95A07 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bookl/Bookl-Prefix.pch";
 				INFOPLIST_FILE = "Bookl/Bookl-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Bookl/Flurry\"",
+					"\"$(SRCROOT)/Bookl/FlurryAds\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -1230,9 +1293,18 @@
 		A37877E5175DF9CB00B95A07 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bookl/Bookl-Prefix.pch";
 				INFOPLIST_FILE = "Bookl/Bookl-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Bookl/Flurry\"",
+					"\"$(SRCROOT)/Bookl/FlurryAds\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",

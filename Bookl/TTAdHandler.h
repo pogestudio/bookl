@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <iAd/iAd.h>
+#import <MobFox/MobFox.h>
+#import "FlurryAdDelegate.h"
 
 @protocol AdControlDelegate
 
@@ -14,12 +17,9 @@
 
 @end
 
-@interface TTAdHandler : NSObject
+@interface TTAdHandler : NSObject <ADInterstitialAdDelegate,MobFoxVideoInterstitialViewControllerDelegate,FlurryAdDelegate>
 
--(void)showFullScreenAdWithDelegate:(id<AdControlDelegate>)delegate;
-
-+(TTAdHandler*)sharedHandler;
-
-
+-(id)initWithAdDelegate:(id<AdControlDelegate>)delegate;
+-(void)presentAd;
 
 @end

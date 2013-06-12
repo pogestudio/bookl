@@ -15,6 +15,10 @@
 
 #import "ATConnect.h"
 
+#import "Flurry.h"
+#import "FlurryAds.h"
+
+
 @implementation BKAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -23,7 +27,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    UINavigationController *navCon = (UINavigationController*)self.window.rootViewController;
+    UINavigationController *navCon = [self mainNavCon];
     ECSlidingViewController *slidingViewController = (ECSlidingViewController *)[navCon.viewControllers lastObject];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
     slidingViewController.topViewController = [storyboard instantiateViewControllerWithIdentifier:@"ViewManager"];
@@ -37,7 +41,9 @@
                                    userInfo:nil
                                     repeats:NO];
 
-    
+    [self startUpApptentive];
+    [self startUpFlurryAnalytics];
+    [self startupFlurryAds];
 
     return YES;
 }
@@ -171,13 +177,36 @@
     //[TTUser makeSureUserIsLoggedIn];
 }
 
-#pragma mark Apptentive
+#pragma mark Extra libraries
 -(void)startUpApptentive
 {
     NSString *kApptentiveAPIKey =
     @"ad5f8f4ca5fd8506e767aa9336e9cf3c44b7419f584ec2f497904253067000ca";
     ATConnect *connection = [ATConnect sharedConnection];
     connection.apiKey = kApptentiveAPIKey;
+
+}
+
+#pragma mark Stuff for easy use
+-(UINavigationController*)mainNavCon
+{
+    UINavigationController *main = (UINavigationController*)self.window.rootViewController;
+    NSAssert(main != nil, @"main navcon shouldn't be nil");
+    return main;
+}
+
+-(void)startUpFlurryAnalytics
+{
+    NSString *kFlurryAPIKey = @"RGGXJ8RRNQYNMZ6FP4KS";
+    [Flurry startSession:kFlurryAPIKey];
+}
+
+-(void)startupFlurryAds
+{
+    UINavigationController *mainNavCon = [self mainNavCon];
+    UIViewController *aViewController = [mainNavCon.viewControllers lastObject];
+    [FlurryAds initialize:aViewController];
+    [FlurryAds enableTestAds:YES];
 
 }
 

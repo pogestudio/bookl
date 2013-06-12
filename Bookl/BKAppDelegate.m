@@ -37,7 +37,7 @@
                                    userInfo:nil
                                     repeats:NO];
 
-    
+    [self startUpApptentive];
 
     return YES;
 }

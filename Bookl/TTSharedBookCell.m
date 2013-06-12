@@ -150,8 +150,6 @@
 -(void)willTransitionToState:(UITableViewCellStateMask)state
 {
     [super willTransitionToState:state];
-    CGRect currentContentFrame = self.contentView.frame;
-    CGRect currentViewFrame = self.frame;
     CGRect newFrame = [self cellRectForState:state];
     CGRect editingFrame = [self editAccessoryViewForState:state];
     switch (state) {
@@ -189,7 +187,6 @@
     
     [super didTransitionToState:state];
     
-    CGRect currentFrame = self.contentView.frame;
     switch (state) {
         case UITableViewCellStateDefaultMask:
         {

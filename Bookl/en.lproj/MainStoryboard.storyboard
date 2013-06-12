@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="wwd-xB-6NU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="wwd-xB-6NU">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -502,12 +502,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="WKS-UN-fig">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IAPCell" textLabel="U95-8K-Hed" detailTextLabel="ZmE-5d-bJo" style="IBUITableViewCellStyleValue1" id="WKS-UN-fig">
                                 <rect key="frame" x="0.0" y="22" width="300" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U95-8K-Hed">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZmE-5d-bJo">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
@@ -904,7 +916,6 @@
                                                         <constraint firstAttribute="width" constant="192" id="vYI-3X-CLB"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <color key="tintColor" red="1" green="0.91427403900000004" blue="0.068981677830000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <state key="normal" title="register">
                                                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -969,6 +980,65 @@
             <point key="canvasLocation" x="1149" y="-2800"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="BKAllReadlistsTVHeader" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKAllReadlistsTVHeader.h"/>
+        </class>
+        <class className="BKAllReadlistsViewer" superclassName="BKMainContentTVC">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKAllReadlistsViewer.h"/>
+        </class>
+        <class className="BKHomeView" superclassName="BKMainContentTVC">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKHomeView.h"/>
+        </class>
+        <class className="BKLeftMenu" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKLeftMenu.h"/>
+        </class>
+        <class className="BKMainContentTVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKMainContentTVC.h"/>
+        </class>
+        <class className="BKReadlistTVHeader" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKReadlistTVHeader.h"/>
+            <relationships>
+                <relationship kind="outlet" name="renameButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="BKReadlistView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKReadlistView.h"/>
+        </class>
+        <class className="BKSearchBookView" superclassName="BKMainContentTVC">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKSearchBookView.h"/>
+        </class>
+        <class className="BKSearchHeader" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKSearchHeader.h"/>
+        </class>
+        <class className="BKSettingsTVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKSettingsTVC.h"/>
+        </class>
+        <class className="BKSlidingViewController" superclassName="ECSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKSlidingViewController.h"/>
+        </class>
+        <class className="BKViewManager" superclassName="ECSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKViewManager.h"/>
+        </class>
+        <class className="ECSlidingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="TTAddBookToReadlist" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TTAddBookToReadlist.h"/>
+        </class>
+        <class className="TTFullPageAdVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TTFullPageAdVC.h"/>
+        </class>
+        <class className="TTLoginVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TTLoginVC.h"/>
+        </class>
+        <class className="TTMoreOptionsTVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TTMoreOptionsTVC.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

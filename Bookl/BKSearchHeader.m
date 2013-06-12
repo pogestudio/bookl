@@ -29,6 +29,10 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     
+    if ([searchText isEqualToString:@""]) {
+        return; //bail out, and dont search, if string is empty
+    }
+    
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(fetchDataAccordingToSearchInput:) object:searchBar];
     
     [self performSelector:@selector(fetchDataAccordingToSearchInput:) withObject:searchBar afterDelay:SEARCH_DELAY];

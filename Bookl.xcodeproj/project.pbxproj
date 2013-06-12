@@ -123,6 +123,7 @@
 		A38F3DD9176881F400A2FF84 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38F3DD8176881F400A2FF84 /* CoreLocation.framework */; };
 		A38F3DDB1768820A00A2FF84 /* MRAID.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A38F3DDA1768820A00A2FF84 /* MRAID.bundle */; };
 		A38F3DE817689B8D00A2FF84 /* libFlurryAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A38F3DE717689B8D00A2FF84 /* libFlurryAds.a */; };
+		A3D81339176936AB00819D1D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D81338176936AB00819D1D /* Reachability.m */; };
 		A3E7B4B217667084006B05EC /* BKSettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7B4B117667084006B05EC /* BKSettingsTVC.m */; };
 /* End PBXBuildFile section */
 
@@ -357,6 +358,8 @@
 		A38F3DE517689B8D00A2FF84 /* FlurryAdDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlurryAdDelegate.h; path = Bookl/FlurryAds/FlurryAdDelegate.h; sourceTree = "<group>"; };
 		A38F3DE617689B8D00A2FF84 /* FlurryAds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlurryAds.h; path = Bookl/FlurryAds/FlurryAds.h; sourceTree = "<group>"; };
 		A38F3DE717689B8D00A2FF84 /* libFlurryAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurryAds.a; path = Bookl/FlurryAds/libFlurryAds.a; sourceTree = "<group>"; };
+		A3D81337176936AB00819D1D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		A3D81338176936AB00819D1D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		A3E7B4B017667084006B05EC /* BKSettingsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSettingsTVC.h; sourceTree = "<group>"; };
 		A3E7B4B117667084006B05EC /* BKSettingsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSettingsTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -393,6 +396,7 @@
 		A30D0CC4175E4EF300AD1CE1 /* Loose Objects */ = {
 			isa = PBXGroup;
 			children = (
+				A3D813351769369900819D1D /* Reachability */,
 				A349C63B1760DF5E00B7D8BE /* LoginRelated */,
 				A30D0CC5175E4F3400AD1CE1 /* ReadingRelated */,
 			);
@@ -968,6 +972,15 @@
 			name = FlurryAds;
 			sourceTree = "<group>";
 		};
+		A3D813351769369900819D1D /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				A3D81337176936AB00819D1D /* Reachability.h */,
+				A3D81338176936AB00819D1D /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
 		A3E7B4AF17667069006B05EC /* SettingsPopover */ = {
 			isa = PBXGroup;
 			children = (
@@ -1170,6 +1183,7 @@
 				A349C655176126CD00B7D8BE /* BKReadlistTVHeader.m in Sources */,
 				A3E7B4B217667084006B05EC /* BKSettingsTVC.m in Sources */,
 				A34F1113176771410036AE4E /* BKSlidingViewController.m in Sources */,
+				A3D81339176936AB00819D1D /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

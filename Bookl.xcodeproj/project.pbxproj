@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A3057DF51769068300493676 /* BKInAppPurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3057DF41769068300493676 /* BKInAppPurchaseManager.m */; };
+		A3057DF81769077700493676 /* SKProduct+LocalizedPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = A3057DF71769077700493676 /* SKProduct+LocalizedPrice.m */; };
+		A3057DFB1769084A00493676 /* BKInAppPurchaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3057DFA1769084A00493676 /* BKInAppPurchaseVC.m */; };
 		A30D0CCA175E4F5300AD1CE1 /* TTBook.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0CC7175E4F5300AD1CE1 /* TTBook.m */; };
 		A30D0CCB175E4F5300AD1CE1 /* TTReadList.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0CC9175E4F5300AD1CE1 /* TTReadList.m */; };
 		A30D0CCF175E4F9000AD1CE1 /* TTConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0CCE175E4F9000AD1CE1 /* TTConstants.m */; };
@@ -165,6 +168,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A3057DF31769068300493676 /* BKInAppPurchaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKInAppPurchaseManager.h; sourceTree = "<group>"; };
+		A3057DF41769068300493676 /* BKInAppPurchaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKInAppPurchaseManager.m; sourceTree = "<group>"; };
+		A3057DF61769077700493676 /* SKProduct+LocalizedPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKProduct+LocalizedPrice.h"; sourceTree = "<group>"; };
+		A3057DF71769077700493676 /* SKProduct+LocalizedPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKProduct+LocalizedPrice.m"; sourceTree = "<group>"; };
+		A3057DF91769084A00493676 /* BKInAppPurchaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKInAppPurchaseVC.h; sourceTree = "<group>"; };
+		A3057DFA1769084A00493676 /* BKInAppPurchaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKInAppPurchaseVC.m; sourceTree = "<group>"; };
 		A30D0CC6175E4F5300AD1CE1 /* TTBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBook.h; sourceTree = "<group>"; };
 		A30D0CC7175E4F5300AD1CE1 /* TTBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBook.m; sourceTree = "<group>"; };
 		A30D0CC8175E4F5300AD1CE1 /* TTReadList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTReadList.h; sourceTree = "<group>"; };
@@ -390,9 +399,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A3057DF21769066D00493676 /* InAppPurchase */ = {
+			isa = PBXGroup;
+			children = (
+				A3057DF31769068300493676 /* BKInAppPurchaseManager.h */,
+				A3057DF41769068300493676 /* BKInAppPurchaseManager.m */,
+			);
+			name = InAppPurchase;
+			sourceTree = "<group>";
+		};
+		A3057DFC1769084D00493676 /* InAppPurchase */ = {
+			isa = PBXGroup;
+			children = (
+				A3057DF91769084A00493676 /* BKInAppPurchaseVC.h */,
+				A3057DFA1769084A00493676 /* BKInAppPurchaseVC.m */,
+			);
+			name = InAppPurchase;
+			sourceTree = "<group>";
+		};
 		A30D0CC4175E4EF300AD1CE1 /* Loose Objects */ = {
 			isa = PBXGroup;
 			children = (
+				A3057DF21769066D00493676 /* InAppPurchase */,
 				A349C63B1760DF5E00B7D8BE /* LoginRelated */,
 				A30D0CC5175E4F3400AD1CE1 /* ReadingRelated */,
 			);
@@ -628,6 +656,8 @@
 				A30D0DE8175E637B00AD1CE1 /* NSString+de_encoding.m */,
 				A30D0DF9175E7D7C00AD1CE1 /* NSDate+Compare.h */,
 				A30D0DFA175E7D7C00AD1CE1 /* NSDate+Compare.m */,
+				A3057DF61769077700493676 /* SKProduct+LocalizedPrice.h */,
+				A3057DF71769077700493676 /* SKProduct+LocalizedPrice.m */,
 			);
 			name = FoundationCategories;
 			sourceTree = "<group>";
@@ -973,6 +1003,7 @@
 			children = (
 				A3E7B4B017667084006B05EC /* BKSettingsTVC.h */,
 				A3E7B4B117667084006B05EC /* BKSettingsTVC.m */,
+				A3057DFC1769084D00493676 /* InAppPurchase */,
 			);
 			name = SettingsPopover;
 			sourceTree = "<group>";
@@ -1170,6 +1201,9 @@
 				A349C655176126CD00B7D8BE /* BKReadlistTVHeader.m in Sources */,
 				A3E7B4B217667084006B05EC /* BKSettingsTVC.m in Sources */,
 				A34F1113176771410036AE4E /* BKSlidingViewController.m in Sources */,
+				A3057DF51769068300493676 /* BKInAppPurchaseManager.m in Sources */,
+				A3057DF81769077700493676 /* SKProduct+LocalizedPrice.m in Sources */,
+				A3057DFB1769084A00493676 /* BKInAppPurchaseVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1220,7 +1254,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Carl-Arvid Ewerbring (PBWU4MER9V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Carl-Arvid Ewerbring (PBWU4MER9V)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1235,6 +1270,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "238C3B43-1AB3-4E3D-908A-0A022F17F1EA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "238C3B43-1AB3-4E3D-908A-0A022F17F1EA";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -1252,7 +1289,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1260,6 +1298,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;

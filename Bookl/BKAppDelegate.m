@@ -14,6 +14,7 @@
 #import "TTUser.h"
 
 #import "ATConnect.h"
+#import "Flurry.h"
 
 @implementation BKAppDelegate
 
@@ -171,7 +172,7 @@
     //[TTUser makeSureUserIsLoggedIn];
 }
 
-#pragma mark Apptentive
+#pragma mark Extra libraries
 -(void)startUpApptentive
 {
     NSString *kApptentiveAPIKey =
@@ -187,6 +188,12 @@
     UINavigationController *main = (UINavigationController*)self.window.rootViewController;
     NSAssert(main != nil, @"main navcon shouldn't be nil");
     return main;
+}
+
+-(void)startUpFlurryAnalytics
+{
+    NSString *kFlurryAPIKey = @"RGGXJ8RRNQYNMZ6FP4KS";
+    [Flurry startSession:kFlurryAPIKey];
 }
 
 

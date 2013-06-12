@@ -96,6 +96,7 @@
 		A349C64C1760E0F600B7D8BE /* ipad_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A349C6481760E0F600B7D8BE /* ipad_logo.png */; };
 		A349C655176126CD00B7D8BE /* BKReadlistTVHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A349C654176126CD00B7D8BE /* BKReadlistTVHeader.m */; };
 		A34F1113176771410036AE4E /* BKSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A34F1112176771410036AE4E /* BKSlidingViewController.m */; };
+		A34F111617679BBB0036AE4E /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A34F111517679BBB0036AE4E /* libFlurry.a */; };
 		A37877BC175DF9CB00B95A07 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37877BB175DF9CB00B95A07 /* UIKit.framework */; };
 		A37877BE175DF9CB00B95A07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37877BD175DF9CB00B95A07 /* Foundation.framework */; };
 		A37877C0175DF9CB00B95A07 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37877BF175DF9CB00B95A07 /* CoreGraphics.framework */; };
@@ -313,6 +314,8 @@
 		A349C654176126CD00B7D8BE /* BKReadlistTVHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKReadlistTVHeader.m; sourceTree = "<group>"; };
 		A34F1111176771410036AE4E /* BKSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSlidingViewController.h; sourceTree = "<group>"; };
 		A34F1112176771410036AE4E /* BKSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSlidingViewController.m; sourceTree = "<group>"; };
+		A34F111417679BBB0036AE4E /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Flurry.h; path = Bookl/Flurry/Flurry.h; sourceTree = "<group>"; };
+		A34F111517679BBB0036AE4E /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry.a; path = Bookl/Flurry/libFlurry.a; sourceTree = "<group>"; };
 		A37877B8175DF9CB00B95A07 /* Bookl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37877BB175DF9CB00B95A07 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A37877BD175DF9CB00B95A07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -374,7 +377,11 @@
 				A37877BE175DF9CB00B95A07 /* Foundation.framework in Frameworks */,
 				A37877C0175DF9CB00B95A07 /* CoreGraphics.framework in Frameworks */,
 				A37877C2175DF9CB00B95A07 /* CoreData.framework in Frameworks */,
+<<<<<<< HEAD
 				A38F3DD21768817A00A2FF84 /* MobFox.framework in Frameworks */,
+=======
+				A34F111617679BBB0036AE4E /* libFlurry.a in Frameworks */,
+>>>>>>> FlurryIntegration
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,6 +700,8 @@
 		A3303355176756E10016EACB /* FilesFromOtherFrameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A34F111417679BBB0036AE4E /* Flurry.h */,
+				A34F111517679BBB0036AE4E /* libFlurry.a */,
 				A3303354176740020016EACB /* ATConnect.h */,
 			);
 			name = FilesFromOtherFrameworks;
@@ -1246,6 +1255,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bookl/Bookl-Prefix.pch";
 				INFOPLIST_FILE = "Bookl/Bookl-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Bookl/Flurry\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -1265,6 +1278,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bookl/Bookl-Prefix.pch";
 				INFOPLIST_FILE = "Bookl/Bookl-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Bookl/Flurry\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",

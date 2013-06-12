@@ -39,6 +39,7 @@
                                     repeats:NO];
 
     [self startUpApptentive];
+    [self startUpFlurryAnalytics];
 
     return YES;
 }

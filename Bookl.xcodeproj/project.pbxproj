@@ -377,11 +377,8 @@
 				A37877BE175DF9CB00B95A07 /* Foundation.framework in Frameworks */,
 				A37877C0175DF9CB00B95A07 /* CoreGraphics.framework in Frameworks */,
 				A37877C2175DF9CB00B95A07 /* CoreData.framework in Frameworks */,
-<<<<<<< HEAD
 				A38F3DD21768817A00A2FF84 /* MobFox.framework in Frameworks */,
-=======
 				A34F111617679BBB0036AE4E /* libFlurry.a in Frameworks */,
->>>>>>> FlurryIntegration
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -116,6 +116,7 @@
         case 2:
         {
           //random. What here?
+            break;
         }
         default:
             NSAssert(nil,@"Should never be here, something is wrong with didSelectRow in class Settings");

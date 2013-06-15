@@ -39,6 +39,12 @@
 
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    self.tableView.backgroundColor = [BKColors currentColors].mainCellBackground;
+}
+
 #pragma mark TableView Datasource
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {

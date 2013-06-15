@@ -23,6 +23,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [BKColors currentColors].mainCellBackground;
 }
 
 -(void)changeLeftBarButtonShow:(BOOL)shouldShow
@@ -88,7 +89,7 @@
 
 - (UIBarButtonItem *)rightMenuBarButtonItem {
     if (!_rightButton) {
-        _leftButton = [UIBarButtonItem barItemWithTitle:@"List" target:self action:@selector(toggleLeftMenu)];
+        _rightButton = [UIBarButtonItem barItemWithTitle:@"List" target:self action:@selector(toggleRightMenu)];
 
     }
     return _rightButton;}

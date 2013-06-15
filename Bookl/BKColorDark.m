@@ -15,11 +15,12 @@
     self = [super init];
     if (self) {
         
-//#pragma mark Background Colors
-//        self.leftMenuCellBackground;
-//        self.rightMenuCellBackground;
-//        self.navigationBar;
-//        
+#pragma mark Background Colors
+        self.leftMenuCellBackground = [UIColor greenColor];
+        self.mainCellBackground = [UIColor yellowColor];
+        self.rightMenuCellBackground = [UIColor greenColor];
+    
+//
 //#pragma mark TableView ButtonColors
 //        self.buttonBackground;
 //        self.buttonFontColor;

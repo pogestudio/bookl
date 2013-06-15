@@ -32,7 +32,6 @@ static BOOL _viewHasBeenShowedOnce;
     [self setUpView];
     
     _sharedViewManager = self;
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -98,9 +97,9 @@ static BOOL _viewHasBeenShowedOnce;
     [self addChildViewController:toViewController];
     
     [self transitionFromViewController:currentVC toViewController:toViewController duration:0 options:UIViewAnimationOptionCurveLinear animations:nil completion:nil];
-    [currentVC removeFromParentViewController];
     [toViewController didMoveToParentViewController:self];
     _currentVC = toViewController;
+    [currentVC removeFromParentViewController];
 }
 
 

@@ -83,7 +83,6 @@
     self.title.text = title;
     self.publishingYear.text = pubYear;
     
-    
     [self setUpReadButton];
 }
 

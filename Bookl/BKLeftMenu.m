@@ -31,8 +31,7 @@
 //    NSArray *currentItems = self.navigationController.tool
     NSArray *items = @[settings];
     [self setToolbarItems:items];
-    
-    
+    self.tableView.backgroundColor = [BKColors currentColors].leftMenuCellBackground;
 }
 
 -(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

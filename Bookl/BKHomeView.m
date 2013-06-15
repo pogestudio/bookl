@@ -17,9 +17,10 @@
     return homeVC;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)viewWillAppear:(BOOL)animated
 {
-    
+    [super viewWillAppear:YES];
+    self.tableView.backgroundColor = [BKColors currentColors].mainCellBackground;
 }
 
 

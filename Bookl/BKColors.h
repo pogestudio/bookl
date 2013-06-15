@@ -21,6 +21,7 @@ typedef enum {
 
 #pragma mark Background Colors
 @property (strong) UIColor *leftMenuCellBackground;
+@property (strong) UIColor *mainCellBackground;
 @property (strong) UIColor *rightMenuCellBackground;
 @property (strong) UIColor *navigationBar;
 @property (strong) UIColor *toolBar;

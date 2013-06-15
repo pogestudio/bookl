@@ -8,6 +8,8 @@
 
 #import "BKSlidingViewController.h"
 
+#import "UIBarButtonItem+customInit.h"
+
 @interface BKSlidingViewController ()
 {
     UIBarButtonItem *_leftButton;
@@ -77,20 +79,17 @@
 #pragma mark Button Allocs
 - (UIBarButtonItem *)leftMenuBarButtonItem {
     if (!_leftButton) {
-        _leftButton = [[UIBarButtonItem alloc]
-                       initWithImage:[UIImage imageNamed:@"menu-icon"] style:UIBarButtonItemStyleBordered
-                       target:self
-                       action:@selector(toggleLeftMenu)];
-    }
+        //_leftButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"menu-icon"] target:self action:@selector(toggleLeftMenu)];
+
+        _leftButton = [UIBarButtonItem barItemWithTitle:@"Menu" target:self action:@selector(toggleLeftMenu)];
+}
     return _leftButton;
 }
 
 - (UIBarButtonItem *)rightMenuBarButtonItem {
     if (!_rightButton) {
-        _rightButton = [[UIBarButtonItem alloc]
-                       initWithImage:[UIImage imageNamed:@"menu-icon"] style:UIBarButtonItemStyleBordered
-                       target:self
-                       action:@selector(toggleRightMenu)];
+        _leftButton = [UIBarButtonItem barItemWithTitle:@"List" target:self action:@selector(toggleLeftMenu)];
+
     }
     return _rightButton;}
 

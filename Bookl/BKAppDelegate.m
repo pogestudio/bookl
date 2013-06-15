@@ -12,6 +12,7 @@
 
 #import "TTBookManager.h"
 #import "TTUser.h"
+#import "BKColors.h"
 
 #import "ATConnect.h"
 
@@ -44,6 +45,8 @@
     [self startUpApptentive];
     [self startUpFlurryAnalytics];
     [self startupFlurryAds];
+    
+    [self customizeApperance];
 
     return YES;
 }
@@ -208,6 +211,19 @@
     [FlurryAds initialize:aViewController];
     [FlurryAds enableTestAds:YES];
 
+}
+
+#pragma mark Appearance
+-(void)customizeApperance
+{
+    UIImage *navBarColor = [BKColors imageFromColor:[BKColors currentColors].navigationBar];
+    [[UINavigationBar appearance] setBackgroundImage:navBarColor
+                                       forBarMetrics:UIBarMetricsDefault];
+    
+    UIImage *toolBarColor = [BKColors imageFromColor:[BKColors currentColors].toolBar];
+    [[UIToolbar appearance] setBackgroundImage:navBarColor
+                            forToolbarPosition:UIToolbarPositionAny
+                                    barMetrics:UIBarMetricsDefault];
 }
 
 

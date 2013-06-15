@@ -123,6 +123,10 @@
 		A38F3DD9176881F400A2FF84 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38F3DD8176881F400A2FF84 /* CoreLocation.framework */; };
 		A38F3DDB1768820A00A2FF84 /* MRAID.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A38F3DDA1768820A00A2FF84 /* MRAID.bundle */; };
 		A38F3DE817689B8D00A2FF84 /* libFlurryAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A38F3DE717689B8D00A2FF84 /* libFlurryAds.a */; };
+		A3A8AE3B176C76E300F6B5E1 /* BKColors.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A8AE3A176C76E300F6B5E1 /* BKColors.m */; };
+		A3A8AE3F176C930800F6B5E1 /* BKColorDark.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A8AE3E176C930800F6B5E1 /* BKColorDark.m */; };
+		A3C83513176CC2AC00DC22CE /* UIBarButtonItem+customInit.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C83512176CC2AC00DC22CE /* UIBarButtonItem+customInit.m */; };
+		A3C83516176CCFA400DC22CE /* BKBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C83515176CCFA400DC22CE /* BKBarButton.m */; };
 		A3D81339176936AB00819D1D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D81338176936AB00819D1D /* Reachability.m */; };
 		A3E7B4B217667084006B05EC /* BKSettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7B4B117667084006B05EC /* BKSettingsTVC.m */; };
 /* End PBXBuildFile section */
@@ -358,6 +362,14 @@
 		A38F3DE517689B8D00A2FF84 /* FlurryAdDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlurryAdDelegate.h; path = Bookl/FlurryAds/FlurryAdDelegate.h; sourceTree = "<group>"; };
 		A38F3DE617689B8D00A2FF84 /* FlurryAds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlurryAds.h; path = Bookl/FlurryAds/FlurryAds.h; sourceTree = "<group>"; };
 		A38F3DE717689B8D00A2FF84 /* libFlurryAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurryAds.a; path = Bookl/FlurryAds/libFlurryAds.a; sourceTree = "<group>"; };
+		A3A8AE39176C76E300F6B5E1 /* BKColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKColors.h; sourceTree = "<group>"; };
+		A3A8AE3A176C76E300F6B5E1 /* BKColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKColors.m; sourceTree = "<group>"; };
+		A3A8AE3D176C930800F6B5E1 /* BKColorDark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKColorDark.h; sourceTree = "<group>"; };
+		A3A8AE3E176C930800F6B5E1 /* BKColorDark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKColorDark.m; sourceTree = "<group>"; };
+		A3C83511176CC2AC00DC22CE /* UIBarButtonItem+customInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+customInit.h"; sourceTree = "<group>"; };
+		A3C83512176CC2AC00DC22CE /* UIBarButtonItem+customInit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+customInit.m"; sourceTree = "<group>"; };
+		A3C83514176CCFA400DC22CE /* BKBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKBarButton.h; sourceTree = "<group>"; };
+		A3C83515176CCFA400DC22CE /* BKBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKBarButton.m; sourceTree = "<group>"; };
 		A3D81337176936AB00819D1D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		A3D81338176936AB00819D1D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		A3E7B4B017667084006B05EC /* BKSettingsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSettingsTVC.h; sourceTree = "<group>"; };
@@ -828,14 +840,13 @@
 		A37877C3175DF9CB00B95A07 /* Bookl */ = {
 			isa = PBXGroup;
 			children = (
+				A3A8AE35176C765D00F6B5E1 /* HelperFiles */,
 				A349C64D1760E10100B7D8BE /* Resources */,
 				A30D0DE6175E635700AD1CE1 /* FoundationCategories */,
 				A30D0DD1175E549100AD1CE1 /* ReadingExtended */,
 				A30D0DCF175E53F800AD1CE1 /* Communication */,
 				A30D0D54175E520000AD1CE1 /* CoreData */,
 				A30D0CD0175E4FBE00AD1CE1 /* ContentManagement */,
-				A30D0CCD175E4F9000AD1CE1 /* TTConstants.h */,
-				A30D0CCE175E4F9000AD1CE1 /* TTConstants.m */,
 				A30D0CC4175E4EF300AD1CE1 /* Loose Objects */,
 				A37877ED175E010A00B95A07 /* VC */,
 				A37877CC175DF9CB00B95A07 /* BKAppDelegate.h */,
@@ -874,6 +885,7 @@
 		A37877ED175E010A00B95A07 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				A37877FA175E04F600B95A07 /* ViewManager */,
 				A34F110F176771180036AE4E /* SlidingSubclass */,
 				A349C63F1760DF9F00B7D8BE /* StandaloneVCs */,
 				A37877F2175E01F000B95A07 /* LeftMenu */,
@@ -885,7 +897,6 @@
 		A37877EE175E011100B95A07 /* ContainerViews */ = {
 			isa = PBXGroup;
 			children = (
-				A37877FA175E04F600B95A07 /* ViewManager */,
 				A30D0DEA175E655500AD1CE1 /* SharedClasses */,
 				A37877FE175E082100B95A07 /* ContentSuperclass */,
 				A3787800175E098500B95A07 /* Readlist */,
@@ -970,6 +981,47 @@
 				A38F3DE717689B8D00A2FF84 /* libFlurryAds.a */,
 			);
 			name = FlurryAds;
+			sourceTree = "<group>";
+		};
+		A3A8AE35176C765D00F6B5E1 /* HelperFiles */ = {
+			isa = PBXGroup;
+			children = (
+				A3A8AE38176C76B500F6B5E1 /* Colors */,
+				A3A8AE37176C76AF00F6B5E1 /* Constants */,
+			);
+			name = HelperFiles;
+			sourceTree = "<group>";
+		};
+		A3A8AE37176C76AF00F6B5E1 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A30D0CCD175E4F9000AD1CE1 /* TTConstants.h */,
+				A30D0CCE175E4F9000AD1CE1 /* TTConstants.m */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		A3A8AE38176C76B500F6B5E1 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				A3C8350C176C9A2C00DC22CE /* Buttons */,
+				A3A8AE39176C76E300F6B5E1 /* BKColors.h */,
+				A3A8AE3A176C76E300F6B5E1 /* BKColors.m */,
+				A3A8AE3D176C930800F6B5E1 /* BKColorDark.h */,
+				A3A8AE3E176C930800F6B5E1 /* BKColorDark.m */,
+			);
+			name = Colors;
+			sourceTree = "<group>";
+		};
+		A3C8350C176C9A2C00DC22CE /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				A3C83511176CC2AC00DC22CE /* UIBarButtonItem+customInit.h */,
+				A3C83512176CC2AC00DC22CE /* UIBarButtonItem+customInit.m */,
+				A3C83514176CCFA400DC22CE /* BKBarButton.h */,
+				A3C83515176CCFA400DC22CE /* BKBarButton.m */,
+			);
+			name = Buttons;
 			sourceTree = "<group>";
 		};
 		A3D813351769369900819D1D /* Reachability */ = {
@@ -1184,6 +1236,10 @@
 				A3E7B4B217667084006B05EC /* BKSettingsTVC.m in Sources */,
 				A34F1113176771410036AE4E /* BKSlidingViewController.m in Sources */,
 				A3D81339176936AB00819D1D /* Reachability.m in Sources */,
+				A3A8AE3B176C76E300F6B5E1 /* BKColors.m in Sources */,
+				A3A8AE3F176C930800F6B5E1 /* BKColorDark.m in Sources */,
+				A3C83513176CC2AC00DC22CE /* UIBarButtonItem+customInit.m in Sources */,
+				A3C83516176CCFA400DC22CE /* BKBarButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

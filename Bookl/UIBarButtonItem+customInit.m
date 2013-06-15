@@ -9,6 +9,7 @@
 #import "UIBarButtonItem+customInit.h"
 #import "BKColors.h"
 
+#define CORNER_RADIUS 3.0f
 @implementation UIBarButtonItem (customInit)
 
 + (UIBarButtonItem*)barItemWithImage:(UIImage *)image target:(id)target action:(SEL)action
@@ -50,7 +51,7 @@
     button.frame = CGRectMake(0, 0, 60, 30);
     
     CALayer *buttonLayer = [button layer];
-    [buttonLayer setCornerRadius:5.0f];
+    [buttonLayer setCornerRadius:CORNER_RADIUS];
     [buttonLayer setMasksToBounds:YES];
     
     UIView *v=[[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, button.frame.size.width, button.frame.size.height) ];

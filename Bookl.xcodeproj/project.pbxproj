@@ -126,7 +126,10 @@
 		A3A8AE3B176C76E300F6B5E1 /* BKColors.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A8AE3A176C76E300F6B5E1 /* BKColors.m */; };
 		A3A8AE3F176C930800F6B5E1 /* BKColorDark.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A8AE3E176C930800F6B5E1 /* BKColorDark.m */; };
 		A3C83513176CC2AC00DC22CE /* UIBarButtonItem+customInit.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C83512176CC2AC00DC22CE /* UIBarButtonItem+customInit.m */; };
-		A3C83516176CCFA400DC22CE /* BKBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C83515176CCFA400DC22CE /* BKBarButton.m */; };
+		A3C83519176D178400DC22CE /* BKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C83518176D178400DC22CE /* BKButton.m */; };
+		A3C8351F176D1EE200DC22CE /* BKBookCellButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C8351E176D1EE200DC22CE /* BKBookCellButton.m */; };
+		A3C83522176D218100DC22CE /* BKTableviewContentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C83521176D218100DC22CE /* BKTableviewContentButton.m */; };
+		A3C83526176D281D00DC22CE /* BKCellDeleteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C83525176D281D00DC22CE /* BKCellDeleteButton.m */; };
 		A3D81339176936AB00819D1D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D81338176936AB00819D1D /* Reachability.m */; };
 		A3E7B4B217667084006B05EC /* BKSettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7B4B117667084006B05EC /* BKSettingsTVC.m */; };
 /* End PBXBuildFile section */
@@ -368,8 +371,14 @@
 		A3A8AE3E176C930800F6B5E1 /* BKColorDark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKColorDark.m; sourceTree = "<group>"; };
 		A3C83511176CC2AC00DC22CE /* UIBarButtonItem+customInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+customInit.h"; sourceTree = "<group>"; };
 		A3C83512176CC2AC00DC22CE /* UIBarButtonItem+customInit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+customInit.m"; sourceTree = "<group>"; };
-		A3C83514176CCFA400DC22CE /* BKBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKBarButton.h; sourceTree = "<group>"; };
-		A3C83515176CCFA400DC22CE /* BKBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKBarButton.m; sourceTree = "<group>"; };
+		A3C83517176D178400DC22CE /* BKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKButton.h; sourceTree = "<group>"; };
+		A3C83518176D178400DC22CE /* BKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKButton.m; sourceTree = "<group>"; };
+		A3C8351D176D1EE200DC22CE /* BKBookCellButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKBookCellButton.h; sourceTree = "<group>"; };
+		A3C8351E176D1EE200DC22CE /* BKBookCellButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKBookCellButton.m; sourceTree = "<group>"; };
+		A3C83520176D218100DC22CE /* BKTableviewContentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKTableviewContentButton.h; sourceTree = "<group>"; };
+		A3C83521176D218100DC22CE /* BKTableviewContentButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKTableviewContentButton.m; sourceTree = "<group>"; };
+		A3C83524176D281D00DC22CE /* BKCellDeleteButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKCellDeleteButton.h; sourceTree = "<group>"; };
+		A3C83525176D281D00DC22CE /* BKCellDeleteButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKCellDeleteButton.m; sourceTree = "<group>"; };
 		A3D81337176936AB00819D1D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		A3D81338176936AB00819D1D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		A3E7B4B017667084006B05EC /* BKSettingsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSettingsTVC.h; sourceTree = "<group>"; };
@@ -659,6 +668,8 @@
 		A30D0DF0175E657000AD1CE1 /* SharedBookCell */ = {
 			isa = PBXGroup;
 			children = (
+				A3C83523176D280400DC22CE /* DeleteButton */,
+				A3C8351C176D1ECA00DC22CE /* CellButton */,
 				A30D0DEB175E656B00AD1CE1 /* TTSharedBookCell.h */,
 				A30D0DEC175E656B00AD1CE1 /* TTSharedBookCell.m */,
 				A30D0DED175E656B00AD1CE1 /* TTSharedBookCell.xib */,
@@ -848,7 +859,7 @@
 				A30D0D54175E520000AD1CE1 /* CoreData */,
 				A30D0CD0175E4FBE00AD1CE1 /* ContentManagement */,
 				A30D0CC4175E4EF300AD1CE1 /* Loose Objects */,
-				A37877ED175E010A00B95A07 /* VC */,
+				A37877ED175E010A00B95A07 /* Interface Views */,
 				A37877CC175DF9CB00B95A07 /* BKAppDelegate.h */,
 				A37877CD175DF9CB00B95A07 /* BKAppDelegate.m */,
 				A37877D5175DF9CB00B95A07 /* MainStoryboard.storyboard */,
@@ -882,16 +893,17 @@
 			path = ECSlidingViewController;
 			sourceTree = "<group>";
 		};
-		A37877ED175E010A00B95A07 /* VC */ = {
+		A37877ED175E010A00B95A07 /* Interface Views */ = {
 			isa = PBXGroup;
 			children = (
+				A3C8350C176C9A2C00DC22CE /* Buttons */,
 				A37877FA175E04F600B95A07 /* ViewManager */,
 				A34F110F176771180036AE4E /* SlidingSubclass */,
 				A349C63F1760DF9F00B7D8BE /* StandaloneVCs */,
 				A37877F2175E01F000B95A07 /* LeftMenu */,
 				A37877EE175E011100B95A07 /* ContainerViews */,
 			);
-			name = VC;
+			name = "Interface Views";
 			sourceTree = "<group>";
 		};
 		A37877EE175E011100B95A07 /* ContainerViews */ = {
@@ -1004,7 +1016,6 @@
 		A3A8AE38176C76B500F6B5E1 /* Colors */ = {
 			isa = PBXGroup;
 			children = (
-				A3C8350C176C9A2C00DC22CE /* Buttons */,
 				A3A8AE39176C76E300F6B5E1 /* BKColors.h */,
 				A3A8AE3A176C76E300F6B5E1 /* BKColors.m */,
 				A3A8AE3D176C930800F6B5E1 /* BKColorDark.h */,
@@ -1016,12 +1027,48 @@
 		A3C8350C176C9A2C00DC22CE /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				A3C83511176CC2AC00DC22CE /* UIBarButtonItem+customInit.h */,
-				A3C83512176CC2AC00DC22CE /* UIBarButtonItem+customInit.m */,
-				A3C83514176CCFA400DC22CE /* BKBarButton.h */,
-				A3C83515176CCFA400DC22CE /* BKBarButton.m */,
+				A3C83517176D178400DC22CE /* BKButton.h */,
+				A3C83518176D178400DC22CE /* BKButton.m */,
+				A3C8351B176D179600DC22CE /* BarButton */,
+				A3C8351A176D178900DC22CE /* TVContentButton */,
 			);
 			name = Buttons;
+			sourceTree = "<group>";
+		};
+		A3C8351A176D178900DC22CE /* TVContentButton */ = {
+			isa = PBXGroup;
+			children = (
+				A3C83520176D218100DC22CE /* BKTableviewContentButton.h */,
+				A3C83521176D218100DC22CE /* BKTableviewContentButton.m */,
+			);
+			name = TVContentButton;
+			sourceTree = "<group>";
+		};
+		A3C8351B176D179600DC22CE /* BarButton */ = {
+			isa = PBXGroup;
+			children = (
+				A3C83511176CC2AC00DC22CE /* UIBarButtonItem+customInit.h */,
+				A3C83512176CC2AC00DC22CE /* UIBarButtonItem+customInit.m */,
+			);
+			name = BarButton;
+			sourceTree = "<group>";
+		};
+		A3C8351C176D1ECA00DC22CE /* CellButton */ = {
+			isa = PBXGroup;
+			children = (
+				A3C8351D176D1EE200DC22CE /* BKBookCellButton.h */,
+				A3C8351E176D1EE200DC22CE /* BKBookCellButton.m */,
+			);
+			name = CellButton;
+			sourceTree = "<group>";
+		};
+		A3C83523176D280400DC22CE /* DeleteButton */ = {
+			isa = PBXGroup;
+			children = (
+				A3C83524176D281D00DC22CE /* BKCellDeleteButton.h */,
+				A3C83525176D281D00DC22CE /* BKCellDeleteButton.m */,
+			);
+			name = DeleteButton;
 			sourceTree = "<group>";
 		};
 		A3D813351769369900819D1D /* Reachability */ = {
@@ -1239,7 +1286,10 @@
 				A3A8AE3B176C76E300F6B5E1 /* BKColors.m in Sources */,
 				A3A8AE3F176C930800F6B5E1 /* BKColorDark.m in Sources */,
 				A3C83513176CC2AC00DC22CE /* UIBarButtonItem+customInit.m in Sources */,
-				A3C83516176CCFA400DC22CE /* BKBarButton.m in Sources */,
+				A3C83519176D178400DC22CE /* BKButton.m in Sources */,
+				A3C8351F176D1EE200DC22CE /* BKBookCellButton.m in Sources */,
+				A3C83522176D218100DC22CE /* BKTableviewContentButton.m in Sources */,
+				A3C83526176D281D00DC22CE /* BKCellDeleteButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

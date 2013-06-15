@@ -20,14 +20,15 @@
         self.mainCellBackground = [UIColor yellowColor];
         self.rightMenuCellBackground = [UIColor greenColor];
     
-//
-//#pragma mark TableView ButtonColors
-//        self.buttonBackground;
-//        self.buttonFontColor;
-//        
-//#pragma mark CellView ButtonColors
-//        self.regularButtonColor;
-//        self.deleteButtonColor;
+
+#pragma mark TableView ButtonColors
+        self.buttonBackground = [UIColor brownColor];
+        self.buttonFontColor = [UIColor whiteColor];
+
+#pragma mark CellView ButtonColors
+        self.cellButtonColor = [UIColor lightGrayColor];
+        self.cellButtonFontColor = [UIColor blackColor];
+        self.cellDeleteButtonColor = [UIColor redColor];
         
 #pragma mark UIBarButton
         self.barButtonBackground = [UIColor redColor];

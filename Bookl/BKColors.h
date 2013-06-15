@@ -31,8 +31,9 @@ typedef enum {
 @property (strong) UIColor *buttonFontColor;
 
 #pragma mark CellView ButtonColors
-@property (strong) UIColor *regularButtonColor;
-@property (strong) UIColor *deleteButtonColor;
+@property (strong) UIColor *cellButtonColor;
+@property (strong) UIColor *cellButtonFontColor;
+@property (strong) UIColor *cellDeleteButtonColor;
 
 #pragma mark UIBarButton
 @property (strong) UIColor *barButtonBackground;

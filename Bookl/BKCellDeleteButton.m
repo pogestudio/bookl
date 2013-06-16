@@ -15,10 +15,10 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.topGradientColor = [BKColors currentColors].cellDeleteButtonColor;
-        self.bottomGradientColor = [BKColors currentColors].cellDeleteButtonColor;
+        self.topGradientColor = [BKColors currentColors].sharedBookDeleteButton;
+        self.bottomGradientColor = [BKColors currentColors].sharedBookDeleteButton;
         
-        self.titleColor = [BKColors currentColors].cellButtonFontColor;
+        self.titleColor = [BKColors currentColors].sharedBookDeleteButtonFont;
         
         [self layoutTitle];
     }

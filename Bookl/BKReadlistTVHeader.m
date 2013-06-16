@@ -14,6 +14,12 @@
 
 @implementation BKReadlistTVHeader
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.view.backgroundColor = [BKColors currentColors].rightTableviewHeaderBackground;
+}
+
 -(IBAction)editReadlists:(id)sender
 {
     UIButton *senderButton = (UIButton*)sender;

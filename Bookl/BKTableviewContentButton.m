@@ -14,10 +14,10 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.topGradientColor = [BKColors currentColors].buttonBackground;
-        self.bottomGradientColor = [BKColors currentColors].buttonBackground;
+        self.topGradientColor = [BKColors currentColors].headerButtonBackground;
+        self.bottomGradientColor = [BKColors currentColors].headerButtonBackground;
         
-        self.titleColor = [BKColors currentColors].buttonFontColor;
+        self.titleColor = [BKColors currentColors].headerButtonFont;
         [self layoutTitle];
     }
     return self;

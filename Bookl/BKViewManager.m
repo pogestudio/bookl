@@ -32,6 +32,8 @@ static BOOL _viewHasBeenShowedOnce;
     [self setUpView];
     
     _sharedViewManager = self;
+    
+    self.view.backgroundColor = [BKColors currentColors].mainCellBackground;
 }
 
 - (void)viewWillAppear:(BOOL)animated

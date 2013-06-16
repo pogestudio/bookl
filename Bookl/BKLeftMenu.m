@@ -89,6 +89,11 @@
 //    
 //}
 
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [cell.textLabel setTextColor:[BKColors currentColors].leftMenuFont];
+}
+
 -(void)showSettings:(id)sender
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];

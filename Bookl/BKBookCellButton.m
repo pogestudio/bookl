@@ -14,10 +14,10 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.topGradientColor = [BKColors currentColors].cellButtonColor;
-        self.bottomGradientColor = [BKColors currentColors].cellButtonColor;
+        self.topGradientColor = [BKColors currentColors].sharedBookCellButton;
+        self.bottomGradientColor = [BKColors currentColors].sharedBookCellButton;
         
-        self.titleColor = [BKColors currentColors].cellButtonFontColor;
+        self.titleColor = [BKColors currentColors].sharedBookCellButtonFont;
         
         [self layoutTitle];
     }

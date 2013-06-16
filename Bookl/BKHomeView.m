@@ -17,12 +17,4 @@
     return homeVC;
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:YES];
-    self.tableView.backgroundColor = [BKColors currentColors].mainCellBackground;
-}
-
-
-
 @end

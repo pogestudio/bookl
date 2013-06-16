@@ -8,8 +8,9 @@
 
 #import "BKColors.h"
 #import "BKColorDark.h"
+#import "BKColorLight.h"
 
-#define CURRENT_SCHEME 1
+#define CURRENT_SCHEME 2
 
 static ColorScheme _lastInitType;
 static BKColors *_lastInit;
@@ -40,6 +41,15 @@ static BKColors *_lastInit;
             }
             break;
         }
+        case ColorSchemeLight1:
+        {
+            if (_lastInitType == ColorSchemeLight1 && _lastInit) {
+                currentColors = _lastInit;
+            } else {
+                currentColors = [[BKColorLight alloc] init];
+            }
+            break;
+        }
         default:
             NSAssert(nil, @"wrong color scheme");
             break;
@@ -47,6 +57,9 @@ static BKColors *_lastInit;
     _lastInit = currentColors;
     return currentColors;
 }
+
+
+
 
 
 @end

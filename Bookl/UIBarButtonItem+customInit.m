@@ -39,7 +39,7 @@
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:title forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setTitleColor:[BKColors currentColors].barButtonFont forState:UIControlStateNormal];
     [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:13.0]];
     UIImage *buttonImage = [BKColors imageFromColor:[BKColors currentColors].barButtonBackground];
     UIImage *pressedButtonImage = [BKColors imageFromColor:[BKColors currentColors].barButtonPressedBackground];

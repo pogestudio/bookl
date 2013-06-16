@@ -39,12 +39,6 @@
 
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:YES];
-    self.tableView.backgroundColor = [BKColors currentColors].mainCellBackground;
-}
-
 #pragma mark Tableview Delegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

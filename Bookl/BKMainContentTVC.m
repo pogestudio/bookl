@@ -21,4 +21,10 @@
     NSAssert(nil,@"should never call this");
     return nil;
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    self.tableView.backgroundColor = [BKColors currentColors].mainCellBackground;
+}
 @end

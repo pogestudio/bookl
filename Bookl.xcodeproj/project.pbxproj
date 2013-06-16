@@ -132,6 +132,10 @@
 		A3C83526176D281D00DC22CE /* BKCellDeleteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C83525176D281D00DC22CE /* BKCellDeleteButton.m */; };
 		A3C83529176D356900DC22CE /* UIColor+fromHex.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C83528176D356900DC22CE /* UIColor+fromHex.m */; };
 		A3C8352C176DF0D500DC22CE /* BKColorLight.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C8352B176DF0D400DC22CE /* BKColorLight.m */; };
+		A3C83541176E816800DC22CE /* BKIAPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C83540176E816800DC22CE /* BKIAPManager.m */; };
+		A3C83544176E817100DC22CE /* BKIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C83543176E817100DC22CE /* BKIAPHelper.m */; };
+		A3C83548176E818E00DC22CE /* BKInAppPurchaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C83547176E818E00DC22CE /* BKInAppPurchaseVC.m */; };
+		A3C8354B176E81F900DC22CE /* SKProduct+LocalizedPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C8354A176E81F900DC22CE /* SKProduct+LocalizedPrice.m */; };
 		A3D81339176936AB00819D1D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D81338176936AB00819D1D /* Reachability.m */; };
 		A3E7B4B217667084006B05EC /* BKSettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7B4B117667084006B05EC /* BKSettingsTVC.m */; };
 /* End PBXBuildFile section */
@@ -385,6 +389,14 @@
 		A3C83528176D356900DC22CE /* UIColor+fromHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+fromHex.m"; sourceTree = "<group>"; };
 		A3C8352A176DF0D400DC22CE /* BKColorLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKColorLight.h; sourceTree = "<group>"; };
 		A3C8352B176DF0D400DC22CE /* BKColorLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKColorLight.m; sourceTree = "<group>"; };
+		A3C8353F176E816800DC22CE /* BKIAPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKIAPManager.h; sourceTree = "<group>"; };
+		A3C83540176E816800DC22CE /* BKIAPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKIAPManager.m; sourceTree = "<group>"; };
+		A3C83542176E817100DC22CE /* BKIAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKIAPHelper.h; sourceTree = "<group>"; };
+		A3C83543176E817100DC22CE /* BKIAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKIAPHelper.m; sourceTree = "<group>"; };
+		A3C83546176E818E00DC22CE /* BKInAppPurchaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKInAppPurchaseVC.h; sourceTree = "<group>"; };
+		A3C83547176E818E00DC22CE /* BKInAppPurchaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKInAppPurchaseVC.m; sourceTree = "<group>"; };
+		A3C83549176E81F900DC22CE /* SKProduct+LocalizedPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKProduct+LocalizedPrice.h"; sourceTree = "<group>"; };
+		A3C8354A176E81F900DC22CE /* SKProduct+LocalizedPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKProduct+LocalizedPrice.m"; sourceTree = "<group>"; };
 		A3D81337176936AB00819D1D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		A3D81338176936AB00819D1D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		A3E7B4B017667084006B05EC /* BKSettingsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSettingsTVC.h; sourceTree = "<group>"; };
@@ -423,6 +435,7 @@
 		A30D0CC4175E4EF300AD1CE1 /* Loose Objects */ = {
 			isa = PBXGroup;
 			children = (
+				A3C8353B176E814900DC22CE /* InAppPurchase */,
 				A3D813351769369900819D1D /* Reachability */,
 				A349C63B1760DF5E00B7D8BE /* LoginRelated */,
 				A30D0CC5175E4F3400AD1CE1 /* ReadingRelated */,
@@ -655,6 +668,8 @@
 		A30D0DE6175E635700AD1CE1 /* FoundationCategories */ = {
 			isa = PBXGroup;
 			children = (
+				A3C83549176E81F900DC22CE /* SKProduct+LocalizedPrice.h */,
+				A3C8354A176E81F900DC22CE /* SKProduct+LocalizedPrice.m */,
 				A30D0DE7175E637B00AD1CE1 /* NSString+de_encoding.h */,
 				A30D0DE8175E637B00AD1CE1 /* NSString+de_encoding.m */,
 				A30D0DF9175E7D7C00AD1CE1 /* NSDate+Compare.h */,
@@ -1081,6 +1096,42 @@
 			name = DeleteButton;
 			sourceTree = "<group>";
 		};
+		A3C8353B176E814900DC22CE /* InAppPurchase */ = {
+			isa = PBXGroup;
+			children = (
+				A3C8353E176E815700DC22CE /* BKIAPManager */,
+				A3C8353D176E815200DC22CE /* Superclass */,
+			);
+			name = InAppPurchase;
+			sourceTree = "<group>";
+		};
+		A3C8353D176E815200DC22CE /* Superclass */ = {
+			isa = PBXGroup;
+			children = (
+				A3C83542176E817100DC22CE /* BKIAPHelper.h */,
+				A3C83543176E817100DC22CE /* BKIAPHelper.m */,
+			);
+			name = Superclass;
+			sourceTree = "<group>";
+		};
+		A3C8353E176E815700DC22CE /* BKIAPManager */ = {
+			isa = PBXGroup;
+			children = (
+				A3C8353F176E816800DC22CE /* BKIAPManager.h */,
+				A3C83540176E816800DC22CE /* BKIAPManager.m */,
+			);
+			name = BKIAPManager;
+			sourceTree = "<group>";
+		};
+		A3C83545176E818000DC22CE /* IAPVC */ = {
+			isa = PBXGroup;
+			children = (
+				A3C83546176E818E00DC22CE /* BKInAppPurchaseVC.h */,
+				A3C83547176E818E00DC22CE /* BKInAppPurchaseVC.m */,
+			);
+			name = IAPVC;
+			sourceTree = "<group>";
+		};
 		A3D813351769369900819D1D /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
@@ -1095,6 +1146,7 @@
 			children = (
 				A3E7B4B017667084006B05EC /* BKSettingsTVC.h */,
 				A3E7B4B117667084006B05EC /* BKSettingsTVC.m */,
+				A3C83545176E818000DC22CE /* IAPVC */,
 			);
 			name = SettingsPopover;
 			sourceTree = "<group>";
@@ -1302,6 +1354,10 @@
 				A3C83526176D281D00DC22CE /* BKCellDeleteButton.m in Sources */,
 				A3C83529176D356900DC22CE /* UIColor+fromHex.m in Sources */,
 				A3C8352C176DF0D500DC22CE /* BKColorLight.m in Sources */,
+				A3C83541176E816800DC22CE /* BKIAPManager.m in Sources */,
+				A3C83544176E817100DC22CE /* BKIAPHelper.m in Sources */,
+				A3C83548176E818E00DC22CE /* BKInAppPurchaseVC.m in Sources */,
+				A3C8354B176E81F900DC22CE /* SKProduct+LocalizedPrice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

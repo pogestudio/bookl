@@ -33,7 +33,6 @@
     CGFloat newXpos = self.view.frame.size.width - RIGHT_MENU_WIDTH;
     CGRect newFrame = CGRectMake(newXpos, self.view.frame.origin.y, RIGHT_MENU_WIDTH, self.view.frame.size.height);
     self.view.frame = newFrame;
-    NSLog(@"View will appear, current width: %f",self.view.frame.size.width);
     
     if (!self.tableHeader) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];

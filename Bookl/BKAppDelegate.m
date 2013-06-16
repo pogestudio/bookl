@@ -230,6 +230,9 @@
     [[UIToolbar appearance] setBackgroundImage:toolBarColor
                             forToolbarPosition:UIToolbarPositionAny
                                     barMetrics:UIBarMetricsDefault];
+    [[UIToolbar appearance] setShadowImage:[BKColors imageFromColor:[BKColors currentColors].toolBarBackground]
+                        forToolbarPosition:UIToolbarPositionAny];
+    
     
     UIImage *searchBarColor = [BKColors imageFromColor:[BKColors currentColors].searchBarBackground];
     [[UISearchBar appearance] setBackgroundImage:searchBarColor];

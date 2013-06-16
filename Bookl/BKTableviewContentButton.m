@@ -18,6 +18,7 @@
         self.bottomGradientColor = [BKColors currentColors].headerButtonBackground;
         
         self.titleColor = [BKColors currentColors].headerButtonFont;
+        self.cornerRadius = 4.0;
         [self layoutTitle];
     }
     return self;

@@ -17,7 +17,7 @@
         self.topGradientColor = [UIColor redColor];
         self.bottomGradientColor = [UIColor blackColor];
         
-        self.cornerRadius = 5.0f;
+        self.cornerRadius = 8.0f;
         
         self.titleColor = [UIColor whiteColor];
         [self layoutTitle];

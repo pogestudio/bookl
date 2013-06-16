@@ -98,7 +98,7 @@
 {
     NSString *buttonText;
     if (percentage < 1) {
-        buttonText = [NSString stringWithFormat:@"%.02f%%",percentage];
+        buttonText = [NSString stringWithFormat:@"%.0f%%",percentage*100];
     } else {
         buttonText = @"Read";
     }

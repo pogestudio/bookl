@@ -7,11 +7,15 @@
 //
 
 #import "BKInAppPurchaseVC.h"
-#import "BKInAppPurchaseManager.h"
+#import "BKIAPManager.h"
 
+#import "SKProduct+LocalizedPrice.h"
 @interface BKInAppPurchaseVC ()
+{
+    NSArray *_products;
+}
 
-@property (strong) BKInAppPurchaseManager *IAPManager;
+@property (strong) BKIAPHelper *IAPManager;
 
 @end
 
@@ -30,8 +34,24 @@
 {
     [super viewDidLoad];
 
-    self.IAPManager = [[BKInAppPurchaseManager alloc] init];
-    [self.IAPManager requestIAP];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(reload) forControlEvents:UIControlEventValueChanged];
+    [self reload];
+    [self.refreshControl beginRefreshing];
+    
+}
+
+// 4
+- (void)reload {
+    _products = nil;
+    [self.tableView reloadData];
+    [[BKIAPManager sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+        if (success) {
+            _products = products;
+            [self.tableView reloadData];
+        }
+        [self.refreshControl endRefreshing];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,24 +64,21 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [_products count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IAPCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    SKProduct * product = (SKProduct *) _products[indexPath.row];
+    cell.textLabel.text = product.localizedTitle;
+    cell.detailTextLabel.text = product.localizedPrice;
     
     return cell;
 }

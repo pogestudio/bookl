@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A3057DF51769068300493676 /* BKInAppPurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3057DF41769068300493676 /* BKInAppPurchaseManager.m */; };
+		A3057DF51769068300493676 /* BKIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A3057DF41769068300493676 /* BKIAPHelper.m */; };
 		A3057DF81769077700493676 /* SKProduct+LocalizedPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = A3057DF71769077700493676 /* SKProduct+LocalizedPrice.m */; };
 		A3057DFB1769084A00493676 /* BKInAppPurchaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3057DFA1769084A00493676 /* BKInAppPurchaseVC.m */; };
 		A30D0CCA175E4F5300AD1CE1 /* TTBook.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0CC7175E4F5300AD1CE1 /* TTBook.m */; };
@@ -126,6 +126,7 @@
 		A38F3DD9176881F400A2FF84 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38F3DD8176881F400A2FF84 /* CoreLocation.framework */; };
 		A38F3DDB1768820A00A2FF84 /* MRAID.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A38F3DDA1768820A00A2FF84 /* MRAID.bundle */; };
 		A38F3DE817689B8D00A2FF84 /* libFlurryAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A38F3DE717689B8D00A2FF84 /* libFlurryAds.a */; };
+		A3C83536176E444F00DC22CE /* BKIAPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C83535176E444F00DC22CE /* BKIAPManager.m */; };
 		A3E7B4B217667084006B05EC /* BKSettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7B4B117667084006B05EC /* BKSettingsTVC.m */; };
 /* End PBXBuildFile section */
 
@@ -168,8 +169,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A3057DF31769068300493676 /* BKInAppPurchaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKInAppPurchaseManager.h; sourceTree = "<group>"; };
-		A3057DF41769068300493676 /* BKInAppPurchaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKInAppPurchaseManager.m; sourceTree = "<group>"; };
+		A3057DF31769068300493676 /* BKIAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKIAPHelper.h; sourceTree = "<group>"; };
+		A3057DF41769068300493676 /* BKIAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKIAPHelper.m; sourceTree = "<group>"; };
 		A3057DF61769077700493676 /* SKProduct+LocalizedPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKProduct+LocalizedPrice.h"; sourceTree = "<group>"; };
 		A3057DF71769077700493676 /* SKProduct+LocalizedPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKProduct+LocalizedPrice.m"; sourceTree = "<group>"; };
 		A3057DF91769084A00493676 /* BKInAppPurchaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKInAppPurchaseVC.h; sourceTree = "<group>"; };
@@ -366,6 +367,8 @@
 		A38F3DE517689B8D00A2FF84 /* FlurryAdDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlurryAdDelegate.h; path = Bookl/FlurryAds/FlurryAdDelegate.h; sourceTree = "<group>"; };
 		A38F3DE617689B8D00A2FF84 /* FlurryAds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlurryAds.h; path = Bookl/FlurryAds/FlurryAds.h; sourceTree = "<group>"; };
 		A38F3DE717689B8D00A2FF84 /* libFlurryAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurryAds.a; path = Bookl/FlurryAds/libFlurryAds.a; sourceTree = "<group>"; };
+		A3C83534176E444F00DC22CE /* BKIAPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKIAPManager.h; sourceTree = "<group>"; };
+		A3C83535176E444F00DC22CE /* BKIAPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKIAPManager.m; sourceTree = "<group>"; };
 		A3E7B4B017667084006B05EC /* BKSettingsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSettingsTVC.h; sourceTree = "<group>"; };
 		A3E7B4B117667084006B05EC /* BKSettingsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSettingsTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -402,8 +405,8 @@
 		A3057DF21769066D00493676 /* InAppPurchase */ = {
 			isa = PBXGroup;
 			children = (
-				A3057DF31769068300493676 /* BKInAppPurchaseManager.h */,
-				A3057DF41769068300493676 /* BKInAppPurchaseManager.m */,
+				A3C83532176E442A00DC22CE /* IAPManager */,
+				A3C83533176E443900DC22CE /* Superclass */,
 			);
 			name = InAppPurchase;
 			sourceTree = "<group>";
@@ -998,6 +1001,24 @@
 			name = FlurryAds;
 			sourceTree = "<group>";
 		};
+		A3C83532176E442A00DC22CE /* IAPManager */ = {
+			isa = PBXGroup;
+			children = (
+				A3C83534176E444F00DC22CE /* BKIAPManager.h */,
+				A3C83535176E444F00DC22CE /* BKIAPManager.m */,
+			);
+			name = IAPManager;
+			sourceTree = "<group>";
+		};
+		A3C83533176E443900DC22CE /* Superclass */ = {
+			isa = PBXGroup;
+			children = (
+				A3057DF31769068300493676 /* BKIAPHelper.h */,
+				A3057DF41769068300493676 /* BKIAPHelper.m */,
+			);
+			name = Superclass;
+			sourceTree = "<group>";
+		};
 		A3E7B4AF17667069006B05EC /* SettingsPopover */ = {
 			isa = PBXGroup;
 			children = (
@@ -1201,9 +1222,10 @@
 				A349C655176126CD00B7D8BE /* BKReadlistTVHeader.m in Sources */,
 				A3E7B4B217667084006B05EC /* BKSettingsTVC.m in Sources */,
 				A34F1113176771410036AE4E /* BKSlidingViewController.m in Sources */,
-				A3057DF51769068300493676 /* BKInAppPurchaseManager.m in Sources */,
+				A3057DF51769068300493676 /* BKIAPHelper.m in Sources */,
 				A3057DF81769077700493676 /* SKProduct+LocalizedPrice.m in Sources */,
 				A3057DFB1769084A00493676 /* BKInAppPurchaseVC.m in Sources */,
+				A3C83536176E444F00DC22CE /* BKIAPManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

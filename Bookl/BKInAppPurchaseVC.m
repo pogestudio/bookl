@@ -39,9 +39,30 @@
     [self reload];
     [self.refreshControl beginRefreshing];
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Restore" style:UIBarButtonItemStyleBordered target:self action:@selector(restoreTapped:)];
+    
 }
 
-// 4
+- (void)viewWillAppear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)productPurchased:(NSNotification *)notification {
+    
+    NSString * productIdentifier = notification.object;
+    [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
+        if ([product.productIdentifier isEqualToString:productIdentifier]) {
+            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:idx inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+            *stop = YES;
+        }
+    }];
+    
+}
+
 - (void)reload {
     _products = nil;
     [self.tableView reloadData];
@@ -80,7 +101,30 @@
     cell.textLabel.text = product.localizedTitle;
     cell.detailTextLabel.text = product.localizedPrice;
     
+    if ([[BKIAPManager sharedInstance] productPurchased:product.productIdentifier]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        cell.accessoryView = nil;
+    } else {
+        UIButton *buyButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        buyButton.frame = CGRectMake(0, 0, 72, 37);
+        [buyButton setTitle:@"Buy" forState:UIControlStateNormal];
+        buyButton.tag = indexPath.row;
+        [buyButton addTarget:self action:@selector(buyButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.accessoryView = buyButton;
+    }
+    
     return cell;
+}
+
+- (void)buyButtonTapped:(id)sender {
+    
+    UIButton *buyButton = (UIButton *)sender;
+    SKProduct *product = _products[buyButton.tag];
+    
+    NSLog(@"Buying %@...", product.productIdentifier);
+    [[BKIAPManager sharedInstance] buyProduct:product];
+    
 }
 
 /*
@@ -133,6 +177,10 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+- (void)restoreTapped:(id)sender {
+    [[BKIAPManager sharedInstance] restoreCompletedTransactions];
 }
 
 @end

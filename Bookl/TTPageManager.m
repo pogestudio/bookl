@@ -9,6 +9,7 @@
 #import "TTPageManager.h"
 #import "TTAdHandler.h"
 
+#import "BKIAPManager.h"
 static TTPageManager *_sharedManager;
 
 @implementation TTPageManager
@@ -27,6 +28,8 @@ static TTPageManager *_sharedManager;
     if (self) {
         self.savedPages = [[NSMutableDictionary alloc] init];
         _pagesRead = 0;
+        
+        
         self.adHandler = [[TTAdHandler alloc] initWithAdDelegate:self];
     }
     return self;
@@ -96,20 +99,19 @@ static TTPageManager *_sharedManager;
         shouldShowAds = YES;
         _pagesRead = 0;
     }
+    
+    BOOL adRemovalIsPurchased = [[BKIAPManager sharedInstance] adRemovalIsValid];
+    if (adRemovalIsPurchased) {
+        shouldShowAds = NO;
+    }
     return shouldShowAds;
 }
 
--(void)reloadAds
-{
-    
-}
 
 #pragma mark AdControl delegate
 -(void)adIsDone
 {
     [self startReadingPage:_pageBeneathAdvertisement];
-    [self reloadAds];
 }
-
 
 @end

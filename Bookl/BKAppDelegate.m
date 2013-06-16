@@ -18,6 +18,7 @@
 #import "Flurry.h"
 #import "FlurryAds.h"
 
+#import "BKIAPManager.h"
 
 @implementation BKAppDelegate
 
@@ -40,6 +41,9 @@
                                    selector:@selector(handleUserStatus)
                                    userInfo:nil
                                     repeats:NO];
+    
+    
+    
 
     [self startUpApptentive];
     [self startUpFlurryAnalytics];
@@ -210,5 +214,8 @@
 
 }
 
-
+-(void)prepareInAppPurchase
+{
+    [BKIAPManager sharedInstance];
+}
 @end

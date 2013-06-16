@@ -7,6 +7,9 @@
 //
 
 #import "BKIAPManager.h"
+#import "NSDate+Compare.h"
+
+#define kAdRemovalIdentifier @"com.pogestudio.bookl.onemonthwithoutads"
 
 @implementation BKIAPManager
 
@@ -16,11 +19,18 @@
     static BKIAPManager * sharedInstance;
     dispatch_once(&once, ^{
         NSSet * productIdentifiers = [NSSet setWithObjects:
-                                      @"com.pogestudio.bookl.onemonthwithoutads",
+                                      kAdRemovalIdentifier,
                                       nil];
         sharedInstance = [[self alloc] initWithProductIdentifiers:productIdentifiers];
     });
     return sharedInstance;
 }
+
+-(BOOL)adRemovalIsValid
+{
+    BOOL isValid = [self oneMonthPurchaseIsValidForIdentifier:kAdRemovalIdentifier];
+    return isValid;
+}
+
 
 @end

@@ -12,4 +12,6 @@
 
 + (BKIAPManager *)sharedInstance;
 
+-(BOOL)adRemovalIsValid;
+
 @end

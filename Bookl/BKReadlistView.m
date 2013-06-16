@@ -41,8 +41,9 @@
         self.tableHeader.headerDelegate = self;
     }
     
-    self.view.backgroundColor = [UIColor redColor];
-    self.tableView.backgroundColor = [UIColor blueColor];
+    
+    self.tableView.backgroundColor = [BKColors currentColors].rightMenuCellBackground;
+
 }
 
 #pragma mark TableView Datasource

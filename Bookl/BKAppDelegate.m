@@ -12,6 +12,7 @@
 
 #import "TTBookManager.h"
 #import "TTUser.h"
+#import "BKColors.h"
 
 #import "ATConnect.h"
 
@@ -44,6 +45,8 @@
     [self startUpApptentive];
     [self startUpFlurryAnalytics];
     [self startupFlurryAds];
+    
+    [self customizeApperance];
 
     return YES;
 }
@@ -208,6 +211,31 @@
     [FlurryAds initialize:aViewController];
     [FlurryAds enableTestAds:YES];
 
+}
+
+#pragma mark Appearance
+-(void)customizeApperance
+{
+    UIImage *navBarColor = [BKColors imageFromColor:[BKColors currentColors].navBarBackground];
+    [[UINavigationBar appearance] setBackgroundImage:navBarColor
+                                       forBarMetrics:UIBarMetricsDefault];
+    UIColor *navBarTitleColor = [BKColors currentColors].navBarFont;
+    [[UINavigationBar appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      navBarTitleColor, UITextAttributeTextColor,
+      [UIFont fontWithName:@"ArialMT" size:16.0], UITextAttributeFont,nil]];
+
+    
+    UIImage *toolBarColor = [BKColors imageFromColor:[BKColors currentColors].toolBarBackground];
+    [[UIToolbar appearance] setBackgroundImage:toolBarColor
+                            forToolbarPosition:UIToolbarPositionAny
+                                    barMetrics:UIBarMetricsDefault];
+    [[UIToolbar appearance] setShadowImage:[BKColors imageFromColor:[BKColors currentColors].toolBarBackground]
+                        forToolbarPosition:UIToolbarPositionAny];
+    
+    
+    UIImage *searchBarColor = [BKColors imageFromColor:[BKColors currentColors].searchBarBackground];
+    [[UISearchBar appearance] setBackgroundImage:searchBarColor];
 }
 
 

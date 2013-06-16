@@ -14,6 +14,8 @@
     #import <CoreData/CoreData.h>
     #import "TTConstants.h"
     #import "BKAppDelegate.h"
+    #import "BKColors.h"
+    #import <QuartzCore/QuartzCore.h>
 
     #define DEBUG 1
 #endif

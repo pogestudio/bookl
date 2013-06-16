@@ -14,6 +14,12 @@
 
 @implementation BKAllReadlistsTVHeader
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.view.backgroundColor = [BKColors currentColors].mainTableviewHeaderBackground;
+}
+
 -(IBAction)newReadlist:(id)sender
 {
     [self.headerDelegate insertNewReadlist];

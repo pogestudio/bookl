@@ -11,7 +11,7 @@
 #import "ECSlidingViewController.h"
 
 #import "TTBookManager.h"
-#import "TTUser.h"
+#import "BKUserManager.h"
 #import "BKColors.h"
 
 #import "ATConnect.h"
@@ -49,6 +49,7 @@
     [self startUpApptentive];
     [self startUpFlurryAnalytics];
     [self startupFlurryAds];
+    [self handleUserStatus];
     
     [self customizeApperance];
 
@@ -181,7 +182,7 @@
 #pragma mark Startup Stuff
 -(void)handleUserStatus
 {
-    //[TTUser makeSureUserIsLoggedIn];
+    [[BKUserManager sharedInstance] makeSureUserIsLoggedIn];
 }
 
 #pragma mark Extra libraries

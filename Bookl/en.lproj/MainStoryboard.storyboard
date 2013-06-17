@@ -22,7 +22,6 @@
         <!--Navigation Controller-->
         <scene sceneID="fkQ-MN-wSe">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UEv-ue-SFk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="NewNavCon" definesPresentationContext="YES" navigationBarHidden="YES" toolbarHidden="NO" id="rWL-uC-6rZ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="f22-Vb-IcB">
                         <autoresizingMask key="autoresizingMask"/>
@@ -35,6 +34,7 @@
                         <segue destination="FCy-Xs-VN2" kind="relationship" relationship="rootViewController" id="P4t-he-JZ0"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UEv-ue-SFk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1185" y="-481"/>
         </scene>
@@ -835,23 +835,6 @@
                                                         <action selector="dismissWindow:" destination="WhL-Rn-LhR" eventType="touchUpInside" id="H4I-Jd-pnS"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ze8-WO-uiY">
-                                                    <color key="backgroundColor" red="0.18195021250000001" green="0.2163418282" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="90" id="Vsu-5h-wGM"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" title="facebook">
-                                                        <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="dismissWindow:" destination="WhL-Rn-LhR" eventType="touchUpInside" id="WGX-SM-D9H"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -859,20 +842,16 @@
                                             <constraint firstItem="1wo-Uz-cSN" firstAttribute="baseline" secondItem="O25-qZ-MBz" secondAttribute="baseline" type="default" id="2H8-UW-zo2"/>
                                             <constraint firstItem="1wo-Uz-cSN" firstAttribute="top" secondItem="c6a-sm-9sn" secondAttribute="top" type="default" id="9no-GS-CO8"/>
                                             <constraint firstAttribute="trailing" secondItem="1wo-Uz-cSN" secondAttribute="trailing" constant="166" id="JqG-VM-dTh"/>
-                                            <constraint firstItem="Ze8-WO-uiY" firstAttribute="leading" secondItem="c6a-sm-9sn" secondAttribute="leading" constant="94" id="Ny8-jY-WOq"/>
-                                            <constraint firstItem="Ze8-WO-uiY" firstAttribute="bottom" secondItem="c6a-sm-9sn" secondAttribute="bottom" type="default" id="b4P-Ai-71M"/>
-                                            <constraint firstItem="Ze8-WO-uiY" firstAttribute="top" secondItem="c6a-sm-9sn" secondAttribute="top" type="default" id="bgv-OI-Tm3"/>
                                             <constraint firstItem="1wo-Uz-cSN" firstAttribute="bottom" secondItem="c6a-sm-9sn" secondAttribute="bottom" type="default" id="fRu-bH-rZV"/>
-                                            <constraint firstItem="Ze8-WO-uiY" firstAttribute="baseline" secondItem="O25-qZ-MBz" secondAttribute="baseline" type="default" id="k8z-jg-zRb"/>
                                             <constraint firstItem="O25-qZ-MBz" firstAttribute="centerX" secondItem="c6a-sm-9sn" secondAttribute="centerX" type="default" id="sTU-6l-TTF"/>
                                             <constraint firstItem="O25-qZ-MBz" firstAttribute="centerY" secondItem="1wo-Uz-cSN" secondAttribute="centerY" type="default" id="uoM-lR-Ta4"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="u51-lJ-tgp">
-                                        <rect key="frame" x="0.0" y="143" width="768" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="57" id="u51-lJ-tgp">
+                                        <rect key="frame" x="0.0" y="143" width="768" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="45" y="0.0" width="678" height="43"/>
+                                            <rect key="frame" x="45" y="0.0" width="678" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yip-gn-Pha">
@@ -893,16 +872,37 @@
                                                         <action selector="dismissWindow:" destination="WhL-Rn-LhR" eventType="touchUpInside" id="IbT-rR-kPW"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ze8-WO-uiY">
+                                                    <color key="backgroundColor" red="0.18195021250000001" green="0.2163418282" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="Vsu-5h-wGM"/>
+                                                        <constraint firstAttribute="height" constant="44" id="znw-Es-AKi"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="facebook">
+                                                        <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="dismissWindow:" destination="WhL-Rn-LhR" eventType="touchUpInside" id="WGX-SM-D9H"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="Ze8-WO-uiY" firstAttribute="centerY" secondItem="u51-lJ-tgp" secondAttribute="centerY" type="default" id="331-If-twv"/>
+                                            <constraint firstItem="Ze8-WO-uiY" firstAttribute="baseline" secondItem="yip-gn-Pha" secondAttribute="baseline" type="default" id="DB7-sC-CQ2"/>
                                             <constraint firstItem="yip-gn-Pha" firstAttribute="centerX" secondItem="u51-lJ-tgp" secondAttribute="centerX" type="default" id="TEO-CC-KpS"/>
-                                            <constraint firstItem="yip-gn-Pha" firstAttribute="top" secondItem="u51-lJ-tgp" secondAttribute="top" constant="7" id="bUP-h4-d61"/>
+                                            <constraint firstItem="yip-gn-Pha" firstAttribute="top" secondItem="u51-lJ-tgp" secondAttribute="top" constant="13" id="Wtd-uL-XOT"/>
+                                            <constraint firstItem="Ze8-WO-uiY" firstAttribute="leading" secondItem="u51-lJ-tgp" secondAttribute="leading" constant="105" id="cJ7-u8-tXv"/>
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Epf-3u-8OB">
-                                        <rect key="frame" x="0.0" y="187" width="768" height="45"/>
+                                        <rect key="frame" x="0.0" y="200" width="768" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="45" y="0.0" width="678" height="43"/>
@@ -940,6 +940,9 @@
                             <outlet property="delegate" destination="WhL-Rn-LhR" id="4zr-2n-gIo"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="faceBookView" destination="Ze8-WO-uiY" id="Lkn-kk-m92"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3x3-2V-bgy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

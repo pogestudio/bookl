@@ -11,7 +11,5 @@
 
 @interface TTLoginVC : UITableViewController <FBLoginViewDelegate>
 
-+(void)askForLogin;
-
 @property (strong) IBOutlet UIView *faceBookView;
 @end

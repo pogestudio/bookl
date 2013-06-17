@@ -23,7 +23,7 @@
 +(void)askForLogin
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
-    TTLoginVC *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginTVC"];
+    UINavigationController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginNavCon"];
     UIViewController *aVC = [UIApplication sharedApplication].keyWindow.rootViewController;
     loginVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [aVC presentViewController:loginVC animated:YES completion:nil];
@@ -44,31 +44,32 @@
 #pragma mark Initial setup
 -(void)addBackgroundImage
 {
-    UIImage *image = [UIImage imageNamed:@"ipad_logo.png"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    CGFloat width = imageView.frame.size.width;
-    CGFloat height = imageView.frame.size.height;
-    CGFloat xPos = 0;
-    CGFloat yPos = 0;
-    CGRect rectForImage = CGRectMake(xPos, yPos, width, height);
-    imageView.frame = rectForImage;
-    //[imageView.layer setCornerRadius:15];
-    //imageView.layer.masksToBounds = YES;
-    
-    UIImage *image2 = [UIImage imageNamed:@"books_clear.png"];
-    UIImageView *imageView2 = [[UIImageView alloc] initWithImage:image2];
-    width = imageView.frame.size.width;
-    height = imageView.frame.size.height;
-    xPos = 0;
-    yPos = IMAGE_HEIGHT;
-    rectForImage = CGRectMake(xPos, yPos, width, height);
-    imageView2.frame = rectForImage;
-    
-    UIView *background = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    background.tag = BACKGROUND_VIEW_TAG;
-    [background addSubview:imageView];
-    [background addSubview:imageView2];
-    self.tableView.backgroundView = background;
+//    
+//    UIImage *image = [UIImage imageNamed:@"ipad_logo.png"];
+//    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+//    CGFloat width = imageView.frame.size.width;
+//    CGFloat height = imageView.frame.size.height;
+//    CGFloat xPos = 0;
+//    CGFloat yPos = 0;
+//    CGRect rectForImage = CGRectMake(xPos, yPos, width, height);
+//    imageView.frame = rectForImage;
+//    //[imageView.layer setCornerRadius:15];
+//    //imageView.layer.masksToBounds = YES;
+//    
+//    UIImage *image2 = [UIImage imageNamed:@"books_clear.png"];
+//    UIImageView *imageView2 = [[UIImageView alloc] initWithImage:image2];
+//    width = imageView.frame.size.width;
+//    height = imageView.frame.size.height;
+//    xPos = 0;
+//    yPos = IMAGE_HEIGHT;
+//    rectForImage = CGRectMake(xPos, yPos, width, height);
+//    imageView2.frame = rectForImage;
+//    
+//    UIView *background = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//    background.tag = BACKGROUND_VIEW_TAG;
+//    [background addSubview:imageView];
+//    [background addSubview:imageView2];
+//    self.tableView.backgroundView = background;
 }
 
 

@@ -9,6 +9,8 @@
 #import "BKUserManager.h"
 #import "BKTokenFetch.h"
 
+#import "BKUserAuthVC.h"
+
 static BKUserManager *_sharedInstance;
 
 @implementation BKUserManager
@@ -34,7 +36,7 @@ static BKUserManager *_sharedInstance;
 {
     BOOL userIsLoggedIn = NO;
     if (!userIsLoggedIn) {
-        [TTLoginVC askForLogin];
+        [BKUserAuthVC askForUserLogin];
     }
 }
 

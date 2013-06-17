@@ -146,6 +146,9 @@
 		A3C83579176F50B500DC22CE /* BKNativeUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C83578176F50B500DC22CE /* BKNativeUser.m */; };
 		A3C8357C176F50D200DC22CE /* BKFacebookUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C8357B176F50D200DC22CE /* BKFacebookUser.m */; };
 		A3C83580176F5C9600DC22CE /* BKTokenFetch.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C8357F176F5C9600DC22CE /* BKTokenFetch.m */; };
+		A3C83584176F816900DC22CE /* BKSignupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C83583176F816900DC22CE /* BKSignupVC.m */; };
+		A3C83588176FB3C600DC22CE /* BKUserAuthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C83587176FB3C600DC22CE /* BKUserAuthVC.m */; };
+		A3C8358A176FCB5D00DC22CE /* iPad-background.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C83589176FCB5D00DC22CE /* iPad-background.png */; };
 		A3D81339176936AB00819D1D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D81338176936AB00819D1D /* Reachability.m */; };
 		A3E7B4B217667084006B05EC /* BKSettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7B4B117667084006B05EC /* BKSettingsTVC.m */; };
 /* End PBXBuildFile section */
@@ -421,6 +424,11 @@
 		A3C8357B176F50D200DC22CE /* BKFacebookUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKFacebookUser.m; sourceTree = "<group>"; };
 		A3C8357E176F5C9600DC22CE /* BKTokenFetch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKTokenFetch.h; sourceTree = "<group>"; };
 		A3C8357F176F5C9600DC22CE /* BKTokenFetch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKTokenFetch.m; sourceTree = "<group>"; };
+		A3C83582176F816900DC22CE /* BKSignupVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSignupVC.h; sourceTree = "<group>"; };
+		A3C83583176F816900DC22CE /* BKSignupVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSignupVC.m; sourceTree = "<group>"; };
+		A3C83586176FB3C600DC22CE /* BKUserAuthVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKUserAuthVC.h; sourceTree = "<group>"; };
+		A3C83587176FB3C600DC22CE /* BKUserAuthVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKUserAuthVC.m; sourceTree = "<group>"; };
+		A3C83589176FCB5D00DC22CE /* iPad-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad-background.png"; sourceTree = "<group>"; };
 		A3D81337176936AB00819D1D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		A3D81338176936AB00819D1D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		A3E7B4B017667084006B05EC /* BKSettingsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSettingsTVC.h; sourceTree = "<group>"; };
@@ -792,9 +800,6 @@
 			isa = PBXGroup;
 			children = (
 				A3C83576176F426F00DC22CE /* Users */,
-				A3C83556176F232E00DC22CE /* SecureStore */,
-				A3C83571176F41D800DC22CE /* BKUserManager.h */,
-				A3C83572176F41D800DC22CE /* BKUserManager.m */,
 			);
 			name = LoginRelated;
 			sourceTree = "<group>";
@@ -802,7 +807,7 @@
 		A349C63F1760DF9F00B7D8BE /* StandaloneVCs */ = {
 			isa = PBXGroup;
 			children = (
-				A349C6411760DFBF00B7D8BE /* LoginVC */,
+				A3C83585176FB33E00DC22CE /* UserAuthVCS */,
 				A349C6401760DFB400B7D8BE /* FullPageAd */,
 			);
 			name = StandaloneVCs;
@@ -829,6 +834,7 @@
 		A349C64D1760E10100B7D8BE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A3C83589176FCB5D00DC22CE /* iPad-background.png */,
 				A3303358176770520016EACB /* menu-icon.png */,
 				A3303359176770520016EACB /* menu-icon@2x.png */,
 				A349C6451760E0F600B7D8BE /* books_clear.png */,
@@ -1169,13 +1175,6 @@
 			name = IAPVC;
 			sourceTree = "<group>";
 		};
-		A3C83556176F232E00DC22CE /* SecureStore */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = SecureStore;
-			sourceTree = "<group>";
-		};
 		A3C83574176F420C00DC22CE /* FBUser */ = {
 			isa = PBXGroup;
 			children = (
@@ -1197,6 +1196,8 @@
 		A3C83576176F426F00DC22CE /* Users */ = {
 			isa = PBXGroup;
 			children = (
+				A3C83571176F41D800DC22CE /* BKUserManager.h */,
+				A3C83572176F41D800DC22CE /* BKUserManager.m */,
 				A3C8357D176F5C8400DC22CE /* TokenFetcher */,
 				A349C63C1760DF6600B7D8BE /* BKUser.h */,
 				A349C63D1760DF6600B7D8BE /* BKUser.m */,
@@ -1213,6 +1214,26 @@
 				A3C8357F176F5C9600DC22CE /* BKTokenFetch.m */,
 			);
 			name = TokenFetcher;
+			sourceTree = "<group>";
+		};
+		A3C83581176F7C2500DC22CE /* SignupVC */ = {
+			isa = PBXGroup;
+			children = (
+				A3C83582176F816900DC22CE /* BKSignupVC.h */,
+				A3C83583176F816900DC22CE /* BKSignupVC.m */,
+			);
+			name = SignupVC;
+			sourceTree = "<group>";
+		};
+		A3C83585176FB33E00DC22CE /* UserAuthVCS */ = {
+			isa = PBXGroup;
+			children = (
+				A349C6411760DFBF00B7D8BE /* LoginVC */,
+				A3C83581176F7C2500DC22CE /* SignupVC */,
+				A3C83586176FB3C600DC22CE /* BKUserAuthVC.h */,
+				A3C83587176FB3C600DC22CE /* BKUserAuthVC.m */,
+			);
+			name = UserAuthVCS;
 			sourceTree = "<group>";
 		};
 		A3D813351769369900819D1D /* Reachability */ = {
@@ -1347,6 +1368,7 @@
 				A330335A176770520016EACB /* menu-icon.png in Resources */,
 				A330335B176770520016EACB /* menu-icon@2x.png in Resources */,
 				A38F3DDB1768820A00A2FF84 /* MRAID.bundle in Resources */,
+				A3C8358A176FCB5D00DC22CE /* iPad-background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1446,6 +1468,8 @@
 				A3C83579176F50B500DC22CE /* BKNativeUser.m in Sources */,
 				A3C8357C176F50D200DC22CE /* BKFacebookUser.m in Sources */,
 				A3C83580176F5C9600DC22CE /* BKTokenFetch.m in Sources */,
+				A3C83584176F816900DC22CE /* BKSignupVC.m in Sources */,
+				A3C83588176FB3C600DC22CE /* BKUserAuthVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

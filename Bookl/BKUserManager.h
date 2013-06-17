@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <FacebookSDK/FacebookSDK.h>
 
-#import "TTLoginVC.h"
 typedef void (^ CompletionBlock)();
 
 @protocol UserManagerDelegate

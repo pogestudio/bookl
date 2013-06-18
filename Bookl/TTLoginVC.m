@@ -80,7 +80,7 @@
 
 -(void)addFaceBookLoginView
 {
-    UIView *cellToBePlacedIn = self.faceBookView.superview;
+    UIView *cellToBePlacedIn = self.loginButton.superview;
     [self.faceBookView removeFromSuperview];
     
     NSArray *readPermissions = [self FBreadPermissions];

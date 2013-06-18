@@ -11,5 +11,6 @@
 
 @interface TTLoginVC : UITableViewController <FBLoginViewDelegate>
 
+@property (strong) IBOutlet UIView *loginButton;
 @property (strong) IBOutlet UIView *faceBookView;
 @end

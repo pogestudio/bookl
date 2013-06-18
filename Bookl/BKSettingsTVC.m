@@ -10,7 +10,7 @@
 
 #import "ATConnect.h"
 #import "BKViewManager.h"
-#import "TTUser.h"
+#import "BKUser.h"
 
 #define kLogoutSection 1
 
@@ -93,7 +93,7 @@
 {
     //if logout, then just do that
     if (indexPath.section == kLogoutSection) {
-        [[TTUser loggedInUser] logoutUser];
+#warning LOGOUT USER
         [self dismissPopup];
         return;
     }

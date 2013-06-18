@@ -40,7 +40,8 @@ static BOOL _viewHasBeenShowedOnce;
 {
     [super viewWillAppear:animated];
     
-    if (![self.slidingViewController.underLeftViewController isKindOfClass:[BKLeftMenu class]]) {
+    UINavigationController *leftMenuNavCon = (UINavigationController*)self.slidingViewController.underLeftViewController;
+    if (![[leftMenuNavCon.viewControllers lastObject] isKindOfClass:[BKLeftMenu class]]) {
         //it's a navcon because we want the bottom toolbar
         UINavigationController *leftmenuNavcon = [self.storyboard instantiateViewControllerWithIdentifier:@"NewNavCon"];
         BKLeftMenu *leftMenu = [leftmenuNavcon.viewControllers lastObject];

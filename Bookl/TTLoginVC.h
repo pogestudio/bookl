@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
-@interface TTLoginVC : UITableViewController
+@interface TTLoginVC : UITableViewController <FBLoginViewDelegate>
 
-+(void)askForLogin;
-
+@property (strong) IBOutlet UIView *loginButton;
+@property (strong) IBOutlet UIView *faceBookView;
 @end

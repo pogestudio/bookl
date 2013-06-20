@@ -41,6 +41,8 @@
 	<string>MainStoryboard</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
+	<key>FacebookAppID</key>
+	<string>116660285210815</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

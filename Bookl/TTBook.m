@@ -22,18 +22,12 @@
         self.publishingYear = [self yearFromServerResult:serverResults];
         self.bookId = [serverResults objectForKey:@"ISBN"];
         self.publisher = [serverResults objectForKey:@"publisher"];
-        
-        //get the correct file URL according to current saving standards
-        NSString *fullPDFUrl = [serverResults objectForKey:@"pdfurl"];
-        NSArray *partsOfUrl = [fullPDFUrl componentsSeparatedByString:@"/"];
-        NSArray *flippedParts = [[partsOfUrl reverseObjectEnumerator] allObjects];
-        NSString *bucket = flippedParts[1];
-        NSString *fileName = flippedParts[0];
-        self.pdfUrl = [NSString stringWithFormat:@"%@/%@",bucket,fileName];
+        self.pdfUrl = [self pdfUrlFromServerResult:serverResults];
     }
        return self;
 }
 
+#pragma mark Server Result interpret helpers
 -(NSString*)yearFromServerResult:(NSDictionary*)serverResult
 {
     //just take the first component when split by dashes
@@ -44,6 +38,20 @@
     
 }
 
+-(NSString*)pdfUrlFromServerResult:(NSDictionary*)serverResults
+{
+    //get the correct file URL according to current saving standards
+    NSString *fullPDFUrl = [serverResults objectForKey:@"pdfurl"];
+    NSArray *partsOfUrl = [fullPDFUrl componentsSeparatedByString:@"/"];
+    NSArray *flippedParts = [[partsOfUrl reverseObjectEnumerator] allObjects];
+    NSString *bucket = flippedParts[1];
+    NSString *fileName = flippedParts[0];
+    NSString *rightURL = [NSString stringWithFormat:@"%@/%@",bucket,fileName];
+    return rightURL;
+
+}
+
+#pragma mark Other
 -(BOOL)isDownloaded
 {
     //CHECK IF EXISTS IN TEMP CACHE

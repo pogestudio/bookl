@@ -61,6 +61,7 @@
 
 -(void)download
 {
+    [Flurry logEvent:@"Downloading book"];
     AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:URL_AMAZON]];
     
     void (^success)(AFHTTPRequestOperation*, id) = ^(AFHTTPRequestOperation *operation, id responseObject) {

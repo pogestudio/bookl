@@ -894,6 +894,7 @@
 	}
 	else // Add the bookmarked page index to the bookmarks set
 	{
+        [Flurry logEvent:@"Added bookmark"];
 		[mainToolbar setBookmarkState:YES]; [document.bookmarks addIndex:page];
 	}
 }

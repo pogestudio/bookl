@@ -28,7 +28,7 @@ static TTBookOpener *_sharedOpener;
 
 -(void)openBook:(id)bookToOpen inNavCon:(UINavigationController *)navCon
 {
-    
+
 	NSString *password = nil; // Document password (for unlocking most encrypted PDF files)
     
     NSString *bookId;
@@ -56,6 +56,8 @@ static TTBookOpener *_sharedOpener;
 		[navCon pushViewController:readerViewController animated:YES];
         
 	}
+    
+    [Flurry logEvent:@"READING"];
 }
 
 

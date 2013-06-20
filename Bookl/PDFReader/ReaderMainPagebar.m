@@ -120,6 +120,7 @@
 
 - (void)updatePageNumberText:(NSInteger)page
 {
+    
 	if (page != pageNumberLabel.tag) // Only if page number changed
 	{
 		NSInteger pages = [document.pageCount integerValue]; // Total pages
@@ -413,6 +414,8 @@
 
 - (void)trackViewTouchDown:(ReaderTrackControl *)trackView
 {
+    [Flurry logEvent:@"Navigating ThumbBar"];
+
 	NSInteger page = [self trackViewPageNumber:trackView]; // Page
 
 	if (page != [document.pageNumber integerValue]) // Only if different
@@ -428,11 +431,14 @@
 }
 
 - (void)trackViewValueChanged:(ReaderTrackControl *)trackView
-{
+{    
+    [Flurry logEvent:@"Navigating ThumbBar"];
+
 	NSInteger page = [self trackViewPageNumber:trackView]; // Page
 
 	if (page != trackView.tag) // Only if the page number has changed
 	{
+
 		[self updatePageNumberText:page]; // Update page number text
 
 		[self updatePageThumbView:page]; // Update page thumb view

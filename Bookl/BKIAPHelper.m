@@ -106,6 +106,8 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 - (void)buyProduct:(SKProduct *)product {
     
+    [Flurry logEvent:[NSString stringWithFormat:@"BUYING %@",product.productIdentifier]];
+    
     NSLog(@"Buying %@...", product.productIdentifier);
     
     SKPayment * payment = [SKPayment paymentWithProduct:product];

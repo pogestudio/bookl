@@ -16,6 +16,7 @@
     #import "BKAppDelegate.h"
     #import "BKColors.h"
     #import <QuartzCore/QuartzCore.h>
+    #import "Flurry.h"
 
     #define DEBUG 1
 #endif

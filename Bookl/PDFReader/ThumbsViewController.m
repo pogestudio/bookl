@@ -67,6 +67,9 @@
 
 - (id)initWithReaderDocument:(ReaderDocument *)object
 {
+    
+    [Flurry logEvent:@"Navigating ThumbVC"];
+
 	id thumbs = nil; // ThumbsViewController object
 
 	if ((object != nil) && ([object isKindOfClass:[ReaderDocument class]]))
@@ -464,6 +467,9 @@
 
 - (void)showBookmark:(BOOL)show
 {
+    if (show) {
+        [Flurry logEvent:@"Showing bookmarks"];
+    }
 	bookMark.hidden = (show ? NO : YES);
 }
 

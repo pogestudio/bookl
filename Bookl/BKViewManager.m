@@ -13,6 +13,11 @@
 #import "BKLeftMenu.h"
 
 @interface BKViewManager ()
+{
+    
+}
+
+@property (strong, nonatomic) BKSearchBookView *theSearchVC;
 
 @end
 
@@ -20,6 +25,8 @@ static BKViewManager *_sharedViewManager;
 static BOOL _viewHasBeenShowedOnce;
 
 @implementation BKViewManager
+
+@synthesize theSearchVC = _theSearchVC;
 
 +(BKViewManager*)sharedViewManager
 {
@@ -126,7 +133,7 @@ static BOOL _viewHasBeenShowedOnce;
             break;
         case TypeOfCurrentVCSearchResult:
         {
-            newVC = [BKSearchBookView fromStoryboard];
+            newVC = self.theSearchVC;
         }
             break;
         default:
@@ -157,5 +164,14 @@ static BOOL _viewHasBeenShowedOnce;
 -(UIViewController*)middleTable
 {
     return _currentVC;
+}
+
+#pragma mark Search View
+-(BKSearchBookView*)theSearchVC
+{
+    if (!_theSearchVC) {
+        _theSearchVC = [BKSearchBookView fromStoryboard];
+    }
+    return _theSearchVC;
 }
 @end

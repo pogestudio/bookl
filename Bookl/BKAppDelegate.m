@@ -206,7 +206,7 @@
 {
     NSString *kFlurryAPIKey = @"RGGXJ8RRNQYNMZ6FP4KS";
     [Flurry startSession:kFlurryAPIKey];
-    [Flurry setDebugLogEnabled:YES];
+    //[Flurry setDebugLogEnabled:YES];
 }
 
 -(void)startupFlurryAds

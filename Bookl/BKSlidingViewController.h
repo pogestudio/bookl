@@ -10,4 +10,8 @@
 
 @interface BKSlidingViewController : ECSlidingViewController
 
++(BKSlidingViewController*)sharedInstance;
+
+-(void)changeNavConTitle:(NSString*)newTitle;
+
 @end

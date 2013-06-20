@@ -12,6 +12,8 @@
 #import "TTSharedBookCell.h"
 #import "BKViewManager.h"
 
+#import "BKSlidingViewController.h"
+
 @interface BKReadlistView ()
 
 @end
@@ -42,7 +44,16 @@
     
     
     self.tableView.backgroundColor = [BKColors currentColors].rightMenuCellBackground;
+    
+    [[BKSlidingViewController sharedInstance] changeNavConTitle:self.readlist.title];
+    
 
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[BKSlidingViewController sharedInstance] changeNavConTitle:@"Readlists"];
 }
 
 #pragma mark TableView Datasource

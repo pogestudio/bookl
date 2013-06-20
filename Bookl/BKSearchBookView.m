@@ -12,6 +12,8 @@
 
 #import "TTSharedBookCell.h"
 
+#import "BKSlidingViewController.h"
+
 @interface BKSearchBookView ()
 
 @end
@@ -37,6 +39,12 @@
     [self.tableView registerNib:sharedCell forCellReuseIdentifier:@"SharedBookCell"];
 
 
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[BKSlidingViewController sharedInstance] changeNavConTitle:@"Search"];
 }
 
 #pragma mark TableView Datasource

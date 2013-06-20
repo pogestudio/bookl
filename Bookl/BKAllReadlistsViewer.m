@@ -13,6 +13,7 @@
 #import "BKAppDelegate.h"
 #import "BKViewManager.h"
 #import "BKReadlistView.h"
+#import "BKSlidingViewController.h"
 
 @interface BKAllReadlistsViewer ()
 
@@ -37,6 +38,12 @@
         self.tableHeader.headerDelegate = self;
     }
 
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[BKSlidingViewController sharedInstance] changeNavConTitle:@"Readlists"];
 }
 
 #pragma mark Tableview Delegate

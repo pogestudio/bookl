@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Sliding View Controller-->
+        <!--Sliding View Controller - Woop-->
         <scene sceneID="M3q-Tx-8mP">
             <objects>
                 <viewController id="dcJ-x9-c3R" customClass="BKSlidingViewController" sceneMemberID="viewController">
@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jTw-WP-ohE"/>
+                    <navigationItem key="navigationItem" title="Woop" id="jTw-WP-ohE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fkb-Gw-vte" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -22,7 +22,6 @@
         <!--Navigation Controller-->
         <scene sceneID="fkQ-MN-wSe">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UEv-ue-SFk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="NewNavCon" definesPresentationContext="YES" navigationBarHidden="YES" toolbarHidden="NO" id="rWL-uC-6rZ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="f22-Vb-IcB">
                         <autoresizingMask key="autoresizingMask"/>
@@ -35,6 +34,7 @@
                         <segue destination="FCy-Xs-VN2" kind="relationship" relationship="rootViewController" id="P4t-he-JZ0"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UEv-ue-SFk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1185" y="-481"/>
         </scene>
@@ -586,7 +586,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Home" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKr-Wx-DCa">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="News" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKr-Wx-DCa">
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -641,7 +641,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZ6-oY-nZc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-259" y="-596"/>
+            <point key="canvasLocation" x="-247" y="-496"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cCf-om-0cI">
@@ -943,7 +943,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3x3-2V-bgy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1149" y="-2800"/>
+            <point key="canvasLocation" x="31" y="-2828"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

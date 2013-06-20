@@ -7,6 +7,7 @@
 //
 
 #import "BKHomeView.h"
+#import "BKSlidingViewController.h"
 
 @implementation BKHomeView
 
@@ -15,6 +16,12 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
     id homeVC = [storyboard instantiateViewControllerWithIdentifier:@"HomeView"];
     return homeVC;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[BKSlidingViewController sharedInstance] changeNavConTitle:@"News"];
 }
 
 @end

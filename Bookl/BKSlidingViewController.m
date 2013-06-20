@@ -10,6 +10,8 @@
 
 #import "UIBarButtonItem+customInit.h"
 
+static BKSlidingViewController *_sharedInstance;
+
 @interface BKSlidingViewController ()
 {
     UIBarButtonItem *_leftButton;
@@ -20,10 +22,26 @@
 
 @implementation BKSlidingViewController
 
+#pragma mark Singleton Functions
++(BKSlidingViewController*)sharedInstance
+{
+    NSAssert(_sharedInstance != nil, @"shared sliding view controller is nil, used too early");
+    return _sharedInstance;
+}
+
+#pragma mark Instance Functions
+-(void)changeNavConTitle:(NSString *)newTitle
+{
+    [self setTitle:newTitle];
+}
+
+
 -(void)viewDidLoad
 {
     [super viewDidLoad];
     self.view.backgroundColor = [BKColors currentColors].mainCellBackground;
+
+    _sharedInstance = self;
 }
 
 -(void)changeLeftBarButtonShow:(BOOL)shouldShow
@@ -92,6 +110,7 @@
         _rightButton = [UIBarButtonItem barItemWithTitle:@"List" target:self action:@selector(toggleRightMenu)];
 
     }
-    return _rightButton;}
+    return _rightButton;
+}
 
 @end

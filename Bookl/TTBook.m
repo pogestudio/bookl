@@ -10,6 +10,7 @@
 #import "TTBookManager.h"
 #import "AFNetworking.h"
 
+
 @implementation TTBook
 
 -(id)initWithServerResults:(NSDictionary*)serverResults
@@ -18,7 +19,7 @@
     if (self) {
         self.title = [serverResults objectForKey:@"title"];
         self.author = [[serverResults objectForKey:@"authors"] objectAtIndex:0];
-        //newBook.publishingYear = serverResults
+        self.publishingYear = [self yearFromServerResult:serverResults];
         self.bookId = [serverResults objectForKey:@"ISBN"];
         self.publisher = [serverResults objectForKey:@"publisher"];
         
@@ -31,6 +32,16 @@
         self.pdfUrl = [NSString stringWithFormat:@"%@/%@",bucket,fileName];
     }
        return self;
+}
+
+-(NSString*)yearFromServerResult:(NSDictionary*)serverResult
+{
+    //just take the first component when split by dashes
+    NSString *date = [serverResult objectForKey:@"published"];
+    NSArray  *components = [date componentsSeparatedByString:@"-"];
+    NSString *year = [components count] > 0 ? [components objectAtIndex:0] : @"Unknown";
+    return year;
+    
 }
 
 -(BOOL)isDownloaded

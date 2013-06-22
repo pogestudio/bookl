@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BKSignupVC : UITableViewController <UITextFieldDelegate,UIAlertViewDelegate>
+#import "BKUserManager.h"
+@interface BKSignupVC : UITableViewController <UITextFieldDelegate,UIAlertViewDelegate,SignupResponseDelegate>
 
 @property (strong) IBOutlet UITextField *username;
 @property (strong) IBOutlet UITextField *password;

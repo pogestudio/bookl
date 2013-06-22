@@ -8,6 +8,7 @@
 
 #import "BKSignupVC.h"
 #import "NSString+validateEmail.h"
+#import "BKUserManager.h"
 
 #define BACKGROUND_VIEW_TAG 2
 #define IMAGE_HEIGHT 576
@@ -43,38 +44,12 @@ typedef enum {
 
 
 #pragma mark Initial setup
-//-(void)addBackgroundImage
-//{
-//    UIImage *image = [UIImage imageNamed:@"ipad_logo.png"];
-//    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-//    CGFloat width = imageView.frame.size.width;
-//    CGFloat height = imageView.frame.size.height;
-//    CGFloat xPos = 0;
-//    CGFloat yPos = 0;
-//    CGRect rectForImage = CGRectMake(xPos, yPos, width, height);
-//    imageView.frame = rectForImage;
-//    //[imageView.layer setCornerRadius:15];
-//    //imageView.layer.masksToBounds = YES;
-//    
-//    UIImage *image2 = [UIImage imageNamed:@"books_clear.png"];
-//    UIImageView *imageView2 = [[UIImageView alloc] initWithImage:image2];
-//    width = imageView.frame.size.width;
-//    height = imageView.frame.size.height;
-//    xPos = 0;
-//    yPos = IMAGE_HEIGHT;
-//    rectForImage = CGRectMake(xPos, yPos, width, height);
-//    imageView2.frame = rectForImage;
-//    
-//    UIView *background = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//    background.tag = BACKGROUND_VIEW_TAG;
-//    [background addSubview:imageView];
-//    [background addSubview:imageView2];
-//    self.tableView.backgroundView = background;
-//}
-
 -(IBAction)doneButtonPressed:(id)sender
 {
-    [self validateTextInput];
+    BOOL isOk = [self validateTextInput];
+    if (isOk) {
+        [self sendDataToServer];
+    }
 }
 
 -(IBAction)backButtonPressed:(id)sender
@@ -134,19 +109,17 @@ typedef enum {
 //                                 PW: minimum 6 tecken.
 //                                 mail: vanlig mail check
 
--(void)validateTextInput
+-(BOOL)validateTextInput
 {
+    BOOL isOk = YES;
     if (![self validateUsername]) {
-        return;
+        isOk = NO;
+    } else if (![self validatePassword]) {
+        isOk = NO;
+    } else if (![self validateEmail]) {
+        isOk = NO;
     }
-    
-    if (![self validatePassword]) {
-        return;
-    }
-    
-    if (![self validateEmail]) {
-        return;
-    }
+    return isOk;
 }
 
 -(BOOL)validateUsername
@@ -226,5 +199,33 @@ typedef enum {
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     [_textFieldThatFailed becomeFirstResponder];
+}
+
+#pragma mark Send to Server
+-(void)sendDataToServer
+{
+    NSString *displayName = self.username.text;
+    NSString *password = self.password.text;
+    NSString *email  = self.email.text;
+    NSString *country = [self countryOfUser];
+    
+    NSDictionary *info = [NSDictionary dictionaryWithObjectsAndKeys:displayName,@"display_name", password, @"password",email,@"email",country,@"country", nil];
+    
+    [[BKUserManager sharedInstance] signupWithData:info withDelegate:self];
+    
+}
+-(NSString*)countryOfUser
+{
+    NSLocale *locale = [NSLocale currentLocale];
+    NSString *countryCode = [locale objectForKey: NSLocaleCountryCode];
+    NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    NSString *country = [usLocale displayNameForKey: NSLocaleCountryCode value: countryCode];
+    return country;
+}
+
+#pragma mark SignupResponseDelegate
+-(void)responseFromSignupAction:(SignupResponse)signupResponse
+{
+    NSLog(@"got response: %d",signupResponse);
 }
 @end

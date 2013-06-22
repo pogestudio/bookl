@@ -1014,7 +1014,7 @@
                                                         <constraint firstAttribute="width" constant="200" id="QLV-Bg-VMs"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="y0Q-pw-ve1" id="0hW-0d-Z5h"/>
                                                     </connections>
@@ -1041,7 +1041,7 @@
                                                         <constraint firstAttribute="width" constant="200" id="bdf-0L-myH"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="y0Q-pw-ve1" id="rj0-21-ZTS"/>
                                                     </connections>
@@ -1095,7 +1095,7 @@
                                                         <constraint firstAttribute="width" constant="200" id="DZj-ee-N2p"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="y0Q-pw-ve1" id="6zw-FB-bfn"/>
                                                     </connections>
@@ -1186,6 +1186,11 @@
     <resources>
         <image name="iPad-background.png" width="768" height="1024"/>
     </resources>
+    <classes>
+        <class className="TTLoginVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TTLoginVC.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

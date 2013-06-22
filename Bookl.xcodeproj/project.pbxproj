@@ -118,6 +118,7 @@
 		A3787806175E0BBB00B95A07 /* BKSearchBookView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3787805175E0BBB00B95A07 /* BKSearchBookView.m */; };
 		A385488217735D1C00C1A963 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = A385488117735D1B00C1A963 /* Icon-72.png */; };
 		A385488417735D1E00C1A963 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A385488317735D1D00C1A963 /* Icon-72@2x.png */; };
+		A385488D17737D5200C1A963 /* BKHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A385488C17737D5200C1A963 /* BKHTTPClient.m */; };
 		A38F3DB31767DF0200A2FF84 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38F3DB21767DF0200A2FF84 /* iAd.framework */; };
 		A38F3DD21768817A00A2FF84 /* MobFox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38F3DD11768817A00A2FF84 /* MobFox.framework */; };
 		A38F3DD5176881DF00A2FF84 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38F3DD4176881DF00A2FF84 /* AdSupport.framework */; };
@@ -380,6 +381,8 @@
 		A3787805175E0BBB00B95A07 /* BKSearchBookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSearchBookView.m; sourceTree = "<group>"; };
 		A385488117735D1B00C1A963 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Icon-72.png"; sourceTree = "<group>"; };
 		A385488317735D1D00C1A963 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "../Icon-72@2x.png"; sourceTree = "<group>"; };
+		A385488B17737D5200C1A963 /* BKHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKHTTPClient.h; sourceTree = "<group>"; };
+		A385488C17737D5200C1A963 /* BKHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKHTTPClient.m; sourceTree = "<group>"; };
 		A38F3DB21767DF0200A2FF84 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		A38F3DD11768817A00A2FF84 /* MobFox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobFox.framework; sourceTree = "<group>"; };
 		A38F3DD4176881DF00A2FF84 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -684,6 +687,7 @@
 		A30D0DCF175E53F800AD1CE1 /* Communication */ = {
 			isa = PBXGroup;
 			children = (
+				A385488A17737D3000C1A963 /* MyAFClient */,
 				A30D0DD0175E541300AD1CE1 /* BKProgressBarDelegate.h */,
 			);
 			name = Communication;
@@ -808,6 +812,8 @@
 		A349C63B1760DF5E00B7D8BE /* LoginRelated */ = {
 			isa = PBXGroup;
 			children = (
+				A3C8357D176F5C8400DC22CE /* TokenFetcher */,
+				A38548891773789600C1A963 /* UserManager */,
 				A3C83576176F426F00DC22CE /* Users */,
 			);
 			name = LoginRelated;
@@ -1075,6 +1081,24 @@
 			name = "In-App";
 			sourceTree = "<group>";
 		};
+		A38548891773789600C1A963 /* UserManager */ = {
+			isa = PBXGroup;
+			children = (
+				A3C83571176F41D800DC22CE /* BKUserManager.h */,
+				A3C83572176F41D800DC22CE /* BKUserManager.m */,
+			);
+			name = UserManager;
+			sourceTree = "<group>";
+		};
+		A385488A17737D3000C1A963 /* MyAFClient */ = {
+			isa = PBXGroup;
+			children = (
+				A385488B17737D5200C1A963 /* BKHTTPClient.h */,
+				A385488C17737D5200C1A963 /* BKHTTPClient.m */,
+			);
+			name = MyAFClient;
+			sourceTree = "<group>";
+		};
 		A38F3DDF17689ACD00A2FF84 /* FlurryAnalytics */ = {
 			isa = PBXGroup;
 			children = (
@@ -1229,9 +1253,6 @@
 		A3C83576176F426F00DC22CE /* Users */ = {
 			isa = PBXGroup;
 			children = (
-				A3C83571176F41D800DC22CE /* BKUserManager.h */,
-				A3C83572176F41D800DC22CE /* BKUserManager.m */,
-				A3C8357D176F5C8400DC22CE /* TokenFetcher */,
 				A349C63C1760DF6600B7D8BE /* BKUser.h */,
 				A349C63D1760DF6600B7D8BE /* BKUser.m */,
 				A3C83575176F425200DC22CE /* NativeUser */,
@@ -1506,6 +1527,7 @@
 				A3C83584176F816900DC22CE /* BKSignupVC.m in Sources */,
 				A3C83588176FB3C600DC22CE /* BKUserAuthVC.m in Sources */,
 				A3C8358D177059A600DC22CE /* NSString+validateEmail.m in Sources */,
+				A385488D17737D5200C1A963 /* BKHTTPClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

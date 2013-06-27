@@ -25,7 +25,7 @@
         
 #pragma mark LeftMenu
         self.leftMenuCellBackground = [UIColor colorFromHex:0x6574b2];
-        self.leftMenuFont = [UIColor blackColor];
+        self.leftMenuFont = [UIColor colorFromHex:0x8298ac];
         
 #pragma mark Toolbar
         self.toolBarBackground = self.leftMenuCellBackground;
@@ -36,8 +36,8 @@
         self.mainCellDetailFont = [UIColor blackColor];
         
 #pragma mark Tableview Header
-        self.headerButtonBackground = [UIColor colorFromHex:0xdf8062];
-        self.headerButtonPressedBackground = [UIColor colorFromHex:0x94d36c];
+        self.headerButtonBackground = [UIColor colorFromHex:0x8cb2eb];
+        self.headerButtonPressedBackground = [UIColor whiteColor];
         self.headerButtonFont = [UIColor blackColor];
         self.mainTableviewHeaderBackground = [UIColor clearColor];
         
@@ -52,8 +52,8 @@
         self.sharedBookCellButton = [UIColor colorFromHex:0xdfca62];
         self.sharedBookCellButtonPressed = [UIColor colorFromHex:0xbe6ca5];
         self.sharedBookCellButtonFont = [UIColor blackColor];
-        self.sharedBookDeleteButton = [UIColor colorFromHex:0xdf6262];
-        self.sharedBookDeleteButtonPressed = [UIColor colorFromHex:0x11112C];
+        self.sharedBookDeleteButton = [UIColor colorFromHex:0xdf6662];
+        self.sharedBookDeleteButtonPressed = [UIColor redColor];
         self.sharedBookDeleteButtonFont = [UIColor blackColor];
         
         

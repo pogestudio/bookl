@@ -55,4 +55,13 @@
     [self setTitleColor:self.titleColor forState:UIControlStateNormal];
 }
 
+#pragma Accessors
+-(void)setTitleColor:(UIColor *)titleColor
+{
+    _titleColor = titleColor;
+    [self setTitleColor:titleColor forState:UIControlStateNormal];
+}
+
+
+
 @end

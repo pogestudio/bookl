@@ -188,19 +188,17 @@
 							<object class="IBUIButton" id="787585000">
 								<reference key="NSNextResponder" ref="276096748"/>
 								<int key="NSvFlags">-2147482332</int>
-								<string key="NSFrame">{{685, 4}, {68, 44}}</string>
+								<string key="NSFrame">{{685, 4}, {68, 62}}</string>
 								<reference key="NSSuperview" ref="276096748"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="789658403"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
-								<object class="NSColor" key="IBUIBackgroundColor">
-									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MSAwIDAuMDEwODUxMDA2MzQAA</bytes>
-								</object>
 								<bool key="IBUIOpaque">NO</bool>
+								<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
+								<int key="IBUILineBreakMode">2</int>
 								<string key="IBUINormalTitle">delete</string>
 								<reference key="IBUIHighlightedTitleColor" ref="825913612"/>
 								<object class="NSColor" key="IBUINormalTitleColor">
@@ -422,6 +420,7 @@
 				<string key="198.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<reference key="198.IBUserGuides" ref="0"/>
 				<boolean value="NO" key="198.showNotes"/>
+				<string key="202.CustomClassName">BKCellDeleteButton</string>
 				<string key="202.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="8.CustomClassName">TTSharedBookCell</string>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -450,6 +449,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/BKButton.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">BKCellDeleteButton</string>
+					<string key="superclassName">BKButton</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/BKCellDeleteButton.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

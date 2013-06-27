@@ -17,7 +17,7 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:title forState:UIControlStateNormal];
     [button setTitleColor:[BKColors currentColors].barButtonFont forState:UIControlStateNormal];
-    [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:15.0]];
+    [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:14.0]];
     UIImage *buttonImage = [BKColors imageFromColor:[BKColors currentColors].barButtonBackground];
     UIImage *pressedButtonImage = [BKColors imageFromColor:[BKColors currentColors].barButtonPressedBackground];
     
@@ -38,9 +38,35 @@
     [v addSubview:button];
     
     UIBarButtonItem *newBarButton = [[UIBarButtonItem alloc] initWithCustomView:v];
+    
+    
     return newBarButton;
     
 }
+
+//-(void)setShadowToSelf
+//{
+//    // the image we're going to mask and shadow
+//    UIImageView* image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sj.jpeg"]];
+//    image.center = self.view.center;
+//    
+//    // make new layer to contain shadow and masked image
+//    CALayer* containerLayer = [CALayer layer];
+//    containerLayer.shadowColor = [UIColor blackColor].CGColor;
+//    containerLayer.shadowRadius = 10.f;
+//    containerLayer.shadowOffset = CGSizeMake(0.f, 5.f);
+//    containerLayer.shadowOpacity = 1.f;
+//    
+//    // use the image's layer to mask the image into a circle
+//    image.layer.cornerRadius = roundf(image.frame.size.width/2.0);
+//    image.layer.masksToBounds = YES;
+//    
+//    // add masked image layer into container layer so that it's shadowed
+//    [containerLayer addSublayer:image.layer];
+//    
+//    // add container including masked image and shadow into view
+//    [self.view.layer addSublayer:containerLayer];
+//}
 
 
 @end

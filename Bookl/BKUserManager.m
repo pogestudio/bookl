@@ -152,7 +152,18 @@ static BKUserManager *_sharedInstance;
 -(BOOL)isLoggedIn
 {
     NSString *password = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"password"];
-    NSString *username = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"username"];
+    
+    BOOL isLoggedIn = NO;
+    if (password != nil && ![password isEqualToString:@""]) {
+        isLoggedIn = YES;
+    }
+    
+    return isLoggedIn;
+}
+
+-(void)logoutUser
+{
+    [[PDKeychainBindings sharedKeychainBindings] setObject:@"" forKey:@"password"];
 }
 
 

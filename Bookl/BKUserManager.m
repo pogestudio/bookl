@@ -8,10 +8,21 @@
 
 #import "BKUserManager.h"
 #import "BKTokenFetch.h"
-#import "BKHTTPClient.h"
+
 #import "BKUserAuthVC.h"
 
+#import "NSString+de_encoding.h"
+#import "PDKeychainBindings.h"
+
+#import "BKHTTPClient.h"
+
 static BKUserManager *_sharedInstance;
+
+@interface BKUserManager()
+
+-(BOOL)isLoggedIn;
+
+@end
 
 @implementation BKUserManager
 {
@@ -38,7 +49,7 @@ static BKUserManager *_sharedInstance;
 
 -(void)makeSureUserIsLoggedIn
 {
-    BOOL userIsLoggedIn = NO;
+    BOOL userIsLoggedIn = [self isLoggedIn];
     if (!userIsLoggedIn) {
         [BKUserAuthVC askForUserLogin];
     }
@@ -86,12 +97,13 @@ static BKUserManager *_sharedInstance;
     AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
     [client postPath:@"api/signup/" parameters:userData
              success:^(AFHTTPRequestOperation *operation, NSData* responseObject){
-#warning INCOMPLETE
-                 //NSString *stringFromData = [[NSString alloc] initWithData:responseObject encoding:];
+                 NSString *stringFromData = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
                  NSLog(@"class of object is: %@",[responseObject class]);
-                 NSLog(@"got success: %@",responseObject);
+                 NSLog(@"got success: %@",stringFromData);
+                 SignupResponse responseFromServer = (SignupResponse)[stringFromData intValue];
+                 [delegate responseFromSignupAction:responseFromServer];
              }failure:^(AFHTTPRequestOperation *operation, NSError *error){
-                 NSLog(@"got failure: error %@",error);
+                 [delegate responseFromSignupAction:SignupResponseTimeout];
              }];
 }
 
@@ -101,5 +113,48 @@ static BKUserManager *_sharedInstance;
     
     NSString *path = @"/auth/header";
 }
+
+-(void)logInWithStoredCredentialsWithDelegate:(id<LoginResponseDelegate>)delegate
+{
+    NSString *password = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"password"];
+    NSString *username = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"username"];
+    
+    NSString *credentials = [NSString stringWithFormat:@"%@:%@",username,password];
+    NSString *base64Credentials = [credentials toBase64String];
+    NSString *base64Complete = [NSString stringWithFormat:@"Basic %@",base64Credentials];
+    
+    
+    NSLog(@"%@",base64Credentials);
+    
+    BKHTTPClient *postClient = [[BKHTTPClient sharedClient] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
+    
+    [postClient postPath:@"api/login/" parameters:nil
+             success:^(AFHTTPRequestOperation *operation, NSData* responseObject){
+#warning INCOMPLETE
+                 NSString *stringFromData = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                 NSLog(@"class of object is: %@",[responseObject class]);
+                 NSLog(@"got success: %@",responseObject);
+                 LoginResponse responseFromServer = (LoginResponse)[stringFromData intValue];
+                 [delegate responseFromLogin:responseFromServer];
+             }failure:^(AFHTTPRequestOperation *operation, NSError *error){
+                 NSLog(@"login failed, with error: %@",error);
+                 
+                 NSLog(@"failure %@", [error localizedDescription]);
+                 if (operation.response.statusCode == 400) {
+                 [delegate responseFromLogin:LoginResponseSuccess];
+                 }
+
+                 [delegate responseFromLogin:LoginResponseTimeout];
+             }];
+    
+}
+
+-(BOOL)isLoggedIn
+{
+    NSString *password = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"password"];
+    NSString *username = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"username"];
+}
+
+
 
 @end

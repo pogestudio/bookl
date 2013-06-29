@@ -12,4 +12,7 @@
 
 - (NSString *)urlencode;
 
+- (NSString *)toBase64String;
+- (NSString *)fromBase64String;
+
 @end

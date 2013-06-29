@@ -81,6 +81,10 @@
 		A30D0DFB175E7D7C00AD1CE1 /* NSDate+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DFA175E7D7C00AD1CE1 /* NSDate+Compare.m */; };
 		A30D0DFF175E883700AD1CE1 /* BKAllReadlistsViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DFE175E883700AD1CE1 /* BKAllReadlistsViewer.m */; };
 		A30D0E03175E893600AD1CE1 /* BKAllReadlistsTVHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0E02175E893600AD1CE1 /* BKAllReadlistsTVHeader.m */; };
+		A319D76B177CB5C200262B5B /* NSString+doesContain.m in Sources */ = {isa = PBXBuildFile; fileRef = A319D76A177CB5C200262B5B /* NSString+doesContain.m */; };
+		A319D770177CCF0300262B5B /* PDKeychainBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = A319D76F177CCF0300262B5B /* PDKeychainBindings.m */; };
+		A319D773177CD4FE00262B5B /* BKStringUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = A319D772177CD4FE00262B5B /* BKStringUtilities.m */; };
+		A319D777177D638400262B5B /* PDKeychainBindingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A319D775177D638400262B5B /* PDKeychainBindingsController.m */; };
 		A3303331176733810016EACB /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3303330176733810016EACB /* CoreTelephony.framework */; };
 		A33033331767338B0016EACB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33033321767338B0016EACB /* SystemConfiguration.framework */; };
 		A3303335176733940016EACB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3303334176733940016EACB /* StoreKit.framework */; };
@@ -327,6 +331,14 @@
 		A30D0DFE175E883700AD1CE1 /* BKAllReadlistsViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKAllReadlistsViewer.m; sourceTree = "<group>"; };
 		A30D0E01175E893600AD1CE1 /* BKAllReadlistsTVHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKAllReadlistsTVHeader.h; sourceTree = "<group>"; };
 		A30D0E02175E893600AD1CE1 /* BKAllReadlistsTVHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKAllReadlistsTVHeader.m; sourceTree = "<group>"; };
+		A319D769177CB5C200262B5B /* NSString+doesContain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+doesContain.h"; sourceTree = "<group>"; };
+		A319D76A177CB5C200262B5B /* NSString+doesContain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+doesContain.m"; sourceTree = "<group>"; };
+		A319D76E177CCF0300262B5B /* PDKeychainBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDKeychainBindings.h; sourceTree = "<group>"; };
+		A319D76F177CCF0300262B5B /* PDKeychainBindings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDKeychainBindings.m; sourceTree = "<group>"; };
+		A319D771177CD4FE00262B5B /* BKStringUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKStringUtilities.h; sourceTree = "<group>"; };
+		A319D772177CD4FE00262B5B /* BKStringUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKStringUtilities.m; sourceTree = "<group>"; };
+		A319D775177D638400262B5B /* PDKeychainBindingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDKeychainBindingsController.m; sourceTree = "<group>"; };
+		A319D776177D638400262B5B /* PDKeychainBindingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDKeychainBindingsController.h; sourceTree = "<group>"; };
 		A3303330176733810016EACB /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		A33033321767338B0016EACB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A3303334176733940016EACB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -716,16 +728,13 @@
 		A30D0DE6175E635700AD1CE1 /* FoundationCategories */ = {
 			isa = PBXGroup;
 			children = (
+				A319D774177CD51800262B5B /* Strings */,
 				A3C83549176E81F900DC22CE /* SKProduct+LocalizedPrice.h */,
 				A3C8354A176E81F900DC22CE /* SKProduct+LocalizedPrice.m */,
-				A30D0DE7175E637B00AD1CE1 /* NSString+de_encoding.h */,
-				A30D0DE8175E637B00AD1CE1 /* NSString+de_encoding.m */,
 				A30D0DF9175E7D7C00AD1CE1 /* NSDate+Compare.h */,
 				A30D0DFA175E7D7C00AD1CE1 /* NSDate+Compare.m */,
 				A3C83527176D356900DC22CE /* UIColor+fromHex.h */,
 				A3C83528176D356900DC22CE /* UIColor+fromHex.m */,
-				A3C8358B177059A600DC22CE /* NSString+validateEmail.h */,
-				A3C8358C177059A600DC22CE /* NSString+validateEmail.m */,
 			);
 			name = FoundationCategories;
 			sourceTree = "<group>";
@@ -789,6 +798,32 @@
 			name = AllRLHeader;
 			sourceTree = "<group>";
 		};
+		A319D76D177CCA4600262B5B /* SecureStorage */ = {
+			isa = PBXGroup;
+			children = (
+				A319D775177D638400262B5B /* PDKeychainBindingsController.m */,
+				A319D776177D638400262B5B /* PDKeychainBindingsController.h */,
+				A319D76E177CCF0300262B5B /* PDKeychainBindings.h */,
+				A319D76F177CCF0300262B5B /* PDKeychainBindings.m */,
+			);
+			name = SecureStorage;
+			sourceTree = "<group>";
+		};
+		A319D774177CD51800262B5B /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				A30D0DE7175E637B00AD1CE1 /* NSString+de_encoding.h */,
+				A30D0DE8175E637B00AD1CE1 /* NSString+de_encoding.m */,
+				A3C8358B177059A600DC22CE /* NSString+validateEmail.h */,
+				A3C8358C177059A600DC22CE /* NSString+validateEmail.m */,
+				A319D769177CB5C200262B5B /* NSString+doesContain.h */,
+				A319D76A177CB5C200262B5B /* NSString+doesContain.m */,
+				A319D771177CD4FE00262B5B /* BKStringUtilities.h */,
+				A319D772177CD4FE00262B5B /* BKStringUtilities.m */,
+			);
+			name = Strings;
+			sourceTree = "<group>";
+		};
 		A3303343176734300016EACB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -812,6 +847,7 @@
 		A349C63B1760DF5E00B7D8BE /* LoginRelated */ = {
 			isa = PBXGroup;
 			children = (
+				A319D76D177CCA4600262B5B /* SecureStorage */,
 				A3C8357D176F5C8400DC22CE /* TokenFetcher */,
 				A38548891773789600C1A963 /* UserManager */,
 				A3C83576176F426F00DC22CE /* Users */,
@@ -1528,6 +1564,10 @@
 				A3C83588176FB3C600DC22CE /* BKUserAuthVC.m in Sources */,
 				A3C8358D177059A600DC22CE /* NSString+validateEmail.m in Sources */,
 				A385488D17737D5200C1A963 /* BKHTTPClient.m in Sources */,
+				A319D76B177CB5C200262B5B /* NSString+doesContain.m in Sources */,
+				A319D770177CCF0300262B5B /* PDKeychainBindings.m in Sources */,
+				A319D773177CD4FE00262B5B /* BKStringUtilities.m in Sources */,
+				A319D777177D638400262B5B /* PDKeychainBindingsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

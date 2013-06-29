@@ -10,6 +10,8 @@
 #import "NSString+validateEmail.h"
 #import "BKUserManager.h"
 
+#import "PDKeychainBindings.h"
+
 #define BACKGROUND_VIEW_TAG 2
 #define IMAGE_HEIGHT 576
 
@@ -48,6 +50,7 @@ typedef enum {
 {
     BOOL isOk = [self validateTextInput];
     if (isOk) {
+        [self storeUsernameAndPassword];
         [self sendDataToServer];
     }
 }
@@ -183,10 +186,17 @@ typedef enum {
     return isCorrect && isTheSame;
 }
 
+-(void)popUIAlertWithTitle:(NSString*)title message:(NSString*)message
+{
+    [self popUIAlertWithTitle:title message:message forFailedTextfield:nil];
+}
 
 -(void)popUIAlertWithTitle:(NSString*)title message:(NSString*)message forFailedTextfield:(UITextField*)failedTextfield
 {
-    _textFieldThatFailed = failedTextfield;
+    if (failedTextfield) {
+        _textFieldThatFailed = failedTextfield;
+    }
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
                                                     message:message
                                                    delegate:self
@@ -226,6 +236,80 @@ typedef enum {
 #pragma mark SignupResponseDelegate
 -(void)responseFromSignupAction:(SignupResponse)signupResponse
 {
+    switch (signupResponse) {
+        case SignupResponseSuccess:
+        {
+            [self loginWithStoredCredentials];
+            break;
+        }
+        case SignupResponseDoubleUsername:
+        {
+            //show uialert
+            [self popUIAlertWithTitle:nil message:@"The username is taken, please enter another"];
+            break;
+        }
+        case SignupResponseDoubleEmail:
+        {
+            //show uialert
+            [self popUIAlertWithTitle:nil message:@"The email is taken, please enter another"];
+            break;
+        }
+        case SignupResponseTimeout:
+        {
+            //shw uialert
+            [self popUIAlertWithTitle:nil message:@"The connection timed out. Try again!"];
+            break;
+        }
+        default:
+            NSAssert(nil, @"Should never be here, wrong in responseFromSignupAction");
+            break;
+    }
+    
     NSLog(@"got response: %d",signupResponse);
 }
+
+
+#pragma mark Signup Response Actions
+-(void)loginWithStoredCredentials
+{
+    [[BKUserManager sharedInstance] logInWithStoredCredentialsWithDelegate:self];
+}
+
+#pragma mark Login Response Actions
+-(void)responseFromLogin:(LoginResponse)loginResponse
+{
+    switch (loginResponse) {
+        case LoginResponseIncorrect:
+        {
+            
+        }
+            break;
+        case LoginResponseSuccess:
+        {
+            
+        }
+            break;
+        case LoginResponseTimeout:
+        {
+            
+        }
+        default:
+            NSAssert(nil,@"Should never be here, wrong with responseFromLogin");
+            break;
+    }
+    
+    
+}
+
+#pragma mark Store and Load
+-(void)storeUsernameAndPassword
+{
+    NSString *username = self.username.text;
+    NSString *password = self.password.text;
+    
+    [[PDKeychainBindings sharedKeychainBindings] setObject:username forKey:@"username"];
+    [[PDKeychainBindings sharedKeychainBindings] setObject:password forKey:@"password"];
+}
+
+
 @end

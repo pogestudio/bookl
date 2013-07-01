@@ -21,6 +21,7 @@
 @property (strong) NSString *publishingYear;
 @property (strong) NSString *bookId;
 @property (strong) NSString *pdfUrl;
+@property (strong) NSDate *pdfUrlUpdated;
 @property (strong) NSString *publisher;
 @property (strong) NSString *publicRating;
 

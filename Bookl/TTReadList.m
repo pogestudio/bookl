@@ -48,13 +48,9 @@
 #pragma mark Server related
 -(void)fillReadListWithBooksFromSearch:(NSString *)urlEncodedQuery
 {
-    NSLog(@"Starting downloading books!");
-//    [[TTServerInterface sharedInterface] getSearchForQuery:urlEncodedQuery ToObject:self];
-    NSString *urlForPull = [NSString stringWithFormat:@"%@/api/search?query=%@",URL_BASE_ADDRESS,urlEncodedQuery];
+    NSString *urlForPull = [NSString stringWithFormat:@"%@/api/edition/query?query=%@",URL_BASE_ADDRESS,urlEncodedQuery];
     NSURL *url = [NSURL URLWithString:urlForPull];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    NSLog(@"%@",urlForPull);
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
                                                                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
                                                                                             NSLog(@"Received JSON: %@",JSON);
@@ -67,16 +63,17 @@
 
 -(void)fetchIsDone:(id)object
 {
-    NSAssert([object isKindOfClass:[NSDictionary class]], @"result from server is wrong object");
-    NSDictionary *result = (NSDictionary*)object;
+    NSLog(@"%@ kind of class",[object class]);
+    NSAssert([object isKindOfClass:[NSArray class]], @"result from server is wrong object");
+    NSArray *result = (NSArray*)object;
     [self fillWithBooksFromServerResult:result];
     [self.delegate readListFinishedDowloading:self];
 }
 
--(void)fillWithBooksFromServerResult:(NSDictionary *)serverResult
+-(void)fillWithBooksFromServerResult:(NSArray *)serverResult
 {
-    NSArray *unParsedBooks = [serverResult objectForKey:@"Result"];
-    for (NSDictionary *jsonResult in unParsedBooks) {
+    NSLog(@"%@",serverResult);
+    for (NSDictionary *jsonResult in serverResult) {
         TTBook *newBook = [[TTBook alloc] initWithServerResults:jsonResult];
         [self.books addObject:newBook];
     }

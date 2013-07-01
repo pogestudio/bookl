@@ -9,6 +9,7 @@
 #import "TTBook.h"
 #import "TTBookManager.h"
 #import "AFNetworking.h"
+#import "NSDate+PdfUrlIsValid.h"
 
 
 @implementation TTBook
@@ -18,11 +19,12 @@
     self = [super init];
     if (self) {
         self.title = [serverResults objectForKey:@"title"];
-        self.author = [[serverResults objectForKey:@"authors"] objectAtIndex:0];
+        self.author = [[[serverResults objectForKey:@"authors"] objectAtIndex:0] objectForKey:@"name"];
         self.publishingYear = [self yearFromServerResult:serverResults];
-        self.bookId = [serverResults objectForKey:@"ISBN"];
+        self.bookId = [serverResults objectForKey:@"edition_uuid"];
         self.publisher = [serverResults objectForKey:@"publisher"];
-        self.pdfUrl = [self pdfUrlFromServerResult:serverResults];
+        self.pdfUrl = [serverResults objectForKey:@"pdf_url"];
+        self.pdfUrlUpdated = [NSDate date];
     }
        return self;
 }
@@ -37,19 +39,19 @@
     return year;
     
 }
-
--(NSString*)pdfUrlFromServerResult:(NSDictionary*)serverResults
-{
-    //get the correct file URL according to current saving standards
-    NSString *fullPDFUrl = [serverResults objectForKey:@"pdfurl"];
-    NSArray *partsOfUrl = [fullPDFUrl componentsSeparatedByString:@"/"];
-    NSArray *flippedParts = [[partsOfUrl reverseObjectEnumerator] allObjects];
-    NSString *bucket = flippedParts[1];
-    NSString *fileName = flippedParts[0];
-    NSString *rightURL = [NSString stringWithFormat:@"%@/%@",bucket,fileName];
-    return rightURL;
-
-}
+//
+//-(NSString*)pdfUrlFromServerResult:(NSDictionary*)serverResults
+//{
+//    //get the correct file URL according to current saving standards
+//    NSString *fullPDFUrl = [serverResults objectForKey:@"pdfurl"];
+//    NSArray *partsOfUrl = [fullPDFUrl componentsSeparatedByString:@"/"];
+//    NSArray *flippedParts = [[partsOfUrl reverseObjectEnumerator] allObjects];
+//    NSString *bucket = flippedParts[1];
+//    NSString *fileName = flippedParts[0];
+//    NSString *rightURL = [NSString stringWithFormat:@"%@/%@",bucket,fileName];
+//    return rightURL;
+//
+//}
 
 #pragma mark Other
 -(BOOL)isDownloaded
@@ -61,6 +63,10 @@
 
 -(void)download
 {
+    BOOL isValid = [self.pdfUrlUpdated pdfUrlIsValid];
+    if (!isValid) {
+        [self refreshPdfUrlAndDownload];
+    }
     [Flurry logEvent:@"Downloading book"];
     AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:URL_AMAZON]];
     
@@ -88,6 +94,13 @@
 -(NSString*)filePath
 {
     return [NSString stringWithFormat:@"%@/%@.pdf",[TTConstants temporaryFilePath],self.bookId];
+}
+
+-(void)refreshPdfUrlAndDownload
+{
+    
+    
+    [self download];
 }
 
 @end

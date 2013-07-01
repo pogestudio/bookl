@@ -92,9 +92,56 @@
 }
 
 #pragma mark ProgressBar Delegate
--(void)readListFinishedDowloading:(TTReadList *)readlist
+-(void)readListFinishedDowloading:(TTReadList *)readlist fromIndex:(NSUInteger)startIndex toIndex:(NSUInteger)endIndex
 {
-    self.readlist = readlist;
-    [self.tableView reloadData];
+    //if it's 0-x, then replace all reading list. If not, replace the new range.
+    if (startIndex == 0) {
+        [self replaceWholeReadinglistWith:readlist toIndex:endIndex];
+    } else {
+        [self addBooksFrom:readlist fromIndex:startIndex toIndex:endIndex];
+    }
+}
+
+-(void)replaceWholeReadinglistWith:(TTReadList*) newList toIndex:(NSUInteger)endIndex
+{
+    //make this one delete all rows, then insert new ones
+
+    NSUInteger searchResultSecion = 0;
+    
+    NSMutableArray *currentIndexPaths = [[NSMutableArray alloc] init];
+    NSMutableArray *newIndexpaths = [[NSMutableArray alloc] init];
+    
+    NSUInteger row;
+    for ( row = 0; row < [self.readlist.books count] ; row++) {
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:row inSection:searchResultSecion];
+        [currentIndexPaths addObject:newIndexPath];
+    }
+    
+    for (row = 0 ; row < [newList.books count] ; row++) {
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:row inSection:searchResultSecion];
+        [newIndexpaths addObject:newIndexPath];
+    }
+    
+    
+    [self.tableView beginUpdates];
+    self.readlist = nil;
+    [self.tableView deleteRowsAtIndexPaths:currentIndexPaths withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView endUpdates];
+    
+    
+    [self.tableView beginUpdates];
+    self.readlist = newList;
+    [self.tableView insertRowsAtIndexPaths:newIndexpaths withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView endUpdates];
+}
+
+-(void)addBooksFrom:(TTReadList*) newList fromIndex:(NSUInteger)startIndex toIndex:(NSUInteger)endIndex
+{
+    NSAssert(startIndex != 0,@"wrong startindex");
+    //presumably, this should be the same lists
+    //make this one delete all rows, then insert new ones
+    [self.tableView beginUpdates];
+    self.readlist = newList;
+    [self.tableView endUpdates];
 }
 @end

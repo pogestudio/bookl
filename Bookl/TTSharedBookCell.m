@@ -22,6 +22,16 @@
 @implementation TTSharedBookCell
 
 - (IBAction)readButtonPressed:(id)sender {
+    NSAssert([sender isKindOfClass:[UIButton class]], @"Something other than button is sending");
+    UIButton *senderButton = (UIButton*)sender;
+    if ([senderButton.titleLabel.text isEqualToString:@"Download"]) {
+        [senderButton setTitle:@"Downloading" forState:UIControlStateNormal];
+    } else if(![senderButton.titleLabel.text isEqualToString:@"Read"])
+    {
+        return;
+    }
+    
+    
     id bookToRead = self.theBook ? self.theBook : self.theTTBook;
     [[TTBookManager sharedManager] startReadingBook:bookToRead withProgressDelegate:self];
 }

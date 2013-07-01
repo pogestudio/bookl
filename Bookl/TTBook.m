@@ -9,7 +9,6 @@
 #import "TTBook.h"
 #import "TTBookManager.h"
 #import "AFNetworking.h"
-#import "NSDate+PdfUrlIsValid.h"
 
 
 @implementation TTBook
@@ -63,10 +62,6 @@
 
 -(void)download
 {
-    BOOL isValid = [self.pdfUrlUpdated pdfUrlIsValid];
-    if (!isValid) {
-        [self refreshPdfUrlAndDownload];
-    }
     [Flurry logEvent:@"Downloading book"];
     AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:URL_AMAZON]];
     
@@ -94,13 +89,6 @@
 -(NSString*)filePath
 {
     return [NSString stringWithFormat:@"%@/%@.pdf",[TTConstants temporaryFilePath],self.bookId];
-}
-
--(void)refreshPdfUrlAndDownload
-{
-    
-    
-    [self download];
 }
 
 @end

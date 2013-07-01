@@ -60,11 +60,11 @@
 }
 
 #pragma mark ReadlistDelegate
--(void)readListFinishedDowloading:(TTReadList *)readlist
+-(void)readListFinishedDowloading:(TTReadList *)readlist fromIndex:(NSUInteger)startIndex toIndex:(NSUInteger)endIndex
 {
     NSDate *timeQueryWasSent = [[_watchlist allKeysForObject:readlist] lastObject];
     if ([timeQueryWasSent isLaterThan:_dateOfLastDeliveredReadlist] || _dateOfLastDeliveredReadlist == nil) {
-        [self.readListDelegate readListFinishedDowloading:readlist];
+        [self.readListDelegate readListFinishedDowloading:readlist fromIndex:startIndex toIndex:endIndex];
         _dateOfLastDeliveredReadlist = timeQueryWasSent;
     }
     [_watchlist removeObjectForKey:timeQueryWasSent];

@@ -10,6 +10,13 @@
 #import "TTBook.h"
 #import "AFNetworking.h"
 
+@interface TTReadList()
+
+@property (assign) NSUInteger endIndex;
+
+
+@end
+
 
 @implementation TTReadList
 
@@ -48,26 +55,34 @@
 #pragma mark Server related
 -(void)fillReadListWithBooksFromSearch:(NSString *)urlEncodedQuery
 {
-    NSString *urlForPull = [NSString stringWithFormat:@"%@/api/edition/query?query=%@",URL_BASE_ADDRESS,urlEncodedQuery];
+    NSUInteger interval = 30;
+    [self fillReadListWithBooksFromSearch:urlEncodedQuery fromIndex:0 toIndex:interval];
+}
+
+-(void)fillReadListWithBooksFromSearch:(NSString *)urlEncodedQuery fromIndex:(NSUInteger)startIndex toIndex:(NSUInteger)endIndex
+{
+    
+    NSString *urlForPull = [NSString stringWithFormat:@"%@/api/edition/query?query=%@&start=%d&end=%d",URL_BASE_ADDRESS,urlEncodedQuery,startIndex,endIndex];
+    
     NSURL *url = [NSURL URLWithString:urlForPull];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
                                                                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
                                                                                             NSLog(@"Received JSON: %@",JSON);
-                                                                                            [self fetchIsDone:JSON];
+                                                                                            [self fetchIsDone:JSON fromIndex:startIndex toIndex:endIndex];
                                                                                         }
                                                                                         failure:nil];
     [operation start];
     
 }
 
--(void)fetchIsDone:(id)object
+-(void)fetchIsDone:(id)object fromIndex:(NSUInteger)startIndex toIndex:(NSUInteger)endIndex
 {
     NSLog(@"%@ kind of class",[object class]);
     NSAssert([object isKindOfClass:[NSArray class]], @"result from server is wrong object");
     NSArray *result = (NSArray*)object;
     [self fillWithBooksFromServerResult:result];
-    [self.delegate readListFinishedDowloading:self];
+    [self.delegate readListFinishedDowloading:self fromIndex:startIndex toIndex:endIndex];
 }
 
 -(void)fillWithBooksFromServerResult:(NSArray *)serverResult

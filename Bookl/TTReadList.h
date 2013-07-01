@@ -13,7 +13,7 @@
 
 @protocol TTReadListDelegate <NSObject>
 
--(void)readListFinishedDowloading:(TTReadList*)readlist;
+-(void)readListFinishedDowloading:(TTReadList*)readlist fromIndex:(NSUInteger)startIndex toIndex:(NSUInteger)endIndex;
 
 @end
 
@@ -23,6 +23,7 @@
 @property (strong) NSString* title;
 @property (weak) id<TTReadListDelegate> delegate;
 
+-(void)fillReadListWithBooksFromSearch:(NSString*)urlEncodedQuery fromIndex:(NSUInteger)startIndex toIndex:(NSUInteger)endIndex;
 -(void)fillReadListWithBooksFromSearch:(NSString*)urlEncodedQuery;
 
 

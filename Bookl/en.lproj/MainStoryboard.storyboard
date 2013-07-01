@@ -1185,6 +1185,50 @@
     <resources>
         <image name="iPad-background.png" width="768" height="1024"/>
     </resources>
+    <classes>
+        <class className="BKAllReadlistsViewer" superclassName="BKMainContentTVC">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKAllReadlistsViewer.h"/>
+        </class>
+        <class className="BKBookCellButton" superclassName="BKButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKBookCellButton.h"/>
+        </class>
+        <class className="BKLeftMenu" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKLeftMenu.h"/>
+        </class>
+        <class className="BKMainContentTVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKMainContentTVC.h"/>
+        </class>
+        <class className="BKReadlistTVHeader" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKReadlistTVHeader.h"/>
+            <relationships>
+                <relationship kind="outlet" name="renameButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="BKReadlistView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKReadlistView.h"/>
+        </class>
+        <class className="BKSearchHeader" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKSearchHeader.h"/>
+        </class>
+        <class className="BKTableviewContentButton" superclassName="BKButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKTableviewContentButton.h"/>
+        </class>
+        <class className="TTAddBookToReadlist" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TTAddBookToReadlist.h"/>
+        </class>
+        <class className="TTLoginVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TTLoginVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="faceBookView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIView"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="TTMoreOptionsTVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TTMoreOptionsTVC.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

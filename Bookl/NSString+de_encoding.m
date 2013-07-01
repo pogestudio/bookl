@@ -7,6 +7,7 @@
 //
 
 #import "NSString+de_encoding.h"
+#import "BKStringUtilities.h"
 
 @implementation NSString (de_encoding)
 
@@ -29,6 +30,18 @@
         }
     }
     return output;
+}
+
+- (NSString *)toBase64String {
+    NSData *encodedData = [BKStringUtilities base64DataFromString:self];
+    NSString *encodedString = [[NSString alloc] initWithData:encodedData encoding:NSUnicodeStringEncoding];
+    return encodedString;
+}
+
+- (NSString *)fromBase64String {
+    NSData  *base64Data = [BKStringUtilities base64DataFromString:self];
+    NSString* decryptedStr = [[NSString alloc] initWithData:base64Data encoding:NSUnicodeStringEncoding];
+    return decryptedStr;
 }
 
 @end

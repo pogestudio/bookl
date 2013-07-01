@@ -8,6 +8,9 @@
 
 #import "BKSignupVC.h"
 #import "NSString+validateEmail.h"
+#import "BKUserManager.h"
+
+#import "PDKeychainBindings.h"
 
 #define BACKGROUND_VIEW_TAG 2
 #define IMAGE_HEIGHT 576
@@ -43,38 +46,13 @@ typedef enum {
 
 
 #pragma mark Initial setup
-//-(void)addBackgroundImage
-//{
-//    UIImage *image = [UIImage imageNamed:@"ipad_logo.png"];
-//    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-//    CGFloat width = imageView.frame.size.width;
-//    CGFloat height = imageView.frame.size.height;
-//    CGFloat xPos = 0;
-//    CGFloat yPos = 0;
-//    CGRect rectForImage = CGRectMake(xPos, yPos, width, height);
-//    imageView.frame = rectForImage;
-//    //[imageView.layer setCornerRadius:15];
-//    //imageView.layer.masksToBounds = YES;
-//    
-//    UIImage *image2 = [UIImage imageNamed:@"books_clear.png"];
-//    UIImageView *imageView2 = [[UIImageView alloc] initWithImage:image2];
-//    width = imageView.frame.size.width;
-//    height = imageView.frame.size.height;
-//    xPos = 0;
-//    yPos = IMAGE_HEIGHT;
-//    rectForImage = CGRectMake(xPos, yPos, width, height);
-//    imageView2.frame = rectForImage;
-//    
-//    UIView *background = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//    background.tag = BACKGROUND_VIEW_TAG;
-//    [background addSubview:imageView];
-//    [background addSubview:imageView2];
-//    self.tableView.backgroundView = background;
-//}
-
 -(IBAction)doneButtonPressed:(id)sender
 {
-    [self validateTextInput];
+    BOOL isOk = [self validateTextInput];
+    if (isOk) {
+        [self storeUsernameAndPassword];
+        [self sendDataToServer];
+    }
 }
 
 -(IBAction)backButtonPressed:(id)sender
@@ -134,19 +112,17 @@ typedef enum {
 //                                 PW: minimum 6 tecken.
 //                                 mail: vanlig mail check
 
--(void)validateTextInput
+-(BOOL)validateTextInput
 {
+    BOOL isOk = YES;
     if (![self validateUsername]) {
-        return;
+        isOk = NO;
+    } else if (![self validatePassword]) {
+        isOk = NO;
+    } else if (![self validateEmail]) {
+        isOk = NO;
     }
-    
-    if (![self validatePassword]) {
-        return;
-    }
-    
-    if (![self validateEmail]) {
-        return;
-    }
+    return isOk;
 }
 
 -(BOOL)validateUsername
@@ -210,10 +186,17 @@ typedef enum {
     return isCorrect && isTheSame;
 }
 
+-(void)popUIAlertWithTitle:(NSString*)title message:(NSString*)message
+{
+    [self popUIAlertWithTitle:title message:message forFailedTextfield:nil];
+}
 
 -(void)popUIAlertWithTitle:(NSString*)title message:(NSString*)message forFailedTextfield:(UITextField*)failedTextfield
 {
-    _textFieldThatFailed = failedTextfield;
+    if (failedTextfield) {
+        _textFieldThatFailed = failedTextfield;
+    }
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
                                                     message:message
                                                    delegate:self
@@ -227,4 +210,107 @@ typedef enum {
 {
     [_textFieldThatFailed becomeFirstResponder];
 }
+
+#pragma mark Send to Server
+-(void)sendDataToServer
+{
+    NSString *displayName = self.username.text;
+    NSString *password = self.password.text;
+    NSString *email  = self.email.text;
+    NSString *country = [self countryOfUser];
+    
+    NSDictionary *info = [NSDictionary dictionaryWithObjectsAndKeys:displayName,@"display_name", password, @"password",email,@"email",country,@"country", nil];
+    
+    [[BKUserManager sharedInstance] signupWithData:info withDelegate:self];
+    
+}
+-(NSString*)countryOfUser
+{
+    NSLocale *locale = [NSLocale currentLocale];
+    NSString *countryCode = [locale objectForKey: NSLocaleCountryCode];
+    NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    NSString *country = [usLocale displayNameForKey: NSLocaleCountryCode value: countryCode];
+    return country;
+}
+
+#pragma mark SignupResponseDelegate
+-(void)responseFromSignupAction:(SignupResponse)signupResponse
+{
+    switch (signupResponse) {
+        case SignupResponseSuccess:
+        {
+            [self loginWithStoredCredentials];
+            break;
+        }
+        case SignupResponseDoubleUsername:
+        {
+            //show uialert
+            [self popUIAlertWithTitle:nil message:@"The username is taken, please enter another"];
+            break;
+        }
+        case SignupResponseDoubleEmail:
+        {
+            //show uialert
+            [self popUIAlertWithTitle:nil message:@"The email is taken, please enter another"];
+            break;
+        }
+        case SignupResponseTimeout:
+        {
+            //shw uialert
+            [self popUIAlertWithTitle:nil message:@"The connection timed out. Try again!"];
+            break;
+        }
+        default:
+            NSAssert(nil, @"Should never be here, wrong in responseFromSignupAction");
+            break;
+    }
+    
+    NSLog(@"got response: %d",signupResponse);
+}
+
+
+#pragma mark Signup Response Actions
+-(void)loginWithStoredCredentials
+{
+    [[BKUserManager sharedInstance] logInWithStoredCredentialsWithDelegate:self];
+}
+
+#pragma mark Login Response Actions
+-(void)responseFromLogin:(LoginResponse)loginResponse
+{
+    switch (loginResponse) {
+        case LoginResponseIncorrect:
+        {
+            
+        }
+            break;
+        case LoginResponseSuccess:
+        {
+            
+        }
+            break;
+        case LoginResponseTimeout:
+        {
+            
+        }
+            break;
+        default:
+            NSAssert(nil,@"Should never be here, wrong with responseFromLogin");
+            break;
+    }
+    
+    
+}
+
+#pragma mark Store and Load
+-(void)storeUsernameAndPassword
+{
+    NSString *email = self.email.text;
+    NSString *password = self.password.text;
+    
+    [[PDKeychainBindings sharedKeychainBindings] setObject:email forKey:@"email"];
+    [[PDKeychainBindings sharedKeychainBindings] setObject:password forKey:@"password"];
+}
+
+
 @end

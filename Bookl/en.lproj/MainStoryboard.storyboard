@@ -837,7 +837,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" tag="77" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Nane" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jzv-Zf-QHQ">
+                                                <textField opaque="NO" clipsSubviews="YES" tag="77" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jzv-Zf-QHQ">
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="193" id="kF8-sc-xAy"/>
@@ -899,9 +899,6 @@
                                                     <state key="highlighted">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="dismissWindow:" destination="WhL-Rn-LhR" eventType="touchUpInside" id="H4I-Jd-pnS"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -956,7 +953,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="ICc-L1-hpf"/>
                     <connections>
+                        <outlet property="email" destination="Jzv-Zf-QHQ" id="4In-ku-R82"/>
                         <outlet property="loginButton" destination="1wo-Uz-cSN" id="pyY-pQ-w3V"/>
+                        <outlet property="password" destination="O25-qZ-MBz" id="Ayc-YK-Ftf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3x3-2V-bgy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1014,7 +1013,7 @@
                                                         <constraint firstAttribute="width" constant="200" id="QLV-Bg-VMs"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="y0Q-pw-ve1" id="0hW-0d-Z5h"/>
                                                     </connections>
@@ -1041,7 +1040,7 @@
                                                         <constraint firstAttribute="width" constant="200" id="bdf-0L-myH"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="y0Q-pw-ve1" id="rj0-21-ZTS"/>
                                                     </connections>
@@ -1095,7 +1094,7 @@
                                                         <constraint firstAttribute="width" constant="200" id="DZj-ee-N2p"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="y0Q-pw-ve1" id="6zw-FB-bfn"/>
                                                     </connections>

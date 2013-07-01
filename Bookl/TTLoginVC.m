@@ -8,7 +8,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "TTLoginVC.h"
-#import "BKUserManager.h"
+#import "PDKeychainBindings.h"
 
 #define BACKGROUND_VIEW_TAG 2
 #define IMAGE_HEIGHT 576
@@ -39,9 +39,25 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [self addFaceBookLoginView];
+    
+    UIButton *loginButton = (UIButton*)self.loginButton;
+    [loginButton addTarget:self action:@selector(loginUser) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self insertUNandPassword];
+    
 }
 
 #pragma mark Initial setup
+-(void)insertUNandPassword
+{
+    NSString *email = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"email"];
+    NSString *password = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"password"];
+    
+    self.email.text = email;
+    self.password.text = password;
+    
+}
+
 -(void)addBackgroundImage
 {
 //    
@@ -148,5 +164,62 @@
     // our policy here is to let the login view handle errors, but to log the results
     NSLog(@"FBLoginView encountered an error=%@", error);
 }
+
+#pragma mark Our login
+-(void)loginUser
+{
+    //store current credentials
+    NSString *email = self.email.text;
+    NSString *password = self.password.text;
+    
+    [[PDKeychainBindings sharedKeychainBindings] setObject:email forKey:@"email"];
+    [[PDKeychainBindings sharedKeychainBindings] setObject:password forKey:@"password"];
+    
+    [[BKUserManager sharedInstance] logInWithStoredCredentialsWithDelegate:self];
+}
+
+#pragma mark Login Response Delegate
+-(void)responseFromLogin:(LoginResponse)loginResponse
+{
+    switch (loginResponse) {
+        case LoginResponseSuccess:
+        {
+            [self dismissViewControllerAnimated:YES completion:nil];
+            break;
+        }
+        case LoginResponseTimeout:
+        {
+            
+            [self popUIAlertWithTitle:nil message:@"Connection timed out, please try again"];
+            break;
+        }
+        case LoginResponseIncorrect:
+        {
+            [self popUIAlertWithTitle:nil message:@"Username or password is incorrect"];
+            break;
+        }
+            
+        default:
+            NSAssert(nil,@"Should never be here, something is wrong with responseFromLogin in TTLoginVC");
+            break;
+    }
+}
+
+-(void)popUIAlertWithTitle:(NSString*)title message:(NSString*)message
+{
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:@"OK", nil];
+    [alert show];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+}
+
 
 @end

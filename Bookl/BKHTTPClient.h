@@ -14,4 +14,6 @@
 
 +(BKHTTPClient *)sharedClient;
 
+- (void)setUsername:(NSString *)username andPassword:(NSString *)password;
+
 @end

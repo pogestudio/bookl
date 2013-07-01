@@ -10,6 +10,12 @@
 
 @implementation BKHTTPClient
 
+- (void)setUsername:(NSString *)username andPassword:(NSString *)password
+{
+    [self clearAuthorizationHeader];
+    [self setAuthorizationHeaderWithUsername:username password:password];
+}
+
 +(BKHTTPClient *)sharedClient {
     static BKHTTPClient *_sharedClient = nil;
     static dispatch_once_t oncePredicate;
@@ -28,6 +34,9 @@
     [self setDefaultHeader:@"Content-Type" value:@"application/json"];
     self.parameterEncoding = AFJSONParameterEncoding;
     
+    
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+
     return self;
     
 }

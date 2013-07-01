@@ -293,6 +293,7 @@ typedef enum {
         {
             
         }
+            break;
         default:
             NSAssert(nil,@"Should never be here, wrong with responseFromLogin");
             break;
@@ -304,10 +305,10 @@ typedef enum {
 #pragma mark Store and Load
 -(void)storeUsernameAndPassword
 {
-    NSString *username = self.username.text;
+    NSString *email = self.email.text;
     NSString *password = self.password.text;
     
-    [[PDKeychainBindings sharedKeychainBindings] setObject:username forKey:@"username"];
+    [[PDKeychainBindings sharedKeychainBindings] setObject:email forKey:@"email"];
     [[PDKeychainBindings sharedKeychainBindings] setObject:password forKey:@"password"];
 }
 

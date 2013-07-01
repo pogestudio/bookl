@@ -52,6 +52,6 @@ typedef void (^ CompletionBlock)();
 
 -(void)signupWithData:(NSDictionary*)userData withDelegate:(id<SignupResponseDelegate>)delegate;
 -(void)logInWithStoredCredentialsWithDelegate:(id<LoginResponseDelegate>)delegate;
-
 -(void)logoutUser;
+
 @end

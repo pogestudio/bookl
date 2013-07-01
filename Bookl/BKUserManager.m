@@ -26,7 +26,7 @@ static BKUserManager *_sharedInstance;
 
 @implementation BKUserManager
 {
-    id<SignupResponseDelegate> _responseDelegate;
+    BOOL _isLoggedin;
 }
 
 +(BKUserManager*)sharedInstance
@@ -57,7 +57,6 @@ static BKUserManager *_sharedInstance;
 
 -(void)signupWithData:(NSDictionary *)userData withDelegate:(id<SignupResponseDelegate>)delegate
 {
-    _responseDelegate = delegate;
 //    //multi thread
 //    NSError *error;
 //    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userData
@@ -117,48 +116,41 @@ static BKUserManager *_sharedInstance;
 -(void)logInWithStoredCredentialsWithDelegate:(id<LoginResponseDelegate>)delegate
 {
     NSString *password = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"password"];
-    NSString *username = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"username"];
+    NSString *email = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"email"];
+//    
+//    NSString *credentials = [NSString stringWithFormat:@"%@:%@",email,password];
+//    NSString *base64Credentials = [credentials toBase64String];
+//    NSString *base64Complete = [NSString stringWithFormat:@"Basic %@",base64Credentials];
+//    
+//    
+//    NSLog(@"credentials:: %@",credentials);
+//    NSLog(@"base64credentials:: %@",base64Credentials);
+//    NSLog(@"base64complete:: %@",base64Complete);
     
-    NSString *credentials = [NSString stringWithFormat:@"%@:%@",username,password];
-    NSString *base64Credentials = [credentials toBase64String];
-    NSString *base64Complete = [NSString stringWithFormat:@"Basic %@",base64Credentials];
+    AFHTTPClient *postClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
+    [postClient setAuthorizationHeaderWithUsername:email password:password];
     
-    
-    NSLog(@"%@",base64Credentials);
-    
-    BKHTTPClient *postClient = [[BKHTTPClient sharedClient] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
     
     [postClient postPath:@"api/login/" parameters:nil
              success:^(AFHTTPRequestOperation *operation, NSData* responseObject){
-#warning INCOMPLETE
+
                  NSString *stringFromData = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
                  NSLog(@"class of object is: %@",[responseObject class]);
-                 NSLog(@"got success: %@",responseObject);
-                 LoginResponse responseFromServer = (LoginResponse)[stringFromData intValue];
-                 [delegate responseFromLogin:responseFromServer];
-             }failure:^(AFHTTPRequestOperation *operation, NSError *error){
-                 NSLog(@"login failed, with error: %@",error);
+                 NSLog(@"got success: %@",stringFromData);
+                 LoginResponse responseFromServer = [stringFromData boolValue] ? LoginResponseSuccess : (LoginResponse)[stringFromData intValue];
                  
-                 NSLog(@"failure %@", [error localizedDescription]);
-                 if (operation.response.statusCode == 400) {
-                 [delegate responseFromLogin:LoginResponseSuccess];
-                 }
-
-                 [delegate responseFromLogin:LoginResponseTimeout];
+                 [self sendBackLoginResponse:responseFromServer toDelegate:delegate];
+             }failure:^(AFHTTPRequestOperation *operation, NSError *error){
+                 NSLog(@"login failure %@", [error localizedDescription]);
+                 
+                 [self sendBackLoginResponse:operation.response.statusCode toDelegate:delegate];
              }];
     
 }
 
 -(BOOL)isLoggedIn
 {
-    NSString *password = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"password"];
-    
-    BOOL isLoggedIn = NO;
-    if (password != nil && ![password isEqualToString:@""]) {
-        isLoggedIn = YES;
-    }
-    
-    return isLoggedIn;
+    return _isLoggedin;
 }
 
 -(void)logoutUser
@@ -166,6 +158,33 @@ static BKUserManager *_sharedInstance;
     [[PDKeychainBindings sharedKeychainBindings] setObject:@"" forKey:@"password"];
 }
 
+
+#pragma mark Delegate actions
+-(void)sendBackLoginResponse:(LoginResponse)loginResponse toDelegate:(id<LoginResponseDelegate>)delegate
+{
+    switch (loginResponse) {
+        case LoginResponseSuccess:
+        {
+            _isLoggedin = YES;
+            break;
+        }
+            break;
+        case LoginResponseIncorrect:
+        {
+            //No break, keep flowing to timeout
+        }
+        case LoginResponseTimeout:
+        {
+            _isLoggedin = NO;
+            break;
+        }
+        default:
+            NSAssert(nil,@"too many loginresponses in sendbakcloginresponse");
+            break;
+    }
+    
+    [delegate responseFromLogin:loginResponse];
+}
 
 
 @end

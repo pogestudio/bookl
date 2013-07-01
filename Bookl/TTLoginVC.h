@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "BKUserManager.h"
 
-@interface TTLoginVC : UITableViewController <FBLoginViewDelegate>
+
+@interface TTLoginVC : UITableViewController <FBLoginViewDelegate,LoginResponseDelegate,UIAlertViewDelegate>
+
+@property (strong) IBOutlet UITextField *email;
+@property (strong) IBOutlet UITextField *password;
 
 @property (strong) IBOutlet UIView *loginButton;
 @property (strong) IBOutlet UIView *faceBookView;

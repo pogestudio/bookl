@@ -14,6 +14,7 @@
 @interface BKLeftMenu ()
 {
     UIPopoverController *_tempPop;
+    NSIndexPath *_lastPressedRow;
     
 }
 
@@ -36,6 +37,12 @@
 
 -(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == _lastPressedRow.row && indexPath.section == _lastPressedRow.section) {
+        //pressed same as before. bail out
+        return;
+    } else {
+        _lastPressedRow = indexPath;
+    }
     switch (indexPath.row) {
         case 0:
         {
@@ -57,37 +64,6 @@
             break;
     }
 }
-
-//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if( [segue isKindOfClass:[UIStoryboardPopoverSegue class]] )
-//    {
-//        UIStoryboardPopoverSegue *popoverSegue      = (id)segue;
-//        UIPopoverController      *popoverController = popoverSegue.popoverController;
-//        
-//        if( self.settingsPopover.popoverVisible )
-//        {
-//            [self.settingsPopover dismissPopoverAnimated:NO];
-//            dispatch_async( dispatch_get_main_queue(), ^{
-//                [popoverController dismissPopoverAnimated:YES];
-//            });
-//            self.settingsPopover = nil;
-//        }
-//        else
-//        {
-//            self.settingsPopover = popoverController;
-//        }
-//        
-//        //if it's the settings, give it the popovercontroller so it can dismiss itsel when pressed
-//        if ([segue.destinationViewController isKindOfClass:[UINavigationController class]]) {
-//            if ([[((UINavigationController*)segue.destinationViewController).viewControllers lastObject] isKindOfClass:[BKSettingsTVC class]]) {
-//                BKSettingsTVC *settings = [((UINavigationController*)segue.destinationViewController).viewControllers lastObject];
-//                settings.popController = ((UIStoryboardPopoverSegue*)segue).popoverController;
-//            }
-//        }
-//    }
-//    
-//}
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {

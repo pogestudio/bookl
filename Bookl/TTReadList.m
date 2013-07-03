@@ -11,12 +11,17 @@
 #import "AFNetworking.h"
 
 @interface TTReadList()
+{
+    NSString *_lastSearchQuery;
+    NSUInteger _lastEndIndex;
+}
 
 @property (assign) NSUInteger endIndex;
 
 
 @end
 
+#define kSEARCH_INTERVAL 30
 
 @implementation TTReadList
 
@@ -26,6 +31,7 @@
     self = [super init];
     if (self) {
         self.books = [[NSMutableArray alloc] init];
+        self.canDeliverMore = YES;
     }
     return self;
 }
@@ -53,10 +59,17 @@
 //}
 
 #pragma mark Server related
+
+-(void)fillReadListWithMoreBooks
+{
+    NSUInteger newEndIndex = _lastEndIndex + kSEARCH_INTERVAL;
+    [self fillReadListWithBooksFromSearch:_lastSearchQuery fromIndex:_lastEndIndex toIndex:newEndIndex];
+}
+
 -(void)fillReadListWithBooksFromSearch:(NSString *)urlEncodedQuery
 {
-    NSUInteger interval = 30;
-    [self fillReadListWithBooksFromSearch:urlEncodedQuery fromIndex:0 toIndex:interval];
+    _lastSearchQuery = urlEncodedQuery;
+    [self fillReadListWithBooksFromSearch:urlEncodedQuery fromIndex:0 toIndex:kSEARCH_INTERVAL];
 }
 
 -(void)fillReadListWithBooksFromSearch:(NSString *)urlEncodedQuery fromIndex:(NSUInteger)startIndex toIndex:(NSUInteger)endIndex
@@ -81,8 +94,15 @@
     NSLog(@"%@ kind of class",[object class]);
     NSAssert([object isKindOfClass:[NSArray class]], @"result from server is wrong object");
     NSArray *result = (NSArray*)object;
+    
+    if ([result count] == 0) {
+        self.canDeliverMore = NO;
+    }
     [self fillWithBooksFromServerResult:result];
-    [self.delegate readListFinishedDowloading:self fromIndex:startIndex toIndex:endIndex];
+    NSUInteger newLastIndex = startIndex + [result count];
+    _lastEndIndex = newLastIndex; //assign new lastindex here so it's updated
+    [self.delegate readListFinishedDowloading:self fromIndex:startIndex toIndex:newLastIndex];
+    
 }
 
 -(void)fillWithBooksFromServerResult:(NSArray *)serverResult
@@ -90,6 +110,7 @@
     NSLog(@"%@",serverResult);
     for (NSDictionary *jsonResult in serverResult) {
         TTBook *newBook = [[TTBook alloc] initWithServerResults:jsonResult];
+        NSLog(@"%@",newBook);
         [self.books addObject:newBook];
     }
 }

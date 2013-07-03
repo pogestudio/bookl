@@ -11,6 +11,7 @@
 
 @implementation BKHomeView
 
+
 +(id)fromStoryboard
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
@@ -23,5 +24,6 @@
     [super viewWillAppear:animated];
     [[BKSlidingViewController sharedInstance] changeNavConTitle:@"News"];
 }
+
 
 @end

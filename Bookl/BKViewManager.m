@@ -13,9 +13,6 @@
 #import "BKLeftMenu.h"
 
 @interface BKViewManager ()
-{
-    
-}
 
 @property (strong, nonatomic) BKSearchBookView *theSearchVC;
 
@@ -82,7 +79,7 @@ static BOOL _viewHasBeenShowedOnce;
                                            self.view.frame.size.height);
     _mainContainerView = [[UIView alloc] initWithFrame:mainContainerFrame];
     _mainContainerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-//    _mainContainerView.backgroundColor = [UIColor blueColor];
+    _mainContainerView.backgroundColor = [[BKColors currentColors] mainCellBackground];
     
     [self.view addSubview:_mainContainerView];
 }
@@ -106,7 +103,13 @@ static BOOL _viewHasBeenShowedOnce;
     [_currentVC willMoveToParentViewController:nil];                        // 1
     [self addChildViewController:toViewController];
     
-    [self transitionFromViewController:currentVC toViewController:toViewController duration:0 options:UIViewAnimationOptionCurveLinear animations:nil completion:nil];
+    toViewController.view.alpha = 0;
+    [self transitionFromViewController:currentVC toViewController:toViewController duration:0.1 options:UIViewAnimationOptionCurveLinear animations:^(void){
+        
+        toViewController.view.alpha = 1;
+        currentVC.view.alpha = 0.3;
+    }
+                            completion:nil];
     [toViewController didMoveToParentViewController:self];
     _currentVC = toViewController;
     [currentVC removeFromParentViewController];
@@ -175,4 +178,5 @@ static BOOL _viewHasBeenShowedOnce;
     }
     return _theSearchVC;
 }
+
 @end

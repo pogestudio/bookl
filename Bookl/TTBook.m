@@ -21,7 +21,7 @@
         self.author = [[[serverResults objectForKey:@"authors"] objectAtIndex:0] objectForKey:@"name"];
         self.publishingYear = [self yearFromServerResult:serverResults];
         self.bookId = [serverResults objectForKey:@"edition_uuid"];
-        self.publisher = [serverResults objectForKey:@"publisher"];
+        self.publisher = [[serverResults objectForKey:@"publisher"] objectForKey:@"name"];
         self.pdfUrl = [serverResults objectForKey:@"pdf_url"];
         self.pdfUrlUpdated = [NSDate date];
     }

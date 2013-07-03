@@ -22,7 +22,7 @@
 @property (strong) NSString *bookId;
 @property (strong) NSString *pdfUrl;
 @property (strong) NSDate *pdfUrlUpdated;
-@property (strong) NSString *publisher;
+@property (strong) NSDictionary *publisher;
 @property (strong) NSString *publicRating;
 
 @property (assign) CGFloat amountDownloaded; //used only during download phase. 

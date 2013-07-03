@@ -88,7 +88,9 @@
 
 -(NSString*)filePath
 {
-    return [NSString stringWithFormat:@"%@/%@.pdf",[TTConstants temporaryFilePath],self.bookId];
+    NSString *filepath = [NSString stringWithFormat:@"%@/%@.pdf",[TTConstants temporaryFilePath],self.bookId];
+    NSLog(@"Filepath for book: %@ - %@",self.title,filepath);
+    return filepath;
 }
 
 @end

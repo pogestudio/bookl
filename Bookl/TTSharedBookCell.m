@@ -67,6 +67,9 @@
 
 -(void)setUpCellForBook:(id)book
 {
+    //clear old values
+    self.theBook = nil;
+    self.theTTBook = nil;
 
     NSString *author;
     NSString *title;
@@ -98,7 +101,10 @@
 
 -(void)setUpReadButton
 {
-    if ([self.theTTBook isDownloaded] || [self.theBook isDownloaded]) {
+    BOOL TTBookIsDownloaded = [self.theTTBook isDownloaded];
+    BOOL BookIsDownloaded = [self.theBook isDownloaded];
+    
+    if (TTBookIsDownloaded || BookIsDownloaded) {
         [self.readButton setTitle:@"Read" forState:UIControlStateNormal];
     }
 }

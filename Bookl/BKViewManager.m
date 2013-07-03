@@ -11,6 +11,7 @@
 #import "BKAllReadlistsViewer.h"
 #import "BKSearchBookView.h"
 #import "BKLeftMenu.h"
+#import "BKUserManager.h"
 
 @interface BKViewManager ()
 
@@ -118,6 +119,7 @@ static BOOL _viewHasBeenShowedOnce;
 
 -(void)presentNewVCOfType:(TypeOfCurrentVC)typeOfVC
 {
+    [[BKUserManager sharedInstance] makeSureUserIsLoggedIn];
     [self presentNewVCOfType:typeOfVC withOptions:nil];
 }
 

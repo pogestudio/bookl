@@ -117,16 +117,7 @@ static BKUserManager *_sharedInstance;
 {
     NSString *password = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"password"];
     NSString *email = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"email"];
-//    
-//    NSString *credentials = [NSString stringWithFormat:@"%@:%@",email,password];
-//    NSString *base64Credentials = [credentials toBase64String];
-//    NSString *base64Complete = [NSString stringWithFormat:@"Basic %@",base64Credentials];
-//    
-//    
-//    NSLog(@"credentials:: %@",credentials);
-//    NSLog(@"base64credentials:: %@",base64Credentials);
-//    NSLog(@"base64complete:: %@",base64Complete);
-    
+
     AFHTTPClient *postClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
     [postClient setAuthorizationHeaderWithUsername:email password:password];
     

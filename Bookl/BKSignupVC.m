@@ -286,7 +286,8 @@ typedef enum {
             break;
         case LoginResponseSuccess:
         {
-            
+            UIViewController *rootVC = [[self.navigationController viewControllers] objectAtIndex:0];
+            [rootVC dismissViewControllerAnimated:YES completion:nil];
         }
             break;
         case LoginResponseTimeout:

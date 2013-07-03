@@ -81,6 +81,7 @@
 		A30D0DFB175E7D7C00AD1CE1 /* NSDate+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DFA175E7D7C00AD1CE1 /* NSDate+Compare.m */; };
 		A30D0DFF175E883700AD1CE1 /* BKAllReadlistsViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0DFE175E883700AD1CE1 /* BKAllReadlistsViewer.m */; };
 		A30D0E03175E893600AD1CE1 /* BKAllReadlistsTVHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A30D0E02175E893600AD1CE1 /* BKAllReadlistsTVHeader.m */; };
+		A30E994D178475E700346B32 /* BKForgotCredentialsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30E994C178475E700346B32 /* BKForgotCredentialsViewController.m */; };
 		A319D76B177CB5C200262B5B /* NSString+doesContain.m in Sources */ = {isa = PBXBuildFile; fileRef = A319D76A177CB5C200262B5B /* NSString+doesContain.m */; };
 		A319D770177CCF0300262B5B /* PDKeychainBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = A319D76F177CCF0300262B5B /* PDKeychainBindings.m */; };
 		A319D773177CD4FE00262B5B /* BKStringUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = A319D772177CD4FE00262B5B /* BKStringUtilities.m */; };
@@ -332,6 +333,8 @@
 		A30D0DFE175E883700AD1CE1 /* BKAllReadlistsViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKAllReadlistsViewer.m; sourceTree = "<group>"; };
 		A30D0E01175E893600AD1CE1 /* BKAllReadlistsTVHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKAllReadlistsTVHeader.h; sourceTree = "<group>"; };
 		A30D0E02175E893600AD1CE1 /* BKAllReadlistsTVHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKAllReadlistsTVHeader.m; sourceTree = "<group>"; };
+		A30E994B178475E700346B32 /* BKForgotCredentialsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKForgotCredentialsViewController.h; sourceTree = "<group>"; };
+		A30E994C178475E700346B32 /* BKForgotCredentialsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKForgotCredentialsViewController.m; sourceTree = "<group>"; };
 		A319D769177CB5C200262B5B /* NSString+doesContain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+doesContain.h"; sourceTree = "<group>"; };
 		A319D76A177CB5C200262B5B /* NSString+doesContain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+doesContain.m"; sourceTree = "<group>"; };
 		A319D76E177CCF0300262B5B /* PDKeychainBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDKeychainBindings.h; sourceTree = "<group>"; };
@@ -801,6 +804,15 @@
 				A30D0E02175E893600AD1CE1 /* BKAllReadlistsTVHeader.m */,
 			);
 			name = AllRLHeader;
+			sourceTree = "<group>";
+		};
+		A30E9949178472A900346B32 /* ForgotCredentials */ = {
+			isa = PBXGroup;
+			children = (
+				A30E994B178475E700346B32 /* BKForgotCredentialsViewController.h */,
+				A30E994C178475E700346B32 /* BKForgotCredentialsViewController.m */,
+			);
+			name = ForgotCredentials;
 			sourceTree = "<group>";
 		};
 		A319D76D177CCA4600262B5B /* SecureStorage */ = {
@@ -1323,6 +1335,7 @@
 		A3C83585176FB33E00DC22CE /* UserAuthVCS */ = {
 			isa = PBXGroup;
 			children = (
+				A30E9949178472A900346B32 /* ForgotCredentials */,
 				A349C6411760DFBF00B7D8BE /* LoginVC */,
 				A3C83581176F7C2500DC22CE /* SignupVC */,
 				A3C83586176FB3C600DC22CE /* BKUserAuthVC.h */,
@@ -1574,6 +1587,7 @@
 				A319D773177CD4FE00262B5B /* BKStringUtilities.m in Sources */,
 				A319D777177D638400262B5B /* PDKeychainBindingsController.m in Sources */,
 				A319D77C178115B600262B5B /* NSDate+PdfUrlIsValid.m in Sources */,
+				A30E994D178475E700346B32 /* BKForgotCredentialsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

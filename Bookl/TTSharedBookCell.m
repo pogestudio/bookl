@@ -100,6 +100,8 @@
 {
     if ([self.theTTBook isDownloaded] || [self.theBook isDownloaded]) {
         [self.readButton setTitle:@"Read" forState:UIControlStateNormal];
+    } else {
+        [self.readButton setTitle:@"Download" forState:UIControlStateNormal];
     }
 }
 

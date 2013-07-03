@@ -11,6 +11,9 @@
 #import "ATConnect.h"
 #import "BKViewManager.h"
 #import "BKUser.h"
+#import "BKUserManager.h"
+
+#import "PDKeychainBindings.h"
 
 #define kLogoutSection 1
 
@@ -93,7 +96,7 @@
 {
     //if logout, then just do that
     if (indexPath.section == kLogoutSection) {
-#warning LOGOUT USER
+        [[BKUserManager sharedInstance] logoutUser];
         [self dismissPopup];
         return;
     }
@@ -127,6 +130,20 @@
 -(void)dismissPopup
 {
     [self.popController dismissPopoverAnimated:YES];
+}
+
+#pragma mark Tableview Datasource
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section != kLogoutSection) {
+        return;
+    }
+    
+    NSString *displayName = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"display_name"];
+    if (!displayName) {
+        displayName = @"";
+    }
+    cell.textLabel.text = [NSString stringWithFormat:@"Logout %@",displayName];
 }
 
 @end

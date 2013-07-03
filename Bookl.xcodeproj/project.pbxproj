@@ -85,6 +85,7 @@
 		A319D770177CCF0300262B5B /* PDKeychainBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = A319D76F177CCF0300262B5B /* PDKeychainBindings.m */; };
 		A319D773177CD4FE00262B5B /* BKStringUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = A319D772177CD4FE00262B5B /* BKStringUtilities.m */; };
 		A319D777177D638400262B5B /* PDKeychainBindingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A319D775177D638400262B5B /* PDKeychainBindingsController.m */; };
+		A319D77C178115B600262B5B /* NSDate+PdfUrlIsValid.m in Sources */ = {isa = PBXBuildFile; fileRef = A319D77B178115B600262B5B /* NSDate+PdfUrlIsValid.m */; };
 		A3303331176733810016EACB /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3303330176733810016EACB /* CoreTelephony.framework */; };
 		A33033331767338B0016EACB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33033321767338B0016EACB /* SystemConfiguration.framework */; };
 		A3303335176733940016EACB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3303334176733940016EACB /* StoreKit.framework */; };
@@ -339,6 +340,8 @@
 		A319D772177CD4FE00262B5B /* BKStringUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKStringUtilities.m; sourceTree = "<group>"; };
 		A319D775177D638400262B5B /* PDKeychainBindingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDKeychainBindingsController.m; sourceTree = "<group>"; };
 		A319D776177D638400262B5B /* PDKeychainBindingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDKeychainBindingsController.h; sourceTree = "<group>"; };
+		A319D77A178115B600262B5B /* NSDate+PdfUrlIsValid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+PdfUrlIsValid.h"; sourceTree = "<group>"; };
+		A319D77B178115B600262B5B /* NSDate+PdfUrlIsValid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+PdfUrlIsValid.m"; sourceTree = "<group>"; };
 		A3303330176733810016EACB /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		A33033321767338B0016EACB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A3303334176733940016EACB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -735,6 +738,8 @@
 				A30D0DFA175E7D7C00AD1CE1 /* NSDate+Compare.m */,
 				A3C83527176D356900DC22CE /* UIColor+fromHex.h */,
 				A3C83528176D356900DC22CE /* UIColor+fromHex.m */,
+				A319D77A178115B600262B5B /* NSDate+PdfUrlIsValid.h */,
+				A319D77B178115B600262B5B /* NSDate+PdfUrlIsValid.m */,
 			);
 			name = FoundationCategories;
 			sourceTree = "<group>";
@@ -1568,6 +1573,7 @@
 				A319D770177CCF0300262B5B /* PDKeychainBindings.m in Sources */,
 				A319D773177CD4FE00262B5B /* BKStringUtilities.m in Sources */,
 				A319D777177D638400262B5B /* PDKeychainBindingsController.m in Sources */,
+				A319D77C178115B600262B5B /* NSDate+PdfUrlIsValid.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

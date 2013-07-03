@@ -21,7 +21,8 @@
 @property (strong) NSString *publishingYear;
 @property (strong) NSString *bookId;
 @property (strong) NSString *pdfUrl;
-@property (strong) NSString *publisher;
+@property (strong) NSDate *pdfUrlUpdated;
+@property (strong) NSDictionary *publisher;
 @property (strong) NSString *publicRating;
 
 @property (assign) CGFloat amountDownloaded; //used only during download phase. 

@@ -83,6 +83,19 @@
     return cellToSetUp;
 }
 
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.readlist.canDeliverMore == NO) {
+        return;
+    }
+    
+    if (indexPath.row + 1 >= [self.readlist.books count]) {
+        NSLog(@"filling with more books :D:D");
+        [self.readlist fillReadListWithMoreBooks];
+        self.readlist.delegate = self;
+    }
+}
+
 -(void)setUpBookCell:(UITableViewCell*)cell forIndexPath:(NSIndexPath*)indexPath
 {
     NSAssert([cell isKindOfClass:[TTSharedBookCell class]],@"wrong class for bookCell");
@@ -92,9 +105,75 @@
 }
 
 #pragma mark ProgressBar Delegate
--(void)readListFinishedDowloading:(TTReadList *)readlist
+-(void)readListFinishedDowloading:(TTReadList *)readlist fromIndex:(NSUInteger)startIndex toIndex:(NSUInteger)endIndex
 {
-    self.readlist = readlist;
-    [self.tableView reloadData];
+    //if it's 0-x, then replace all reading list. If not, replace the new range.
+    if (startIndex == 0) {
+        [self replaceWholeReadinglistWith:readlist toIndex:endIndex];
+    } else {
+        [self addBooksFrom:readlist fromIndex:startIndex toIndex:endIndex];
+    }
 }
+
+-(void)replaceWholeReadinglistWith:(TTReadList*) newList toIndex:(NSUInteger)endIndex
+{
+    //make this one delete all rows, then insert new ones
+
+    NSUInteger searchResultSecion = 0;
+    
+    NSMutableArray *currentIndexPaths = [[NSMutableArray alloc] init];
+    NSMutableArray *newIndexpaths = [[NSMutableArray alloc] init];
+    
+    NSUInteger row;
+    for ( row = 0; row < [self.readlist.books count] ; row++) {
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:row inSection:searchResultSecion];
+        [currentIndexPaths addObject:newIndexPath];
+    }
+    
+    for (row = 0 ; row < [newList.books count] ; row++) {
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:row inSection:searchResultSecion];
+        [newIndexpaths addObject:newIndexPath];
+    }
+    
+    
+    [self.tableView beginUpdates];
+    self.readlist = nil;
+    [self.tableView deleteRowsAtIndexPaths:currentIndexPaths withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView endUpdates];
+    
+    
+    [self.tableView beginUpdates];
+    self.readlist = newList;
+    [self.tableView insertRowsAtIndexPaths:newIndexpaths withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView endUpdates];
+}
+
+-(void)addBooksFrom:(TTReadList*) newList fromIndex:(NSUInteger)startIndex toIndex:(NSUInteger)endIndex
+{
+    NSAssert(startIndex != 0,@"wrong startindex");
+    //presumably, this should be the same lists
+    
+    //make this one delete all rows, then insert new ones
+    
+    NSUInteger searchResultSecion = 0;
+    NSMutableArray *newIndexpaths = [[NSMutableArray alloc] init];
+    
+    for (NSUInteger row = startIndex ; row < endIndex ; row++) {
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:row inSection:searchResultSecion];
+        [newIndexpaths addObject:newIndexPath];
+    }
+    
+    //Remove the old books so you can add them in tableview updates
+    NSIndexSet *newBooksIndexes = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(startIndex, (endIndex-startIndex))];
+    NSArray *newBooks = [newList.books objectsAtIndexes:newBooksIndexes];
+    [self.readlist.books removeObjectsInArray:newBooks];
+    
+    [self.tableView beginUpdates];
+    [self.readlist.books addObjectsFromArray:newBooks];
+    [self.tableView insertRowsAtIndexPaths:newIndexpaths withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView endUpdates];
+
+}
+
+
 @end

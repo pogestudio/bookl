@@ -13,7 +13,7 @@
 
 @protocol TTReadListDelegate <NSObject>
 
--(void)readListFinishedDowloading:(TTReadList*)readlist;
+-(void)readListFinishedDowloading:(TTReadList*)readlist fromIndex:(NSUInteger)startIndex toIndex:(NSUInteger)endIndex;
 
 @end
 
@@ -22,8 +22,11 @@
 @property (strong) NSMutableArray* books;
 @property (strong) NSString* title;
 @property (weak) id<TTReadListDelegate> delegate;
+@property (assign) BOOL canDeliverMore;
 
+-(void)fillReadListWithBooksFromSearch:(NSString*)urlEncodedQuery fromIndex:(NSUInteger)startIndex toIndex:(NSUInteger)endIndex;
 -(void)fillReadListWithBooksFromSearch:(NSString*)urlEncodedQuery;
+-(void)fillReadListWithMoreBooks;
 
 
 @end

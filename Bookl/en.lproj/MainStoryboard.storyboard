@@ -818,6 +818,114 @@
             </objects>
             <point key="canvasLocation" x="197" y="-2790"/>
         </scene>
+        <!--Forgot Credentials View Controller-->
+        <scene sceneID="4jj-ia-LF9">
+            <objects>
+                <tableViewController id="1Yx-Zf-Z2O" customClass="BKForgotCredentialsViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="DHa-id-bBY">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="r6F-8d-QDH">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="1bp-Q6-QJI">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qo1-Lr-oFj">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="400" id="oK2-3d-cm0"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Qo1-Lr-oFj" firstAttribute="centerX" secondItem="1bp-Q6-QJI" secondAttribute="centerX" type="default" id="M1n-1b-yMa"/>
+                                            <constraint firstItem="Qo1-Lr-oFj" firstAttribute="centerY" secondItem="1bp-Q6-QJI" secondAttribute="centerY" type="default" id="Mhy-ie-vNK"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0qj-9U-UAA">
+                                        <rect key="frame" x="0.0" y="44" width="768" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vym-KR-CLm" customClass="BKTableviewContentButton">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="231" id="5WK-9f-PBM"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="Send reset-instructions">
+                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="sendEmail:" destination="1Yx-Zf-Z2O" eventType="touchUpInside" id="flz-PJ-36g"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHT-6x-jNZ" customClass="BKBookCellButton">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="E8l-fo-Mjl"/>
+                                                        <constraint firstAttribute="width" constant="72" id="nW7-yn-bMj"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="Back">
+                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="AHT-6x-jNZ" firstAttribute="bottom" secondItem="vym-KR-CLm" secondAttribute="bottom" type="default" id="DEf-zs-bp8"/>
+                                            <constraint firstItem="AHT-6x-jNZ" firstAttribute="leading" secondItem="0qj-9U-UAA" secondAttribute="leading" constant="20" type="default" id="Zzy-9e-NBF"/>
+                                            <constraint firstItem="AHT-6x-jNZ" firstAttribute="top" secondItem="vym-KR-CLm" secondAttribute="top" type="default" id="hHq-9a-bFs"/>
+                                            <constraint firstItem="vym-KR-CLm" firstAttribute="centerX" secondItem="0qj-9U-UAA" secondAttribute="centerX" type="default" id="mWt-rp-iTs"/>
+                                            <constraint firstItem="vym-KR-CLm" firstAttribute="centerY" secondItem="0qj-9U-UAA" secondAttribute="centerY" type="default" id="zbj-PT-mTe"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="WZb-Q4-Ejw">
+                                        <rect key="frame" x="0.0" y="88" width="768" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="1Yx-Zf-Z2O" id="xhm-bC-G42"/>
+                            <outlet property="delegate" destination="1Yx-Zf-Z2O" id="mZT-LS-2a4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Zxf-D3-1I9"/>
+                    <connections>
+                        <outlet property="email" destination="Qo1-Lr-oFj" id="PsN-6a-lyo"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ya-S2-Ah9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1478" y="-4020"/>
+        </scene>
         <!--LoginVC-->
         <scene sceneID="4cP-Ct-jPI">
             <objects>
@@ -943,6 +1051,65 @@
                                             <constraint firstItem="yip-gn-Pha" firstAttribute="centerX" secondItem="Epf-3u-8OB" secondAttribute="centerX" type="default" id="szc-HI-bgx"/>
                                         </constraints>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="sCf-4O-d2E">
+                                        <rect key="frame" x="0.0" y="189" width="768" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7Q-kr-Mgl">
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="facebook">
+                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="L7Q-kr-Mgl" firstAttribute="centerX" secondItem="sCf-4O-d2E" secondAttribute="centerX" type="default" id="2MR-YQ-d4o"/>
+                                            <constraint firstItem="L7Q-kr-Mgl" firstAttribute="top" secondItem="sCf-4O-d2E" secondAttribute="top" type="default" id="P8g-wX-OGR"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="W1m-Oc-6lZ">
+                                        <rect key="frame" x="0.0" y="233" width="768" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4O-lc-6Yo">
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="29" id="NQX-dK-5EJ"/>
+                                                        <constraint firstAttribute="width" constant="192" id="VRp-yB-Lz7"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <state key="normal" title="forgot password?">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="1Yx-Zf-Z2O" kind="push" id="TAK-7z-Scr"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="A4O-lc-6Yo" firstAttribute="centerX" secondItem="W1m-Oc-6lZ" secondAttribute="centerX" type="default" id="Slz-ii-SmZ"/>
+                                            <constraint firstItem="A4O-lc-6Yo" firstAttribute="top" secondItem="W1m-Oc-6lZ" secondAttribute="top" constant="7" id="n6o-HY-B3Y"/>
+                                        </constraints>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -954,6 +1121,7 @@
                     <navigationItem key="navigationItem" id="ICc-L1-hpf"/>
                     <connections>
                         <outlet property="email" destination="Jzv-Zf-QHQ" id="4In-ku-R82"/>
+                        <outlet property="faceBookView" destination="L7Q-kr-Mgl" id="kdT-Hs-Hmc"/>
                         <outlet property="loginButton" destination="1wo-Uz-cSN" id="pyY-pQ-w3V"/>
                         <outlet property="password" destination="O25-qZ-MBz" id="Ayc-YK-Ftf"/>
                     </connections>
@@ -983,7 +1151,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ltj-qV-VaK">
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="200" id="ZPW-bU-QXO"/>
+                                                        <constraint firstAttribute="width" constant="400" id="U42-4f-pxO"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -996,7 +1164,7 @@
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="Ltj-qV-VaK" firstAttribute="centerX" secondItem="B6M-Jf-UDB" secondAttribute="centerX" type="default" id="bon-I2-u33"/>
+                                            <constraint firstItem="Ltj-qV-VaK" firstAttribute="centerX" secondItem="B6M-Jf-UDB" secondAttribute="centerX" type="default" id="J5z-ij-UM5"/>
                                             <constraint firstItem="Ltj-qV-VaK" firstAttribute="centerY" secondItem="B6M-Jf-UDB" secondAttribute="centerY" type="default" id="fZE-Mf-cr3"/>
                                         </constraints>
                                     </tableViewCell>
@@ -1010,7 +1178,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="avM-Wf-Juw">
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="200" id="QLV-Bg-VMs"/>
+                                                        <constraint firstAttribute="width" constant="400" id="D9r-7b-AH7"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -1023,8 +1191,8 @@
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="avM-Wf-Juw" firstAttribute="centerY" secondItem="ASH-HS-FUI" secondAttribute="centerY" type="default" id="6qL-Un-mSu"/>
-                                            <constraint firstItem="avM-Wf-Juw" firstAttribute="centerX" secondItem="ASH-HS-FUI" secondAttribute="centerX" type="default" id="Yij-Sp-cww"/>
+                                            <constraint firstItem="avM-Wf-Juw" firstAttribute="centerX" secondItem="ASH-HS-FUI" secondAttribute="centerX" type="default" id="I1d-Gy-sMc"/>
+                                            <constraint firstItem="avM-Wf-Juw" firstAttribute="centerY" secondItem="ASH-HS-FUI" secondAttribute="centerY" type="default" id="eJh-pc-idw"/>
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="u4N-qc-gw7">
@@ -1037,7 +1205,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="re-enter password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MkL-tZ-zrz">
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="200" id="bdf-0L-myH"/>
+                                                        <constraint firstAttribute="width" constant="400" id="pog-Gz-3Bv"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -1050,7 +1218,7 @@
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="MkL-tZ-zrz" firstAttribute="centerX" secondItem="u4N-qc-gw7" secondAttribute="centerX" type="default" id="Rnu-oL-kNE"/>
+                                            <constraint firstItem="MkL-tZ-zrz" firstAttribute="centerX" secondItem="u4N-qc-gw7" secondAttribute="centerX" type="default" id="bP6-dM-AqF"/>
                                             <constraint firstItem="MkL-tZ-zrz" firstAttribute="centerY" secondItem="u4N-qc-gw7" secondAttribute="centerY" type="default" id="cc2-aA-Bmt"/>
                                         </constraints>
                                     </tableViewCell>
@@ -1064,7 +1232,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZLF-hk-har">
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="200" id="J4y-ZS-809"/>
+                                                        <constraint firstAttribute="width" constant="400" id="YuG-Ll-IQ1"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1078,7 +1246,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="ZLF-hk-har" firstAttribute="centerY" secondItem="cJM-H9-X38" secondAttribute="centerY" type="default" id="Kin-rj-zav"/>
-                                            <constraint firstItem="ZLF-hk-har" firstAttribute="centerX" secondItem="cJM-H9-X38" secondAttribute="centerX" type="default" id="cWd-lh-eIX"/>
+                                            <constraint firstItem="ZLF-hk-har" firstAttribute="centerX" secondItem="cJM-H9-X38" secondAttribute="centerX" type="default" id="ucQ-QB-cfR"/>
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="vo1-XV-zpH">
@@ -1091,7 +1259,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="re-enter email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eWo-O0-9Sh">
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="200" id="DZj-ee-N2p"/>
+                                                        <constraint firstAttribute="width" constant="400" id="uEz-1h-BnS"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
@@ -1105,7 +1273,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="eWo-O0-9Sh" firstAttribute="centerY" secondItem="vo1-XV-zpH" secondAttribute="centerY" type="default" id="PGl-sd-Lka"/>
-                                            <constraint firstItem="eWo-O0-9Sh" firstAttribute="centerX" secondItem="vo1-XV-zpH" secondAttribute="centerX" type="default" id="WLY-v8-dCR"/>
+                                            <constraint firstItem="eWo-O0-9Sh" firstAttribute="centerX" secondItem="vo1-XV-zpH" secondAttribute="centerX" type="default" id="yNU-0T-5Jh"/>
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="59" id="Pf5-ax-AnO">

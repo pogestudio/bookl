@@ -57,42 +57,6 @@ static BKUserManager *_sharedInstance;
 
 -(void)signupWithData:(NSDictionary *)userData withDelegate:(id<SignupResponseDelegate>)delegate
 {
-//    //multi thread
-//    NSError *error;
-//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userData
-//                                                       options:kNilOptions // Pass 0 if you don't care about the readability of the generated string
-//                                                         error:&error];
-//    
-//    if (error) {
-//        NSLog(@"got error...: %@",error);
-//    }
-    
-//    BKHTTPClient *client = [BKHTTPClient sharedClient];
-//    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
-//    [[AFNetworkActivityIndicatorManager sharedManager] incrementActivityCount];
-//    
-//    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-//    NSString *path = [NSString stringWithFormat:@"api/signup/", jsonString];
-//    NSLog(@"path:: %@",path);
-//    NSHTTP *request = [client requestWithMethod:@"POST" path:path parameters:nil];
-//    
-//    
-//    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-//
-//        [[AFNetworkActivityIndicatorManager sharedManager] decrementActivityCount];
-//        
-//        NSLog(@"success, response: %@",response);
-//    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-//        // code for failed request goes here
-//        [[AFNetworkActivityIndicatorManager sharedManager] decrementActivityCount];
-//        NSLog(@"failure, response: %@",response);
-//        if (response == nil) {
-//            [delegate responseFromSignupAction:SignupResponseTimeout];
-//        }
-//    }];
-//    
-//    [operation start];
-    
     AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
     [client postPath:@"api/signup/" parameters:userData
              success:^(AFHTTPRequestOperation *operation, NSData* responseObject){
@@ -113,31 +77,7 @@ static BKUserManager *_sharedInstance;
     NSString *path = @"/auth/header";
 }
 
--(void)logInWithStoredCredentialsWithDelegate:(id<LoginResponseDelegate>)delegate
-{
-    NSString *password = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"password"];
-    NSString *email = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"email"];
 
-    AFHTTPClient *postClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
-    [postClient setAuthorizationHeaderWithUsername:email password:password];
-    
-    
-    [postClient postPath:@"api/login/" parameters:nil
-             success:^(AFHTTPRequestOperation *operation, NSData* responseObject){
-
-                 NSString *stringFromData = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-                 NSLog(@"class of object is: %@",[responseObject class]);
-                 NSLog(@"got success: %@",stringFromData);
-                 LoginResponse responseFromServer = [stringFromData boolValue] ? LoginResponseSuccess : (LoginResponse)[stringFromData intValue];
-                 
-                 [self sendBackLoginResponse:responseFromServer toDelegate:delegate];
-             }failure:^(AFHTTPRequestOperation *operation, NSError *error){
-                 NSLog(@"login failure %@", [error localizedDescription]);
-                 
-                 [self sendBackLoginResponse:operation.response.statusCode toDelegate:delegate];
-             }];
-    
-}
 
 -(BOOL)isLoggedIn
 {
@@ -147,8 +87,61 @@ static BKUserManager *_sharedInstance;
 -(void)logoutUser
 {
     [[PDKeychainBindings sharedKeychainBindings] setObject:@"" forKey:@"password"];
+    _isLoggedin = NO;
+    [self makeSureUserIsLoggedIn];
 }
 
+#pragma mark Network
+-(void)logInWithStoredCredentialsWithDelegate:(id<LoginResponseDelegate>)delegate
+{
+    NSString *password = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"password"];
+    NSString *email = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"email"];
+    
+    AFHTTPClient *postClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
+    [postClient setAuthorizationHeaderWithUsername:email password:password];
+    
+    
+    [postClient postPath:@"api/login/" parameters:nil
+                 success:^(AFHTTPRequestOperation *operation, NSData* responseObject){
+                     
+                     NSString *stringFromData = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                     NSLog(@"class of object is: %@",[responseObject class]);
+                     NSLog(@"got success: %@",stringFromData);
+                     LoginResponse responseFromServer = [stringFromData boolValue] ? LoginResponseSuccess : (LoginResponse)[stringFromData intValue];
+                     
+                     [self sendBackLoginResponse:responseFromServer toDelegate:delegate];
+                 }failure:^(AFHTTPRequestOperation *operation, NSError *error){
+                     NSLog(@"login failure %@", [error localizedDescription]);
+                     
+                     [self sendBackLoginResponse:operation.response.statusCode toDelegate:delegate];
+                 }];
+    
+}
+
+
+-(void)updateDisplayName
+{
+    
+    NSString *urlForPull = [NSString stringWithFormat:@"%@/api/user",URL_BASE_ADDRESS];
+    
+    NSURL *url = [NSURL URLWithString:urlForPull];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
+                                                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                                                                                            NSLog(@"Received JSON: %@",JSON);
+                                                                                            [self receivedUserInfo:JSON];
+                                                                                        }
+                                                                                        failure:nil];
+    [operation start];
+
+}
+
+-(void)receivedUserInfo:(id)json
+{
+    NSAssert([json isKindOfClass:[NSDictionary class]],@"wrong class");
+    NSString *display_name = [((NSDictionary*)json) objectForKey:@"display_name"];
+    [[PDKeychainBindings sharedKeychainBindings] setObject:display_name forKey:@"display_name"];
+}
 
 #pragma mark Delegate actions
 -(void)sendBackLoginResponse:(LoginResponse)loginResponse toDelegate:(id<LoginResponseDelegate>)delegate
@@ -157,6 +150,7 @@ static BKUserManager *_sharedInstance;
         case LoginResponseSuccess:
         {
             _isLoggedin = YES;
+            [self updateDisplayName];
             break;
         }
             break;

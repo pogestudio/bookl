@@ -10,8 +10,8 @@
 #import "TTLoginVC.h"
 #import "PDKeychainBindings.h"
 
-#define BACKGROUND_VIEW_TAG 2
 #define IMAGE_HEIGHT 576
+
 
 @interface TTLoginVC()
 
@@ -32,7 +32,6 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    [self addBackgroundImage];
     [self.tableView setContentInset:UIEdgeInsetsMake(IMAGE_HEIGHT-150,0,0,0)];
 }
 
@@ -58,35 +57,6 @@
     
 }
 
--(void)addBackgroundImage
-{
-//    
-//    UIImage *image = [UIImage imageNamed:@"ipad_logo.png"];
-//    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-//    CGFloat width = imageView.frame.size.width;
-//    CGFloat height = imageView.frame.size.height;
-//    CGFloat xPos = 0;
-//    CGFloat yPos = 0;
-//    CGRect rectForImage = CGRectMake(xPos, yPos, width, height);
-//    imageView.frame = rectForImage;
-//    //[imageView.layer setCornerRadius:15];
-//    //imageView.layer.masksToBounds = YES;
-//    
-//    UIImage *image2 = [UIImage imageNamed:@"books_clear.png"];
-//    UIImageView *imageView2 = [[UIImageView alloc] initWithImage:image2];
-//    width = imageView.frame.size.width;
-//    height = imageView.frame.size.height;
-//    xPos = 0;
-//    yPos = IMAGE_HEIGHT;
-//    rectForImage = CGRectMake(xPos, yPos, width, height);
-//    imageView2.frame = rectForImage;
-//    
-//    UIView *background = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//    background.tag = BACKGROUND_VIEW_TAG;
-//    [background addSubview:imageView];
-//    [background addSubview:imageView2];
-//    self.tableView.backgroundView = background;
-}
 
 
 -(IBAction)dismissWindow:(id)sender
@@ -96,14 +66,14 @@
 
 -(void)addFaceBookLoginView
 {
-    UIView *cellToBePlacedIn = self.loginButton.superview;
+    UIView *cellToBePlacedIn = self.faceBookView.superview;
     [self.faceBookView removeFromSuperview];
     
     NSArray *readPermissions = [self FBreadPermissions];
     FBLoginView *loginView = [[FBLoginView alloc] initWithReadPermissions:readPermissions];
     loginView.delegate = self;
     
-    CGFloat xPos = 20.0;
+    CGFloat xPos = (cellToBePlacedIn.frame.size.width - loginView.frame.size.width) / 2.0;
     CGFloat yPos = (cellToBePlacedIn.frame.size.height - loginView.frame.size.height) / 2.0;
     CGRect newFrame = CGRectMake(xPos,yPos,loginView.frame.size.width,loginView.frame.size.height);
     

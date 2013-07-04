@@ -311,6 +311,7 @@
             
             //MY STUFF!
             self.bookToRead = book;
+            [[TTPageManager sharedManager] setBookId:book.bookId];
 		}
 	}
 

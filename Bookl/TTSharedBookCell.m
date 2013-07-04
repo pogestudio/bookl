@@ -129,7 +129,7 @@
     [self layoutViews:@[self.readButton] withEdgeAt:self.moreButton.frame.origin.x];
     
     //layout title, author and year
-    NSArray *tripleViews = [NSArray arrayWithObjects:self.title,self.author,self.publishingYear, nil];
+    NSArray *tripleViews = [NSArray arrayWithObjects:self.title,self.author,nil];
     CGFloat edge = self.readButton.frame.origin.x;
     CGFloat widthForLabel = edge - edgePadding;
     CGRect newFrame = CGRectMake(0, 0, widthForLabel, self.frame.size.height);
@@ -154,7 +154,6 @@
         CGFloat viewYPos = (viewIndex + 1) * yPadding + viewIndex * viewHeight;
         CGRect newFrame = CGRectMake(viewXPos, viewYPos, viewWidth, viewHeight);
         view.frame = newFrame;
-        //NSLog(@"%@",view);
     }
 }
 

@@ -19,9 +19,9 @@
 
 @property (strong, nonatomic) NSMutableDictionary *savedPages;
 @property (strong) TTAdHandler *adHandler;
+@property (strong) NSString *bookId;
 
 +(TTPageManager*)sharedManager;
-
 -(void)pageWasShown:(NSUInteger)page;
 -(void)pageWasHidden:(NSUInteger)page;
 

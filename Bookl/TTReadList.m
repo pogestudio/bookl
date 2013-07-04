@@ -81,7 +81,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
                                                                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                                                                            NSLog(@"Received JSON: %@",JSON);
+                                                                                            //NSLog(@"Received JSON: %@",JSON);
                                                                                             [self fetchIsDone:JSON fromIndex:startIndex toIndex:endIndex];
                                                                                         }
                                                                                         failure:nil];

@@ -124,7 +124,7 @@ static TTPageManager *_sharedManager;
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     BKHTTPClient *client = [[BKHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
     AFHTTPRequestOperation *operation = [client HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Received success");
+        NSLog(@"Received success, responseobject: %@",responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Got error with: %@",[error localizedDescription]);
     }];

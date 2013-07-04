@@ -1,4 +1,4 @@
- //
+//
 //  TTBook.m
 //  TurtleTail
 //
@@ -9,6 +9,7 @@
 #import "TTBook.h"
 #import "TTBookManager.h"
 #import "BKHTTPClient.h"
+#import "AFHTTPClient+withHeader.h"
 
 
 @implementation TTBook
@@ -63,10 +64,12 @@
 -(void)download
 {
     [Flurry logEvent:@"Downloading book"];
-    BKHTTPClient *client = [BKHTTPClient clientWithBaseURL:[NSURL URLWithString:URL_AMAZON]];
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
+    //[client addAuthHeader];
     
+    [Flurry logEvent:@"Started downloading TTBook"];
     void (^success)(AFHTTPRequestOperation*, id) = ^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"WE HAS SUCCESS :D");
+        [Flurry logEvent:@"Finished downloading TTBook"];
     };
     
     void (^failure)(AFHTTPRequestOperation*, id) = ^(AFHTTPRequestOperation *operation, id responseObject) {

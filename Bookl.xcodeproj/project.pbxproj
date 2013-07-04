@@ -163,6 +163,7 @@
 		A3CA71721776543B00609E7B /* BKFont.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CA71711776543B00609E7B /* BKFont.m */; };
 		A3D81339176936AB00819D1D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D81338176936AB00819D1D /* Reachability.m */; };
 		A3E7B4B217667084006B05EC /* BKSettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7B4B117667084006B05EC /* BKSettingsTVC.m */; };
+		A3EDBE7B178522CA002E20CD /* AFHTTPClient+withHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EDBE7A178522CA002E20CD /* AFHTTPClient+withHeader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -467,6 +468,8 @@
 		A3D81338176936AB00819D1D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		A3E7B4B017667084006B05EC /* BKSettingsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSettingsTVC.h; sourceTree = "<group>"; };
 		A3E7B4B117667084006B05EC /* BKSettingsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSettingsTVC.m; sourceTree = "<group>"; };
+		A3EDBE79178522CA002E20CD /* AFHTTPClient+withHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFHTTPClient+withHeader.h"; sourceTree = "<group>"; };
+		A3EDBE7A178522CA002E20CD /* AFHTTPClient+withHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AFHTTPClient+withHeader.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1155,6 +1158,8 @@
 			children = (
 				A385488B17737D5200C1A963 /* BKHTTPClient.h */,
 				A385488C17737D5200C1A963 /* BKHTTPClient.m */,
+				A3EDBE79178522CA002E20CD /* AFHTTPClient+withHeader.h */,
+				A3EDBE7A178522CA002E20CD /* AFHTTPClient+withHeader.m */,
 			);
 			name = MyAFClient;
 			sourceTree = "<group>";
@@ -1608,6 +1613,7 @@
 				A30E994D178475E700346B32 /* BKForgotCredentialsViewController.m in Sources */,
 				A3CA716A1776527A00609E7B /* BKAppFonts.m in Sources */,
 				A3CA71721776543B00609E7B /* BKFont.m in Sources */,
+				A3EDBE7B178522CA002E20CD /* AFHTTPClient+withHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

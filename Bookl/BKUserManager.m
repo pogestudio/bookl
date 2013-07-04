@@ -14,7 +14,8 @@
 #import "NSString+de_encoding.h"
 #import "PDKeychainBindings.h"
 
-#import "BKHTTPClient.h"
+#import "AFHTTPClient+withHeader.h"
+#import "AFNetworking.h"
 
 static BKUserManager *_sharedInstance;
 
@@ -44,19 +45,25 @@ static BKUserManager *_sharedInstance;
     NSString *token = [[BKTokenFetch sharedInstance] currentFBUserToken];
     
     NSLog(@"current token:%@",token);
-    NSString *urlForPull = [NSString stringWithFormat:@"%@/api/auth/facebook?code=%@",URL_BASE_ADDRESS,token];
+    NSString *urlForPull = [NSString stringWithFormat:@"%@/auth/facebook?code=%@",URL_BASE_ADDRESS,token];
     
     NSLog(@"urlForPull: %@",urlForPull);
     
     
     NSURL *url = [NSURL URLWithString:urlForPull];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    BKHTTPClient *client = [[BKHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
+    //[client addAuthHeader];
+    
     AFHTTPRequestOperation *operation = [client HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Received success in facebook auth: %@", responseObject);
         NSLog(@"Responseobject: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Got error with: %@",[error localizedDescription]);
+        if (operation.response.statusCode == 500) {
+            NSLog(@"Internal server error, statuscode 500");
+        } else {
+            NSLog(@"Got error with: %@",[error localizedDescription]);
+        }
     }];
     [operation start];
     
@@ -74,7 +81,7 @@ static BKUserManager *_sharedInstance;
 
 -(void)signupWithData:(NSDictionary *)userData withDelegate:(id<SignupResponseDelegate>)delegate
 {
-    BKHTTPClient *client = [[BKHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
     [client postPath:@"api/signup/" parameters:userData
              success:^(AFHTTPRequestOperation *operation, NSData* responseObject){
                  NSString *stringFromData = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
@@ -111,8 +118,8 @@ static BKUserManager *_sharedInstance;
 #pragma mark Network
 -(void)logInWithStoredCredentialsWithDelegate:(id<LoginResponseDelegate>)delegate
 {
-    BKHTTPClient *postClient = [[BKHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
-    
+    AFHTTPClient *postClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
+    [postClient addAuthHeader];
     
     [postClient postPath:@"api/login/" parameters:nil
                  success:^(AFHTTPRequestOperation *operation, NSData* responseObject){

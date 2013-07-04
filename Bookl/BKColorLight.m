@@ -25,7 +25,7 @@
         
 #pragma mark LeftMenu
         self.leftMenuCellBackground = [UIColor colorFromHex:0x6574b2];
-        self.leftMenuFont = [UIColor colorFromHex:0x8298ac];
+        self.leftMenuFont = [UIColor colorFromHex:0x142959];
         
 #pragma mark Toolbar
         self.toolBarBackground = self.leftMenuCellBackground;
@@ -55,8 +55,6 @@
         self.sharedBookDeleteButton = [UIColor colorFromHex:0xdf6662];
         self.sharedBookDeleteButtonPressed = [UIColor redColor];
         self.sharedBookDeleteButtonFont = [UIColor blackColor];
-        
-        
     }
     
     return self;

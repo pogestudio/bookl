@@ -347,7 +347,7 @@
 	CGRect toolbarRect = viewRect;
 	toolbarRect.size.height = TOOLBAR_HEIGHT;
 
-	mainToolbar = [[ReaderMainToolbar alloc] initWithFrame:toolbarRect document:document]; // At top
+	mainToolbar = [[ReaderMainToolbar alloc] initWithFrame:toolbarRect document:document toolbarTitle:self.bookToRead.title]; // At top
 
 	mainToolbar.delegate = self;
 

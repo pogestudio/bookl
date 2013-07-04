@@ -60,10 +60,10 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
-	return [self initWithFrame:frame document:nil];
+	return [self initWithFrame:frame document:nil toolbarTitle:@"random title"];
 }
 
-- (id)initWithFrame:(CGRect)frame document:(ReaderDocument *)object
+- (id)initWithFrame:(CGRect)frame document:(ReaderDocument *)object toolbarTitle:(NSString *)title
 {
 	assert(object != nil); // Must have a valid ReaderDocument
 
@@ -212,7 +212,7 @@
 			titleLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
 			titleLabel.adjustsFontSizeToFitWidth = YES;
 			titleLabel.minimumFontSize = 14.0f;
-			titleLabel.text = [object.fileName stringByDeletingPathExtension];
+			titleLabel.text = title;//[object.fileName stringByDeletingPathExtension];
 
 			[self addSubview:titleLabel]; 
 		}

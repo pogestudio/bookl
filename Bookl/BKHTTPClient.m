@@ -8,13 +8,9 @@
 
 #import "BKHTTPClient.h"
 
-@implementation BKHTTPClient
+#import "PDKeychainBindings.h"
 
-- (void)setUsername:(NSString *)username andPassword:(NSString *)password
-{
-    [self clearAuthorizationHeader];
-    [self setAuthorizationHeaderWithUsername:username password:password];
-}
+@implementation BKHTTPClient
 
 +(BKHTTPClient *)sharedClient {
     static BKHTTPClient *_sharedClient = nil;
@@ -30,15 +26,25 @@
     if (!self) {
         return nil;
     }
-    [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
-    [self setDefaultHeader:@"Content-Type" value:@"application/json"];
-    self.parameterEncoding = AFJSONParameterEncoding;
+//    [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
+//    [self setDefaultHeader:@"Content-Type" value:@"application/json"];
+//    self.parameterEncoding = AFJSONParameterEncoding;
     
     
-    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+//    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    [self setLoginheader];
 
     return self;
-    
 }
 
+-(void)setLoginheader
+{
+    NSString *password = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"password"];
+    NSString *email = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"email"];
+    
+    if ((password && email)) {
+        [self clearAuthorizationHeader];
+        [self setAuthorizationHeaderWithUsername:email password:password];
+    }
+}
 @end

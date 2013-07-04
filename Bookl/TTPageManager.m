@@ -8,7 +8,7 @@
 
 #import "TTPageManager.h"
 #import "TTAdHandler.h"
-
+#import "BKHTTPClient.h"
 #import "BKIAPManager.h"
 static TTPageManager *_sharedManager;
 
@@ -62,6 +62,7 @@ static TTPageManager *_sharedManager;
     BOOL pageRead = [self pageWasRead:firstDate];
     if (pageRead) {
         NSLog(@"Page was read!");
+        [self sendPageNumberToServer:page];
         _pagesRead++;
     }
 }
@@ -107,11 +108,29 @@ static TTPageManager *_sharedManager;
     return shouldShowAds;
 }
 
-
 #pragma mark AdControl delegate
 -(void)adIsDone
 {
     [self startReadingPage:_pageBeneathAdvertisement];
 }
+         
+#pragma mark Server connections
+-(void)sendPageNumberToServer:(NSUInteger)pageNumber
+{
+    NSString *bookId = self.bookId;
+    NSString *urlForPull = [NSString stringWithFormat:@"%@/api/edition/read?editionid=%@&page=%d",URL_BASE_ADDRESS,bookId,pageNumber];
+    
+    NSURL *url = [NSURL URLWithString:urlForPull];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    BKHTTPClient *client = [[BKHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
+    AFHTTPRequestOperation *operation = [client HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Received success");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Got error with: %@",[error localizedDescription]);
+    }];
+    [operation start];
+}
+
+
 
 @end

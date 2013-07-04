@@ -8,7 +8,7 @@
 
 #import "Book+serverMethods.h"
 #import "TTBookManager.h"
-#import "AFNetworking.h"
+#import "BKHTTPClient.h"
 
 @implementation Book (serverMethods)
 
@@ -47,7 +47,7 @@
 {
     [Flurry logEvent:@"Downloading book"];
 
-    AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:URL_AMAZON]];
+    BKHTTPClient *client = [BKHTTPClient clientWithBaseURL:[NSURL URLWithString:URL_AMAZON]];
     
     void (^success)(AFHTTPRequestOperation*, id) = ^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"WE HAS SUCCESS :D");

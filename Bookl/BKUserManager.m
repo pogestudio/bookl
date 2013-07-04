@@ -44,6 +44,23 @@ static BKUserManager *_sharedInstance;
     NSString *token = [[BKTokenFetch sharedInstance] currentFBUserToken];
     
     NSLog(@"current token:%@",token);
+    NSString *urlForPull = [NSString stringWithFormat:@"%@/api/auth/facebook?code=%@",URL_BASE_ADDRESS,token];
+    
+    NSLog(@"urlForPull: %@",urlForPull);
+    
+    
+    NSURL *url = [NSURL URLWithString:urlForPull];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    BKHTTPClient *client = [[BKHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
+    AFHTTPRequestOperation *operation = [client HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Received success in facebook auth: %@", responseObject);
+        NSLog(@"Responseobject: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Got error with: %@",[error localizedDescription]);
+    }];
+    [operation start];
+    
+    
     completionBlock();
 }
 
@@ -57,7 +74,7 @@ static BKUserManager *_sharedInstance;
 
 -(void)signupWithData:(NSDictionary *)userData withDelegate:(id<SignupResponseDelegate>)delegate
 {
-    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
+    BKHTTPClient *client = [[BKHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
     [client postPath:@"api/signup/" parameters:userData
              success:^(AFHTTPRequestOperation *operation, NSData* responseObject){
                  NSString *stringFromData = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
@@ -94,11 +111,7 @@ static BKUserManager *_sharedInstance;
 #pragma mark Network
 -(void)logInWithStoredCredentialsWithDelegate:(id<LoginResponseDelegate>)delegate
 {
-    NSString *password = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"password"];
-    NSString *email = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"email"];
-    
-    AFHTTPClient *postClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
-    [postClient setAuthorizationHeaderWithUsername:email password:password];
+    BKHTTPClient *postClient = [[BKHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
     
     
     [postClient postPath:@"api/login/" parameters:nil
@@ -128,7 +141,7 @@ static BKUserManager *_sharedInstance;
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
                                                                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                                                                            NSLog(@"Received JSON: %@",JSON);
+                                                                                            //NSLog(@"Received JSON: %@",JSON);
                                                                                             [self receivedUserInfo:JSON];
                                                                                         }
                                                                                         failure:nil];

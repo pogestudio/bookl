@@ -229,7 +229,7 @@
     [[UINavigationBar appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
       navBarTitleColor, UITextAttributeTextColor,
-      [UIFont fontWithName:@"Helvetica" size:19.0], UITextAttributeFont,nil]];
+      [UIFont fontWithName:@"Helvetica-Bold" size:19.0], UITextAttributeFont,nil]];
 
     
     UIImage *toolBarColor = [BKColors imageFromColor:[BKColors currentColors].toolBarBackground];

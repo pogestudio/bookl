@@ -63,7 +63,6 @@
 
 -(void)download
 {
-    [Flurry logEvent:@"Downloading book"];
     AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
     //[client addAuthHeader];
     
@@ -80,7 +79,6 @@
     NSURLRequest *request = [client requestWithMethod:@"GET" path:self.pdfUrl parameters:nil];
     AFHTTPRequestOperation *operation = [client HTTPRequestOperationWithRequest:request success:success failure:failure];
     
-
     operation.outputStream = [NSOutputStream outputStreamToFileAtPath:[self filePath] append:NO];
     [operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
         CGFloat percentage = (float) totalBytesRead / totalBytesExpectedToRead;

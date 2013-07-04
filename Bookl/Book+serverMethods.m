@@ -44,18 +44,19 @@
 }
 
 -(void)downloadWithProgressBarDelegate:(id<BKProgressBarDelegate>)delegate
-{
-    [Flurry logEvent:@"Downloading book"];
-
-    BKHTTPClient *client = [BKHTTPClient clientWithBaseURL:[NSURL URLWithString:URL_AMAZON]];
+{    
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE_ADDRESS]];
+    //[client addAuthHeader];
     
+    [Flurry logEvent:@"Started downloading Book"];
     void (^success)(AFHTTPRequestOperation*, id) = ^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"WE HAS SUCCESS :D");
+        [Flurry logEvent:@"Finished downloading Book"];
     };
     
     void (^failure)(AFHTTPRequestOperation*, id) = ^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSLog(@"WE HAS failure :((. OPERATION:\n\n%@ \n\nResponseObject:\n\n%@",operation,responseObject);
+        NSNumber *statusCode = [NSNumber numberWithInt:operation.response.statusCode];
+        [Flurry logEvent:@"Failed download" withParameters:[NSDictionary dictionaryWithObjectsAndKeys:statusCode,@"Status Code", nil]];
     };
     
     NSURLRequest *request = [client requestWithMethod:@"GET" path:self.pdfUrl parameters:nil];

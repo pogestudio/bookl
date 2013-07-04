@@ -19,7 +19,7 @@
 @property (strong) UIColor *topGradientColor;
 @property (strong) UIColor *bottomGradientColor;
 
-@property (strong) UIColor *titleColor;
+@property (strong, nonatomic) UIColor *titleColor;
 @property (assign) CGFloat cornerRadius;
 
 @end

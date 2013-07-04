@@ -46,7 +46,7 @@
 
 @property (nonatomic, unsafe_unretained, readwrite) id <ReaderMainToolbarDelegate> delegate;
 
-- (id)initWithFrame:(CGRect)frame document:(ReaderDocument *)object;
+- (id)initWithFrame:(CGRect)frame document:(ReaderDocument *)object toolbarTitle:(NSString*)title;
 
 - (void)setBookmarkState:(BOOL)state;
 

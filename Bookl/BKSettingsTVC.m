@@ -118,7 +118,8 @@
         }
         case 2:
         {
-          //random. What here?
+            //help
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://bookl.co/faq"]];
             break;
         }
         default:

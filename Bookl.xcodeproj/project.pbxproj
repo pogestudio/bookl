@@ -1349,9 +1349,9 @@
 		A3C83585176FB33E00DC22CE /* UserAuthVCS */ = {
 			isa = PBXGroup;
 			children = (
-				A30E9949178472A900346B32 /* ForgotCredentials */,
 				A349C6411760DFBF00B7D8BE /* LoginVC */,
 				A3C83581176F7C2500DC22CE /* SignupVC */,
+				A30E9949178472A900346B32 /* ForgotCredentials */,
 				A3C83586176FB3C600DC22CE /* BKUserAuthVC.h */,
 				A3C83587176FB3C600DC22CE /* BKUserAuthVC.m */,
 			);

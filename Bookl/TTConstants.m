@@ -13,7 +13,7 @@
 +(NSString*)temporaryFilePath
 {
     NSString* path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask,YES) lastObject];
-    NSString *storePath = @"/temporaryBrowsing/";
+    NSString *storePath = @"/temporaryBrowsing";
     NSString *fullPath = [path stringByAppendingString:storePath];
     
     //check if direcotry exists, if not create it

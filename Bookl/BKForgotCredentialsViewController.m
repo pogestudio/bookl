@@ -93,4 +93,9 @@ typedef enum {
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
+
+-(IBAction)dismissView
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

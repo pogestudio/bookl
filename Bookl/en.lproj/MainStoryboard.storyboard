@@ -461,7 +461,7 @@
                                             <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OxV-RB-q7B">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Help" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OxV-RB-q7B">
                                                     <rect key="frame" x="10" y="0.0" width="260" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -698,7 +698,7 @@
                                             <segue destination="jhc-Vb-hLv" kind="push" identifier="AddBookToReadList" id="2PI-ez-pys"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="jTK-42-CDl">
+                                    <tableViewCell hidden="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="jTK-42-CDl">
                                         <rect key="frame" x="0.0" y="44" width="300" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -888,6 +888,9 @@
                                                     <state key="highlighted">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="dismissView" destination="1Yx-Zf-Z2O" eventType="touchUpInside" id="iQ7-5A-wTM"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -924,7 +927,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ya-S2-Ah9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1478" y="-4020"/>
+            <point key="canvasLocation" x="1484" y="-4032"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="4cP-Ct-jPI">
@@ -1051,8 +1054,41 @@
                                             <constraint firstItem="yip-gn-Pha" firstAttribute="centerX" secondItem="Epf-3u-8OB" secondAttribute="centerX" type="default" id="szc-HI-bgx"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="sCf-4O-d2E">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="W1m-Oc-6lZ">
                                         <rect key="frame" x="0.0" y="189" width="768" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4O-lc-6Yo">
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="29" id="NQX-dK-5EJ"/>
+                                                        <constraint firstAttribute="width" constant="192" id="VRp-yB-Lz7"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="forgot password?">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="1Yx-Zf-Z2O" kind="push" id="TAK-7z-Scr"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="A4O-lc-6Yo" firstAttribute="centerX" secondItem="W1m-Oc-6lZ" secondAttribute="centerX" type="default" id="Slz-ii-SmZ"/>
+                                            <constraint firstItem="A4O-lc-6Yo" firstAttribute="top" secondItem="W1m-Oc-6lZ" secondAttribute="top" constant="7" id="n6o-HY-B3Y"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                    <tableViewCell hidden="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="sCf-4O-d2E">
+                                        <rect key="frame" x="0.0" y="233" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
@@ -1074,40 +1110,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="L7Q-kr-Mgl" firstAttribute="centerX" secondItem="sCf-4O-d2E" secondAttribute="centerX" type="default" id="2MR-YQ-d4o"/>
-                                            <constraint firstItem="L7Q-kr-Mgl" firstAttribute="top" secondItem="sCf-4O-d2E" secondAttribute="top" type="default" id="P8g-wX-OGR"/>
-                                        </constraints>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="W1m-Oc-6lZ">
-                                        <rect key="frame" x="0.0" y="233" width="768" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4O-lc-6Yo">
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="29" id="NQX-dK-5EJ"/>
-                                                        <constraint firstAttribute="width" constant="192" id="VRp-yB-Lz7"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <state key="normal" title="forgot password?">
-                                                        <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <segue destination="1Yx-Zf-Z2O" kind="push" id="TAK-7z-Scr"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="A4O-lc-6Yo" firstAttribute="centerX" secondItem="W1m-Oc-6lZ" secondAttribute="centerX" type="default" id="Slz-ii-SmZ"/>
-                                            <constraint firstItem="A4O-lc-6Yo" firstAttribute="top" secondItem="W1m-Oc-6lZ" secondAttribute="top" constant="7" id="n6o-HY-B3Y"/>
+                                            <constraint firstItem="L7Q-kr-Mgl" firstAttribute="top" secondItem="sCf-4O-d2E" secondAttribute="top" constant="-1" id="Eqk-xB-0I9"/>
                                         </constraints>
                                     </tableViewCell>
                                 </cells>

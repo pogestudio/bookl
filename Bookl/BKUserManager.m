@@ -45,7 +45,7 @@ static BKUserManager *_sharedInstance;
     NSString *token = [[BKTokenFetch sharedInstance] currentFBUserToken];
     
     NSLog(@"current token:%@",token);
-    NSString *urlForPull = [NSString stringWithFormat:@"%@/auth/facebook?code=%@",URL_BASE_ADDRESS,token];
+    NSString *urlForPull = [NSString stringWithFormat:@"%@/auth/facebook/callback/?code%@",URL_BASE_ADDRESS,token];
     
     NSLog(@"urlForPull: %@",urlForPull);
     
@@ -56,8 +56,10 @@ static BKUserManager *_sharedInstance;
     //[client addAuthHeader];
     
     AFHTTPRequestOperation *operation = [client HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Received success in facebook auth: %@", responseObject);
-        NSLog(@"Responseobject: %@", responseObject);
+        NSLog(@"Received success in facebook auth: %@ as class %@", responseObject,[responseObject class]);
+        NSString *token = [[NSString alloc] initWithData:(NSData*)responseObject encoding:NSUTF8StringEncoding];
+        NSLog(@"token: %@",token);
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (operation.response.statusCode == 500) {
             NSLog(@"Internal server error, statuscode 500");

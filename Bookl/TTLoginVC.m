@@ -37,7 +37,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [self addFaceBookLoginView];
+    //[self addFaceBookLoginView];
     
     UIButton *loginButton = (UIButton*)self.loginButton;
     [loginButton addTarget:self action:@selector(loginUser) forControlEvents:UIControlEventTouchUpInside];

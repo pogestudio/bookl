@@ -19,7 +19,8 @@ typedef enum {
 typedef enum {
     LoginResponseSuccess = 1,
     LoginResponseIncorrect = 401,
-    LoginResponseTimeout = -2
+    LoginResponseTimeout = -2,
+    LoginResponseNoConnectivity = 0
 } LoginResponse;
 
 @protocol SignupResponseDelegate <NSObject>
@@ -35,7 +36,7 @@ typedef enum {
 @end
 
 
-typedef void (^ CompletionBlock)();
+typedef void (^ CompletionBlock)(BOOL success);
 
 @protocol UserManagerDelegate
 

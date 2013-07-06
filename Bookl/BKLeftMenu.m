@@ -33,6 +33,8 @@
     NSArray *items = @[settings];
     [self setToolbarItems:items];
     self.tableView.backgroundColor = [BKColors currentColors].leftMenuCellBackground;
+    
+    _lastPressedRow = [NSIndexPath indexPathForRow:1 inSection:0]; //simulate pressed readlist button
 }
 
 -(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -44,23 +46,24 @@
         _lastPressedRow = indexPath;
     }
     switch (indexPath.row) {
+//        case 0:
+//        {
+//            [self.viewManager presentNewVCOfType:TypeOfCurrentVCHome];
+//            break;
+//        }
         case 0:
-        {
-            [self.viewManager presentNewVCOfType:TypeOfCurrentVCHome];
-            break;
-        }
-        case 1:
         {
             [self.viewManager presentNewVCOfType:TypeOfCurrentVCSearchResult];
             break;
         }
-        case 2:
+        case 1:
         {
             [self.viewManager presentNewVCOfType:TypeOfCurrentVCReadList];
             break;
         }
             
         default:
+            NSAssert(nil,@"Should never be here, something is wrong with didSelectCell in class leftMenu");
             break;
     }
 }

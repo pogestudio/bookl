@@ -135,7 +135,7 @@
 -(void)insertNewReadlist
 {
     // open an alert with a textfield
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"New ReadList" message:@"Enter readlist title"
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Enter new readlist title"
                                                    delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
 	alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alert show];

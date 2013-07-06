@@ -97,12 +97,13 @@
 		A349C63E1760DF6600B7D8BE /* BKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A349C63D1760DF6600B7D8BE /* BKUser.m */; };
 		A349C6441760DFF200B7D8BE /* TTLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A349C6431760DFF200B7D8BE /* TTLoginVC.m */; };
 		A349C6491760E0F600B7D8BE /* books_clear.png in Resources */ = {isa = PBXBuildFile; fileRef = A349C6451760E0F600B7D8BE /* books_clear.png */; };
-		A349C64A1760E0F600B7D8BE /* blurry_books.png in Resources */ = {isa = PBXBuildFile; fileRef = A349C6461760E0F600B7D8BE /* blurry_books.png */; };
 		A349C64B1760E0F600B7D8BE /* Bookle.png in Resources */ = {isa = PBXBuildFile; fileRef = A349C6471760E0F600B7D8BE /* Bookle.png */; };
 		A349C64C1760E0F600B7D8BE /* ipad_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A349C6481760E0F600B7D8BE /* ipad_logo.png */; };
 		A349C655176126CD00B7D8BE /* BKReadlistTVHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A349C654176126CD00B7D8BE /* BKReadlistTVHeader.m */; };
 		A34F1113176771410036AE4E /* BKSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A34F1112176771410036AE4E /* BKSlidingViewController.m */; };
 		A34F111617679BBB0036AE4E /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A34F111517679BBB0036AE4E /* libFlurry.a */; };
+		A35B28BD17887A47006BCAE8 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = A35B28BC17887A47006BCAE8 /* Default-Portrait~ipad.png */; };
+		A35B28C017887A4B006BCAE8 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = A35B28BF17887A4B006BCAE8 /* Default-Landscape~ipad.png */; };
 		A37877BC175DF9CB00B95A07 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37877BB175DF9CB00B95A07 /* UIKit.framework */; };
 		A37877BE175DF9CB00B95A07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37877BD175DF9CB00B95A07 /* Foundation.framework */; };
 		A37877C0175DF9CB00B95A07 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37877BF175DF9CB00B95A07 /* CoreGraphics.framework */; };
@@ -360,7 +361,7 @@
 		A349C6421760DFF200B7D8BE /* TTLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLoginVC.h; sourceTree = "<group>"; };
 		A349C6431760DFF200B7D8BE /* TTLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLoginVC.m; sourceTree = "<group>"; };
 		A349C6451760E0F600B7D8BE /* books_clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = books_clear.png; sourceTree = "<group>"; };
-		A349C6461760E0F600B7D8BE /* blurry_books.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blurry_books.png; sourceTree = "<group>"; };
+		A349C6461760E0F600B7D8BE /* blurry_books.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blurry_books.png; path = "/Users/TheAlmightyOne/Dropbox/Projekt/AcademicBooks/Proper Source Code/bookl/Bookl/blurry_books.png"; sourceTree = "<absolute>"; };
 		A349C6471760E0F600B7D8BE /* Bookle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bookle.png; sourceTree = "<group>"; };
 		A349C6481760E0F600B7D8BE /* ipad_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad_logo.png; sourceTree = "<group>"; };
 		A349C653176126CD00B7D8BE /* BKReadlistTVHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKReadlistTVHeader.h; sourceTree = "<group>"; };
@@ -369,6 +370,8 @@
 		A34F1112176771410036AE4E /* BKSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSlidingViewController.m; sourceTree = "<group>"; };
 		A34F111417679BBB0036AE4E /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Flurry.h; path = Bookl/Flurry/Flurry.h; sourceTree = "<group>"; };
 		A34F111517679BBB0036AE4E /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry.a; path = Bookl/Flurry/libFlurry.a; sourceTree = "<group>"; };
+		A35B28BC17887A47006BCAE8 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "../Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		A35B28BF17887A4B006BCAE8 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		A37877B8175DF9CB00B95A07 /* Bookl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37877BB175DF9CB00B95A07 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A37877BD175DF9CB00B95A07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -912,13 +915,14 @@
 		A349C64D1760E10100B7D8BE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A35B28BF17887A4B006BCAE8 /* Default-Landscape~ipad.png */,
+				A35B28BC17887A47006BCAE8 /* Default-Portrait~ipad.png */,
 				A38548731773590000C1A963 /* Logos */,
 				A38548741773590700C1A963 /* In-App */,
 				A3C83589176FCB5D00DC22CE /* iPad-background.png */,
 				A3303358176770520016EACB /* menu-icon.png */,
 				A3303359176770520016EACB /* menu-icon@2x.png */,
 				A349C6451760E0F600B7D8BE /* books_clear.png */,
-				A349C6461760E0F600B7D8BE /* blurry_books.png */,
 				A349C6471760E0F600B7D8BE /* Bookle.png */,
 				A349C6481760E0F600B7D8BE /* ipad_logo.png */,
 			);
@@ -1492,7 +1496,6 @@
 				A30D0D92175E537800AD1CE1 /* Reader-Thumbs@2x.png in Resources */,
 				A30D0DEF175E656B00AD1CE1 /* TTSharedBookCell.xib in Resources */,
 				A349C6491760E0F600B7D8BE /* books_clear.png in Resources */,
-				A349C64A1760E0F600B7D8BE /* blurry_books.png in Resources */,
 				A349C64B1760E0F600B7D8BE /* Bookle.png in Resources */,
 				A349C64C1760E0F600B7D8BE /* ipad_logo.png in Resources */,
 				A330335317673FD10016EACB /* ApptentiveResources.bundle in Resources */,
@@ -1502,6 +1505,8 @@
 				A385488217735D1C00C1A963 /* Icon-72.png in Resources */,
 				A385488417735D1E00C1A963 /* Icon-72@2x.png in Resources */,
 				A3C8358A176FCB5D00DC22CE /* iPad-background.png in Resources */,
+				A35B28BD17887A47006BCAE8 /* Default-Portrait~ipad.png in Resources */,
+				A35B28C017887A4B006BCAE8 /* Default-Landscape~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1713,6 +1718,8 @@
 		A37877E4175DF9CB00B95A07 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Carl-Arvid Ewerbring (PBWU4MER9V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Carl-Arvid Ewerbring (PBWU4MER9V)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1730,6 +1737,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "238C3B43-1AB3-4E3D-908A-0A022F17F1EA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "238C3B43-1AB3-4E3D-908A-0A022F17F1EA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1737,6 +1746,8 @@
 		A37877E5175DF9CB00B95A07 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Carl-Arvid Ewerbring (PBWU4MER9V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Carl-Arvid Ewerbring (PBWU4MER9V)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1754,6 +1765,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "238C3B43-1AB3-4E3D-908A-0A022F17F1EA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "238C3B43-1AB3-4E3D-908A-0A022F17F1EA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

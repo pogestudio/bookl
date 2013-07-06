@@ -56,9 +56,10 @@ static BKUserManager *_sharedInstance;
     //[client addAuthHeader];
     
     AFHTTPRequestOperation *operation = [client HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Received success in facebook auth: %@ as class %@", responseObject,[responseObject class]);
-        NSString *token = [[NSString alloc] initWithData:(NSData*)responseObject encoding:NSUTF8StringEncoding];
-        NSLog(@"token: %@",token);
+        //NSLog(@"Received success in facebook auth: %@ as class %@", responseObject,[responseObject class]);
+        //NSString *token = [[NSString alloc] initWithData:(NSData*)responseObject encoding:NSUTF8StringEncoding];
+        //NSLog(@"token: %@",token);
+        _isLoggedin = YES;
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (operation.response.statusCode == 500) {
@@ -66,11 +67,13 @@ static BKUserManager *_sharedInstance;
         } else {
             NSLog(@"Got error with: %@",[error localizedDescription]);
         }
+        
+        _isLoggedin = NO;
+
     }];
     [operation start];
     
-    
-    completionBlock();
+    completionBlock(YES);
 }
 
 -(void)makeSureUserIsLoggedIn
@@ -179,6 +182,9 @@ static BKUserManager *_sharedInstance;
         case LoginResponseIncorrect:
         {
             //No break, keep flowing to timeout
+        }
+        case LoginResponseNoConnectivity:
+        {
         }
         case LoginResponseTimeout:
         {

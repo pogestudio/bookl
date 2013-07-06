@@ -110,9 +110,12 @@
 
     // setting the profileID property of the FBProfilePictureView instance
     // causes the control to fetch and display the profile picture for the user
-    [[BKUserManager sharedInstance] setUpWithFacebookUser:user completionBlock:^(void){
-        NSLog(@"Completed assigning user");
-    }];
+
+    
+//    [[BKUserManager sharedInstance] setUpWithFacebookUser:user completionBlock:^(void){
+//        
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    }];
 }
 
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
@@ -127,6 +130,7 @@
     BOOL canShareiOS6 = [FBDialogs canPresentOSIntegratedShareDialogWithSession:nil];
     
     NSLog(@"User is logged out");
+
 }
 
 - (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error {
@@ -157,18 +161,21 @@
             [self dismissViewControllerAnimated:YES completion:nil];
             break;
         }
+        case LoginResponseIncorrect:
+        {
+            [self popUIAlertWithTitle:nil message:@"Username or password is incorrect"];
+            break;
+        }
+        case LoginResponseNoConnectivity:
+        {
+            
+        }
         case LoginResponseTimeout:
         {
             
             [self popUIAlertWithTitle:nil message:@"Connection timed out, please try again"];
             break;
         }
-        case LoginResponseIncorrect:
-        {
-            [self popUIAlertWithTitle:nil message:@"Username or password is incorrect"];
-            break;
-        }
-            
         default:
             NSAssert(nil,@"Should never be here, something is wrong with responseFromLogin in TTLoginVC");
             break;

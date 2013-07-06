@@ -87,12 +87,12 @@ static BOOL _viewHasBeenShowedOnce;
 -(void)setUpInitialView
 {
     
-    BKHomeView *home = [BKHomeView fromStoryboard];
-    home.viewManager = self;
-    [self addChildViewController:home];
-    [_mainContainerView addSubview:home.view];
+    BKAllReadlistsViewer *start = [BKAllReadlistsViewer fromStoryboard];
+    start.viewManager = self;
+    [self addChildViewController:start];
+    [_mainContainerView addSubview:start.view];
     _currentVCType = TypeOfCurrentVCHome;
-    _currentVC = home;
+    _currentVC = start;
 }
 
 #pragma mark -

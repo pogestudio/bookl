@@ -108,6 +108,9 @@
 #pragma mark ProgressBarDelegate
 -(void)setProgressBarPercentage:(CGFloat)percentage
 {
+    if (percentage < 0 || percentage > 1.0) {
+        NSLog(@"something is weird...");
+    }
     NSString *buttonText;
     if (percentage < 1) {
         buttonText = [NSString stringWithFormat:@"%.0f%%",percentage*100];

@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#define ADVERTISEMENT_FREE_PAGES 5
-#define PAGE_READ_IN_SECONDS 1
+#define ADVERTISEMENT_FREE_PAGES 4
+#define PAGE_READ_IN_SECONDS 5
 #define URL_BASE_ADDRESS @"https://secure.bookl.co"
 #define URL_AMAZON @"https://s3.amazonaws.com/com.turtletail.java-bucket"
 

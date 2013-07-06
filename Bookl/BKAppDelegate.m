@@ -215,7 +215,7 @@
     UINavigationController *mainNavCon = [self mainNavCon];
     UIViewController *aViewController = [mainNavCon.viewControllers lastObject];
     [FlurryAds initialize:aViewController];
-    [FlurryAds enableTestAds:YES];
+    //[FlurryAds enableTestAds:YES];
 
 }
 

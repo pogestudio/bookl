@@ -1442,9 +1442,6 @@
         </class>
         <class className="BKFakeIAP" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BKFakeIAP.h"/>
-            <relationships>
-                <relationship kind="action" name="buyButtonPressed:"/>
-            </relationships>
         </class>
         <class className="BKForgotCredentialsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BKForgotCredentialsViewController.h"/>

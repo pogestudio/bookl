@@ -451,7 +451,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="Zzo-YL-glm" kind="push" id="wGX-KJ-u0U"/>
+                                            <segue destination="D3h-R6-0hg" kind="push" id="JPW-Y9-0KR"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="OxV-RB-q7B" style="IBUITableViewCellStyleDefault" id="mkr-bN-y13">
@@ -513,15 +513,15 @@
             <objects>
                 <tableViewController id="Zzo-YL-glm" customClass="BKInAppPurchaseVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uiE-Gb-KBN">
-                        <rect key="frame" x="0.0" y="44" width="300" height="176"/>
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IAPCell" textLabel="U95-8K-Hed" detailTextLabel="ZmE-5d-bJo" style="IBUITableViewCellStyleSubtitle" id="WKS-UN-fig">
-                                <rect key="frame" x="0.0" y="22" width="300" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U95-8K-Hed">
@@ -548,7 +548,78 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qGy-DC-AFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1478" y="-552"/>
+            <point key="canvasLocation" x="1860" y="-572"/>
+        </scene>
+        <!--FakeIAP - In-App Purchases-->
+        <scene sceneID="s1z-Cs-z6h">
+            <objects>
+                <tableViewController id="D3h-R6-0hg" customClass="BKFakeIAP" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="19e-Tn-WyO">
+                        <rect key="frame" x="0.0" y="44" width="300" height="176"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="wKS-6j-kTX">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="59" id="T1u-ep-HOo">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="59"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="58"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Remove Advertisement" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZk-0E-tQU">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLM-ri-vQo">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="33" id="GEr-H2-gKB"/>
+                                                        <constraint firstAttribute="width" constant="55" id="ZHu-7I-bNE"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="BUY">
+                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="buyButtonPressed:" destination="D3h-R6-0hg" eventType="touchUpInside" id="1G3-I8-oNc"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="6 USD per month" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKO-qd-mbu">
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="sKO-qd-mbu" firstAttribute="leading" secondItem="T1u-ep-HOo" secondAttribute="leading" constant="20" type="default" id="2Iv-5x-fHo"/>
+                                            <constraint firstAttribute="trailing" secondItem="TLM-ri-vQo" secondAttribute="trailing" constant="20" type="default" id="7pl-Yd-0OG"/>
+                                            <constraint firstAttribute="bottom" secondItem="sKO-qd-mbu" secondAttribute="bottom" constant="7" id="AhD-h3-bBa"/>
+                                            <constraint firstItem="TLM-ri-vQo" firstAttribute="top" secondItem="T1u-ep-HOo" secondAttribute="top" constant="12" id="CC3-V0-IfW"/>
+                                            <constraint firstItem="mZk-0E-tQU" firstAttribute="top" secondItem="T1u-ep-HOo" secondAttribute="top" constant="11" id="Xe5-BF-P5j"/>
+                                            <constraint firstItem="mZk-0E-tQU" firstAttribute="leading" secondItem="T1u-ep-HOo" secondAttribute="leading" constant="20" type="default" id="oUk-0b-GYN"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="D3h-R6-0hg" id="mVV-mT-M1y"/>
+                            <outlet property="delegate" destination="D3h-R6-0hg" id="OsT-S9-tiq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="In-App Purchases" id="PDv-aw-OvN"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H0U-7D-IVB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1516" y="-487"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RtO-6v-i7r">
@@ -1356,6 +1427,99 @@
     <resources>
         <image name="iPad-background.png" width="768" height="1024"/>
     </resources>
+    <classes>
+        <class className="BKAllReadlistsTVHeader" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKAllReadlistsTVHeader.h"/>
+        </class>
+        <class className="BKAllReadlistsViewer" superclassName="BKMainContentTVC">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKAllReadlistsViewer.h"/>
+        </class>
+        <class className="BKBookCellButton" superclassName="BKButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKBookCellButton.h"/>
+        </class>
+        <class className="BKButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKButton.h"/>
+        </class>
+        <class className="BKFakeIAP" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKFakeIAP.h"/>
+        </class>
+        <class className="BKForgotCredentialsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKForgotCredentialsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="BKHomeView" superclassName="BKMainContentTVC">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKHomeView.h"/>
+        </class>
+        <class className="BKInAppPurchaseVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKInAppPurchaseVC.h"/>
+        </class>
+        <class className="BKLeftMenu" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKLeftMenu.h"/>
+        </class>
+        <class className="BKMainContentTVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKMainContentTVC.h"/>
+        </class>
+        <class className="BKReadlistTVHeader" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKReadlistTVHeader.h"/>
+            <relationships>
+                <relationship kind="outlet" name="renameButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="BKReadlistView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKReadlistView.h"/>
+        </class>
+        <class className="BKSearchBookView" superclassName="BKMainContentTVC">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKSearchBookView.h"/>
+        </class>
+        <class className="BKSearchHeader" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKSearchHeader.h"/>
+        </class>
+        <class className="BKSettingsTVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKSettingsTVC.h"/>
+        </class>
+        <class className="BKSignupVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKSignupVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="emailAgain" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordAgain" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="username" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="BKSlidingViewController" superclassName="ECSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKSlidingViewController.h"/>
+        </class>
+        <class className="BKTableviewContentButton" superclassName="BKButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKTableviewContentButton.h"/>
+        </class>
+        <class className="BKViewManager" superclassName="ECSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BKViewManager.h"/>
+        </class>
+        <class className="ECSlidingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="TTAddBookToReadlist" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TTAddBookToReadlist.h"/>
+        </class>
+        <class className="TTLoginVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TTLoginVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="faceBookView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIView"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="TTMoreOptionsTVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TTMoreOptionsTVC.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

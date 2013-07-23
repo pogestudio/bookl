@@ -1718,8 +1718,8 @@
 		A37877E4175DF9CB00B95A07 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Carl-Arvid Ewerbring (32G7HDU8F6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Carl-Arvid Ewerbring (32G7HDU8F6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Carl-Arvid Ewerbring (PBWU4MER9V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Carl-Arvid Ewerbring (PBWU4MER9V)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1737,8 +1737,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2B4C6B22-20B5-441D-9938-B074E541492A";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2B4C6B22-20B5-441D-9938-B074E541492A";
+				PROVISIONING_PROFILE = "238C3B43-1AB3-4E3D-908A-0A022F17F1EA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "238C3B43-1AB3-4E3D-908A-0A022F17F1EA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1746,8 +1746,8 @@
 		A37877E5175DF9CB00B95A07 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Carl-Arvid Ewerbring (32G7HDU8F6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Carl-Arvid Ewerbring (32G7HDU8F6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Carl-Arvid Ewerbring (PBWU4MER9V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Carl-Arvid Ewerbring (PBWU4MER9V)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1765,8 +1765,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2B4C6B22-20B5-441D-9938-B074E541492A";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2B4C6B22-20B5-441D-9938-B074E541492A";
+				PROVISIONING_PROFILE = "238C3B43-1AB3-4E3D-908A-0A022F17F1EA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "238C3B43-1AB3-4E3D-908A-0A022F17F1EA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

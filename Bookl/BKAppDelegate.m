@@ -20,6 +20,7 @@
 #import "FlurryAds.h"
 
 #import "BKIAPManager.h"
+#import <RevMobAds/RevMobAds.h>
 
 @implementation BKAppDelegate
 
@@ -50,6 +51,7 @@
     [self startUpFlurryAnalytics];
     [self startupFlurryAds];
     [self handleUserStatus];
+    [self startupRevMob];
     
     [self customizeApperance];
 
@@ -217,6 +219,12 @@
     [FlurryAds initialize:aViewController];
     //[FlurryAds enableTestAds:YES];
 
+}
+
+-(void)startupRevMob
+{
+    [RevMobAds startSessionWithAppID:@"51b81da7f117472b2600010e"];
+    [RevMobAds session].testingMode = RevMobAdsTestingModeWithoutAds;
 }
 
 #pragma mark Appearance

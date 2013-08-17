@@ -13,7 +13,7 @@
 @interface TTPageManager : NSObject <AdControlDelegate>
 {
     @private
-    NSUInteger _pagesRead;
+    CGFloat _pagesRead;
     NSUInteger _pageBeneathAdvertisement;
 }
 

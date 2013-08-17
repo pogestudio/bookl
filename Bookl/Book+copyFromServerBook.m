@@ -23,7 +23,7 @@
     self.publishingYear = [NSNumber numberWithInt:[serverBook.publishingYear intValue]];
     self.pdfUrl = serverBook.pdfUrl;
     self.bookId = serverBook.bookId;
-    self.publisher = serverBook.publisher;
+    //self.publisher = serverBook.publisher;
 }
 
 @end

@@ -64,6 +64,9 @@ static TTPageManager *_sharedManager;
         NSLog(@"Page was read!");
         [self sendPageNumberToServer:page];
         _pagesRead++;
+    } else {
+        NSLog(@"Skipped page");
+        _pagesRead = _pagesRead + 0.2;
     }
 }
 

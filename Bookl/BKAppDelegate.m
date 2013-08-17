@@ -224,7 +224,7 @@
 -(void)startupRevMob
 {
     [RevMobAds startSessionWithAppID:@"51b81da7f117472b2600010e"];
-    [RevMobAds session].testingMode = RevMobAdsTestingModeWithoutAds;
+    //[RevMobAds session].testingMode = RevMobAdsTestingModeWithAds;
 }
 
 #pragma mark Appearance

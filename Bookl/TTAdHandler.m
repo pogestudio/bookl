@@ -46,14 +46,13 @@
 #pragma mark presentation
 -(void)presentAd
 {
-    /*
     
     if (self.revMobAdLoaded) {
         [self presentRevMob];
     } else if (self.fullScreenIAd.loaded)
     {
         [self presentIAd];
-    } else */ if ([self flurryAdIsReady]) {
+    } else if ([self flurryAdIsReady]) {
         [self presentFlurryAd];
     } else {
         NSLog(@"NO AD IS LOADED WTF");
@@ -164,7 +163,8 @@
     UIViewController *presentingVC = [mainNavCon.viewControllers lastObject];
     
     [FlurryAds fetchAdForSpace:kFlurryInterstitialAdSpaceName
-                         frame:presentingVC.view.frame size:FULLSCREEN];
+                         frame:presentingVC.view.frame
+                          size:FULLSCREEN];
     
     // Register yourself as a delegate for ad callbacks
 	[FlurryAds setAdDelegate:self];
@@ -194,7 +194,7 @@
 
 - (void) spaceDidFailToReceiveAd:(NSString*)adSpace error:(NSError *)error
 {
-    NSLog(@"failed to receive mobfox: %@",[error localizedDescription]);
+    NSLog(@"failed to receive flurry: %@",[error localizedDescription]);
     [self reloadFlurryAd];
 }
 

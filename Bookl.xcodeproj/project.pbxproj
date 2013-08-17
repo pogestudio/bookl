@@ -165,6 +165,7 @@
 		A3D81339176936AB00819D1D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D81338176936AB00819D1D /* Reachability.m */; };
 		A3E7B4B217667084006B05EC /* BKSettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7B4B117667084006B05EC /* BKSettingsTVC.m */; };
 		A3EDBE7B178522CA002E20CD /* AFHTTPClient+withHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EDBE7A178522CA002E20CD /* AFHTTPClient+withHeader.m */; };
+		A3F8DE8E17BEAF2A003AE8AA /* RevMobAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F8DE8D17BEAF2A003AE8AA /* RevMobAds.framework */; };
 		A3FA0F69179EF4CE00E734FC /* BKFakeIAP.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FA0F68179EF4CE00E734FC /* BKFakeIAP.m */; };
 /* End PBXBuildFile section */
 
@@ -474,6 +475,7 @@
 		A3E7B4B117667084006B05EC /* BKSettingsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSettingsTVC.m; sourceTree = "<group>"; };
 		A3EDBE79178522CA002E20CD /* AFHTTPClient+withHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFHTTPClient+withHeader.h"; sourceTree = "<group>"; };
 		A3EDBE7A178522CA002E20CD /* AFHTTPClient+withHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AFHTTPClient+withHeader.m"; sourceTree = "<group>"; };
+		A3F8DE8D17BEAF2A003AE8AA /* RevMobAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RevMobAds.framework; sourceTree = "<group>"; };
 		A3FA0F67179EF4CE00E734FC /* BKFakeIAP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKFakeIAP.h; sourceTree = "<group>"; };
 		A3FA0F68179EF4CE00E734FC /* BKFakeIAP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKFakeIAP.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -506,6 +508,7 @@
 				A38F3DD21768817A00A2FF84 /* MobFox.framework in Frameworks */,
 				A34F111617679BBB0036AE4E /* libFlurry.a in Frameworks */,
 				A38F3DE817689B8D00A2FF84 /* libFlurryAds.a in Frameworks */,
+				A3F8DE8E17BEAF2A003AE8AA /* RevMobAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -975,6 +978,7 @@
 		A37877BA175DF9CB00B95A07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3F8DE8D17BEAF2A003AE8AA /* RevMobAds.framework */,
 				A3C8356F176F322C00DC22CE /* Security.framework */,
 				A3303334176733940016EACB /* StoreKit.framework */,
 				A33033321767338B0016EACB /* SystemConfiguration.framework */,
